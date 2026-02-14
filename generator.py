@@ -69,7 +69,7 @@ class SceneGenerator:
     """
     
     # 类变量：日志文件路径
-    _log_file_path: str = "/home/z/my-project/download/scene_generator.log"
+    _log_file_path: str = "/data/log/scene_generator.log"
     
     def __init__(
         self,

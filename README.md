@@ -77,7 +77,7 @@ scene_json = scene.to_json()
 python main.py --example ancient_study --rounds
 
 # 运行内置示例（指定轮次数）
-python main.py --example fantasy_tavern --rounds --max-rounds 2
+python main.py --example crime_scene --rounds --max-rounds 2
 
 # 自定义场景生成
 python main.py --script "剧本内容" --requirement "场景需求" --era "古代"
