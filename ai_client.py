@@ -271,9 +271,129 @@ class SceneAIPrompts:
     }}
   ]
 }}
-```
-
 请直接输出JSON格式的结果。"""
+
+    @staticmethod
+    def get_round_summary_prompt(
+        round_num: int,
+        current_nodes: List[Dict[str, Any]],
+        context: str,
+        previous_summary: str = ""
+    ) -> str:
+        """获取轮次总结提示词"""
+        
+        # 格式化当前节点结构
+        nodes_summary = []
+        for node in current_nodes:
+            node_type_display = "📦 容器" if node.get('node_type') == 'container' else "📄 物品"
+            container_type = f"({node.get('container_type', 'physical')})" if node.get('node_type') == 'container' else ""
+            nodes_summary.append(f"- {node_type_display} {node['name']} {container_type} [层级:{node.get('level',0)}]")
+        
+        nodes_text = "\n".join(nodes_summary) if nodes_summary else "  暂无节点"
+        
+        return f"""你是一个专业的场景设计师，负责对场景生成过程进行质量控制和优化。
+当前状态
+轮次: 第 {round_num} 轮
+
+场景上下文: {context}
+
+当前已生成的节点
+{nodes_text}
+
+上一轮总结
+{previous_summary if previous_summary else "这是第一轮，尚无总结"}
+
+你的任务
+请分析当前场景的节点，并回答以下问题：
+
+完整性检查：当前节点是否完整覆盖了场景需求？还缺少哪些关键元素？
+
+合理性检查：节点的层次关系是否合理？是否有节点应该合并或拆分？
+
+冗余检查：哪些节点是多余的、不必要的？（请尽量精简，删除冗余节点）
+
+深度控制：哪些容器应该继续展开（下一轮展开）？哪些应该停止？
+
+优化建议：需要增加什么节点？删除什么节点？修改什么节点？
+
+输出格式
+请严格按照JSON格式输出：
+```json
+{{
+  "summary": "本轮总结，简要描述场景生成状态",
+  "completeness_score": 0-100的完整性评分,
+  "issues_found": [
+    "问题1",
+    "问题2"
+  ],
+  "optimization_suggestions": [
+    {{
+      "action": "add/remove/modify",
+      "target_node": "节点名称",
+      "suggestion": "具体建议",
+      "node_data": {{}}  # 如果是add或modify，提供新的节点数据
+    }}
+  ],
+  "containers_to_expand_next": [
+    {{
+      "name": "容器名称",
+      "reason": "展开理由",
+      "priority": 1-5的优先级（5最高）
+    }}
+  ],
+  "containers_to_stop": [
+    {{
+      "name": "容器名称",
+      "reason": "停止理由"
+    }}
+  ],
+  "next_round_focus": "下一轮应该重点关注的方向"
+}}
+```"""
+
+    @staticmethod
+    def get_optimization_prompt(
+        optimization_suggestions: List[Dict[str, Any]],
+        current_nodes: List[Dict[str, Any]],
+        context: str
+    ) -> str:
+        """获取节点优化提示词"""
+        
+        suggestions_text = "\n".join([
+            f"- {s['action']} {s.get('target_node', '')}: {s['suggestion']}"
+            for s in optimization_suggestions
+        ])
+        
+        return f"""请根据优化建议，调整当前场景的节点。
+
+## 场景上下文
+{context}
+
+## 优化建议
+{suggestions_text}
+
+## 当前节点
+{json.dumps(current_nodes, ensure_ascii=False, indent=2)}
+
+## 任务
+请根据优化建议，生成调整后的节点列表。可以直接添加新节点、修改现有节点或删除不必要的节点。
+
+## 输出格式
+```json
+{{
+  "updated_nodes": [
+    {{
+      "name": "节点名称",
+      "node_type": "item/container",
+      "container_type": "physical/character/abstract（容器需要）",
+      "description": "描述",
+      "position": "位置",
+      "attributes": {{}},
+      "should_expand": true/false
+    }}
+  ]
+}}
+```"""
 
 
 class SceneAIClient:
@@ -400,3 +520,82 @@ class SceneAIClient:
         ]
         
         return self.client.chat(messages)
+    
+    def analyze_round(
+        self,
+        round_num: int,
+        current_nodes: List[Dict[str, Any]],
+        context: str,
+        previous_summary: str = ""
+    ) -> Dict[str, Any]:
+        """
+        分析当前轮次的结果
+        
+        Args:
+            round_num: 当前轮次
+            current_nodes: 当前所有节点（字典格式）
+            context: 场景上下文
+            previous_summary: 上一轮总结
+        
+        Returns:
+            包含总结和建议的字典
+        """
+        messages = [
+            {"role": "system", "content": self.prompts.get_system_prompt()},
+            {"role": "user", "content": self.prompts.get_round_summary_prompt(
+                round_num, current_nodes, context, previous_summary
+            )}
+        ]
+        
+        return self.client.chat(messages)
+    
+    async def analyze_round_async(
+        self,
+        round_num: int,
+        current_nodes: List[Dict[str, Any]],
+        context: str,
+        previous_summary: str = ""
+    ) -> Dict[str, Any]:
+        """异步分析当前轮次的结果"""
+        messages = [
+            {"role": "system", "content": self.prompts.get_system_prompt()},
+            {"role": "user", "content": self.prompts.get_round_summary_prompt(
+                round_num, current_nodes, context, previous_summary
+            )}
+        ]
+        
+        return await self.client.chat_async(messages)
+    
+    def optimize_nodes(
+        self,
+        optimization_suggestions: List[Dict[str, Any]],
+        current_nodes: List[Dict[str, Any]],
+        context: str
+    ) -> Dict[str, Any]:
+        """
+        根据建议优化节点
+        """
+        messages = [
+            {"role": "system", "content": self.prompts.get_system_prompt()},
+            {"role": "user", "content": self.prompts.get_optimization_prompt(
+                optimization_suggestions, current_nodes, context
+            )}
+        ]
+        
+        return self.client.chat(messages)
+    
+    async def optimize_nodes_async(
+        self,
+        optimization_suggestions: List[Dict[str, Any]],
+        current_nodes: List[Dict[str, Any]],
+        context: str
+    ) -> Dict[str, Any]:
+        """异步优化节点"""
+        messages = [
+            {"role": "system", "content": self.prompts.get_system_prompt()},
+            {"role": "user", "content": self.prompts.get_optimization_prompt(
+                optimization_suggestions, current_nodes, context
+            )}
+        ]
+        
+        return await self.client.chat_async(messages)
