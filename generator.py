@@ -884,9 +884,13 @@ class SceneGenerator:
                 # 节点存在，检查是否需要更新
                 existing_node = current_nodes_dict[node_name]
                 if self._should_update_node(existing_node, node_data):
-                    self._update_node(existing_node, node_data)
-                    nodes_updated += 1
-                    self._log(f"🔄 更新节点: {node_name}")
+                    updated_node = self._update_node(scene, existing_node, node_data)
+                    if updated_node:
+                        # 如果节点被转换，更新字典中的引用
+                        if updated_node is not existing_node:
+                            current_nodes_dict[node_name] = updated_node
+                        nodes_updated += 1
+                        self._log(f"🔄 更新节点: {node_name}")
             else:
                 # 节点不存在，考虑是否添加
                 # 添加前进行成本评估：只有确实重要的节点才添加
@@ -955,7 +959,7 @@ class SceneGenerator:
         # 默认不更新，节省成本
         return False
     
-    def _update_node(self, node: SceneNode, new_data: Dict[str, Any]):
+    def _update_node(self, scene: Scene, node: SceneNode, new_data: Dict[str, Any]):
         """更新节点属性"""
         # 更新基础属性
         node.description = new_data.get("description") or node.description
@@ -967,7 +971,10 @@ class SceneGenerator:
             new_type = NodeType(new_type_str)
             if node.node_type != new_type:
                 # 类型转换需要特殊处理
-                self._convert_node_type(node, new_type, new_data)
+                converted_node = self._convert_node_type(scene, node, new_type, new_data)
+                # 替换场景中的节点
+                self._replace_node_in_scene(scene, node, converted_node)
+                return converted_node
         
         # 更新容器特有属性
         if isinstance(node, ContainerNode):
@@ -987,14 +994,184 @@ class SceneGenerator:
             node.color = attrs.get("color") or node.color
             node.size = attrs.get("size") or node.size
             node.condition = attrs.get("condition") or node.condition
-    
-    def _convert_node_type(self, node: SceneNode, new_type: NodeType, data: Dict[str, Any]):
-        """转换节点类型（item <-> container）"""
-        self._log(f"🔄 转换节点类型: {node.name} ({node.node_type.value} -> {new_type.value})")
         
-        # 这里需要实现节点替换，但由于涉及场景结构，比较复杂
-        # 暂时只记录日志，不实际转换
-        self._log(f"   ⚠️ 类型转换功能暂未实现")
+        return node
+    
+    def _replace_node_in_scene(self, scene: Scene, old_node: SceneNode, new_node: SceneNode):
+        """
+        在场景中替换节点
+        
+        Args:
+            scene: 场景对象
+            old_node: 要替换的旧节点
+            new_node: 新节点
+        """
+        # 查找父节点
+        parent = self._find_parent_of_node(scene, old_node)
+        
+        if parent:
+            # 在父节点的子节点列表中替换
+            for i, child in enumerate(parent.children):
+                if child is old_node:
+                    parent.children[i] = new_node
+                    self._log(f"   🔄 在父节点 '{parent.name}' 中替换节点")
+                    return
+        else:
+            # 根节点替换
+            for i, root in enumerate(scene.root_nodes):
+                if root is old_node:
+                    scene.root_nodes[i] = new_node
+                    self._log(f"   🔄 替换根节点")
+                    return
+        
+        self._log(f"   ⚠️ 未找到要替换的节点: {old_node.name}")
+    
+    def _convert_node_type(self, scene: Scene, node: SceneNode, new_type: NodeType, data: Dict[str, Any]) -> SceneNode:
+        """
+        转换节点类型（item <-> container）
+        
+        Args:
+            scene: 场景对象
+            node: 要转换的节点
+            new_type: 新的节点类型
+            data: 新节点的数据（包含描述、属性等）
+        
+        Returns:
+            转换后的新节点
+        """
+        self._log(f"[转换] 转换节点类型: {node.name} ({node.node_type.value} -> {new_type.value})")
+        
+        # 如果类型相同，不需要转换
+        if node.node_type == new_type:
+            self._log(f"   [跳过] 节点类型相同，无需转换")
+            return node
+        
+        # 获取父节点（如果存在）
+        parent = self._find_parent_of_node(scene, node)
+        
+        if new_type == NodeType.ITEM:
+            # 容器 -> 物品
+            return self._convert_container_to_item(node, data, parent)
+        else:
+            # 物品 -> 容器
+            return self._convert_item_to_container(node, data, parent)
+    
+    def _find_parent_of_node(self, scene: Scene, node: SceneNode) -> Optional[ContainerNode]:
+        """
+        查找节点的父节点
+        
+        Args:
+            scene: 场景对象
+            node: 要查找父节点的节点
+        
+        Returns:
+            父节点，如果是根节点则返回None
+        """
+        # 遍历场景查找节点的父节点
+        def search_parent(current_node: SceneNode, target: SceneNode) -> Optional[ContainerNode]:
+            if isinstance(current_node, ContainerNode):
+                for child in current_node.children:
+                    if child is target:
+                        return current_node
+                    # 递归搜索子节点
+                    result = search_parent(child, target)
+                    if result:
+                        return result
+            return None
+        
+        # 在根节点中查找
+        for root in scene.root_nodes:
+            if root is node:
+                # 根节点没有父节点
+                return None
+            if isinstance(root, ContainerNode):
+                result = search_parent(root, node)
+                if result:
+                    return result
+        
+        return None
+    
+    def _convert_container_to_item(self, container: ContainerNode, data: Dict[str, Any], parent: Optional[ContainerNode]) -> ItemNode:
+        """
+        将容器节点转换为物品节点
+        
+        Args:
+            container: 要转换的容器节点
+            data: 新物品节点的数据
+            parent: 父节点（如果存在）
+        
+        Returns:
+            转换后的物品节点
+        """
+        self._log(f"   [转换] 容器 -> 物品: {container.name}")
+        
+        # 创建新的物品节点
+        item_node = ItemNode(
+            name=data.get("name", container.name),
+            node_type=NodeType.ITEM,
+            description=data.get("description", container.description),
+            level=container.level,
+            parent_path=container.parent_path,
+            theme=container.theme,
+            position=data.get("position", container.position),
+            attributes=data.get("attributes", container.attributes),
+            node_id=container.node_id,
+            created_at=container.created_at,
+            material=data.get("attributes", {}).get("material", ""),
+            color=data.get("attributes", {}).get("color", ""),
+            size=data.get("attributes", {}).get("size", ""),
+            condition=data.get("attributes", {}).get("condition", "")
+        )
+        
+        # 记录转换信息
+        if container.children:
+            self._log(f"   [警告] 容器有 {len(container.children)} 个子节点，转换后将丢失这些子节点")
+        
+        return item_node
+    
+    def _convert_item_to_container(self, item: ItemNode, data: Dict[str, Any], parent: Optional[ContainerNode]) -> ContainerNode:
+        """
+        将物品节点转换为容器节点
+        
+        Args:
+            item: 要转换的物品节点
+            data: 新容器节点的数据
+            parent: 父节点（如果存在）
+        
+        Returns:
+            转换后的容器节点
+        """
+        self._log(f"   📦 物品 -> 容器: {item.name}")
+        
+        # 确定容器类型
+        container_type_str = data.get("container_type", "physical")
+        try:
+            container_type = ContainerType(container_type_str)
+        except ValueError:
+            container_type = ContainerType.PHYSICAL
+            self._log(f"   ⚠️ 无效的容器类型 '{container_type_str}'，使用默认类型 'physical'")
+        
+        # 创建新的容器节点
+        container_node = ContainerNode(
+            name=data.get("name", item.name),
+            node_type=NodeType.CONTAINER,
+            description=data.get("description", item.description),
+            level=item.level,
+            parent_path=item.parent_path,
+            theme=item.theme,
+            position=data.get("position", item.position),
+            attributes=data.get("attributes", item.attributes),
+            node_id=item.node_id,
+            created_at=item.created_at,
+            container_type=container_type,
+            is_expanded=False,
+            max_depth=self.config.max_depth
+        )
+        
+        # 如果原物品有属性，可以尝试转换为初始子节点
+        self._log(f"   📝 物品转换为容器，可以后续展开")
+        
+        return container_node
     
     def _should_add_node(self, node_data: Dict[str, Any]) -> bool:
         """

@@ -328,7 +328,7 @@ class SceneAIPrompts:
         nodes_text = "\n".join(nodes_summary) if nodes_summary else "  暂无节点"
         
          # 添加系统设计说明
-        system_design_note = """
+        system_design_note = f"""
 ## 重要说明：迭代展开机制
 本系统采用多轮迭代生成方式：
 - 第0轮：生成核心框架节点
