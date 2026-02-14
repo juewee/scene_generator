@@ -11,7 +11,7 @@
 import json
 import uuid
 import asyncio
-from typing import List, Dict, Any, Optional, Callable
+from typing import List, Dict, Any, Optional, Callable, Tuple
 from datetime import datetime
 from dataclasses import dataclass, field
 
@@ -29,7 +29,14 @@ class GeneratorConfig:
     max_nodes_per_container: int = 20     # 每个容器最大节点数
     parallel_expansion: bool = True       # 是否启用并行展开
     parallel_batch_size: int = 5          # 并行批次大小
-    verbose: bool = True                  # 是否输出详细日志
+    verbose: bool = True                   # 是否输出详细日志
+    
+    # 新增：成本控制参数
+    cost_control: bool = True               # 是否启用成本控制
+    max_total_nodes: int = 200               # 最大总节点数
+    min_description_length: int = 10         # 最小描述长度
+    aggressive_pruning: bool = True          # 是否激进剪枝（删除更多节点）
+    importance_threshold: float = 0.3        # 重要性阈值（低于此值的节点可能被删除）
 
 
 @dataclass
@@ -40,6 +47,18 @@ class GenerationStats:
     total_containers_expanded: int = 0
     generation_time: float = 0.0
     depth_reached: int = 0
+
+
+@dataclass
+class RoundInfo:
+    """轮次信息"""
+    round_number: int
+    expanded_containers: List[str]  # 本轮展开的容器
+    new_nodes_count: int
+    summary: str = ""
+    completeness_score: int = 0
+    issues: List[str] = field(default_factory=list)
+    optimization_suggestions: List[Dict[str, Any]] = field(default_factory=list)
 
 
 class SceneGenerator:
@@ -58,6 +77,9 @@ class SceneGenerator:
         self.config = generator_config or GeneratorConfig()
         self.stats = GenerationStats()
         self._log_callback: Optional[Callable] = None
+        self.round_history: List[RoundInfo] = []
+        self.previous_summary: str = ""
+        self.max_concurrent: int = 30  # 默认最大并发数
     
     def set_log_callback(self, callback: Callable[[str], None]) -> None:
         """设置日志回调函数"""
@@ -249,6 +271,230 @@ class SceneGenerator:
         
         return scene
     
+    async def generate_scene_async_with_rounds(
+        self,
+        script: str,
+        scene_requirement: str,
+        era: str = "现代",
+        location: str = "",
+        atmosphere: str = "",
+        style: str = "",
+        max_rounds: int = 5,  # 最大轮次数
+        completeness_threshold: int = 90,  # 完整性阈值，达到后停止
+        min_new_nodes_per_round: int = 3  # 每轮最少新增节点数，低于此值停止
+    ) -> Scene:
+        """
+        带轮次总结的异步场景生成
+        
+        Args:
+            script: 剧本内容
+            scene_requirement: 场景需求
+            era: 时代
+            location: 地点
+            atmosphere: 氛围
+            style: 风格
+            max_rounds: 最大轮次数
+            completeness_threshold: 完整性阈值（0-100），达到后停止
+            min_new_nodes_per_round: 每轮最少新增节点数，低于此值停止
+        
+        Returns:
+            生成的场景
+        """
+        start_time = datetime.now()
+        self.stats = GenerationStats()
+        self.round_history = []
+        self.previous_summary = ""
+        
+        # 创建场景上下文
+        context = SceneContext(
+            script=script,
+            scene_requirement=scene_requirement,
+            era=era,
+            location=location,
+            atmosphere=atmosphere,
+            style=style
+        )
+        
+        # 创建场景对象
+        scene = Scene(
+            scene_id=self._generate_node_id(),
+            scene_name=f"场景_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
+            context=context
+        )
+        
+        self._log(f"开始生成场景: {scene.scene_name}")
+        
+        # 第0轮：生成初始节点
+        self._log("=== 第0轮：生成初始节点 ===")
+        initial_nodes = await self._generate_initial_nodes_async(context)
+        scene.root_nodes = initial_nodes
+        self.stats.total_nodes_generated += len(initial_nodes)
+        
+        # 记录初始轮次
+        initial_round = RoundInfo(
+            round_number=0,
+            expanded_containers=[],
+            new_nodes_count=len(initial_nodes)
+        )
+        self.round_history.append(initial_round)
+        
+        # 开始多轮迭代
+        for round_num in range(1, max_rounds + 1):
+            self._log(f"\n{'='*60}")
+            self._log(f"=== 第 {round_num} 轮开始 ===")
+            self._log(f"{'='*60}")
+            
+            # 获取当前所有节点（用于分析）
+            current_nodes_dict = self._scene_to_node_dicts(scene)
+            
+            # 1. 分析当前轮次
+            self._log("▶ 分析当前场景状态...")
+            self.stats.total_ai_calls += 1
+            
+            analysis = await self.ai_client.analyze_round_async(
+                round_num=round_num,
+                current_nodes=current_nodes_dict,
+                context=context.to_prompt_context(),
+                previous_summary=self.previous_summary
+            )
+            
+            # 保存总结
+            self.previous_summary = analysis.get("summary", "")
+            completeness = analysis.get("completeness_score", 0)
+            issues = analysis.get("issues_found", [])
+            suggestions = analysis.get("optimization_suggestions", [])
+            
+            self._log(f"完整性评分: {completeness}/100")
+            if issues:
+                self._log("发现问题:")
+                for issue in issues:
+                    self._log(f"  - {issue}")
+            
+            # 2. 根据建议优化节点
+            if suggestions:
+                self._log("▶ 优化现有节点...")
+                self.stats.total_ai_calls += 1
+                
+                optimization_result = await self.ai_client.optimize_nodes_async(
+                    optimization_suggestions=suggestions,
+                    current_nodes=current_nodes_dict,
+                    context=context.to_prompt_context()
+                )
+                
+                # 更新节点
+                updated_nodes = optimization_result.get("updated_nodes", [])
+                if updated_nodes:
+                    self._apply_node_updates(scene, updated_nodes)
+                    self._log(f"已根据建议更新节点")
+            
+            # 每两轮执行一次激进剪枝
+            if self.config.aggressive_pruning and round_num % 2 == 0:
+                self._aggressive_pruning(scene)
+            
+            # 3. 获取本轮要展开的容器
+            containers_to_expand = analysis.get("containers_to_expand_next", [])
+            containers_to_stop = analysis.get("containers_to_stop", [])
+            
+            if not containers_to_expand:
+                self._log("▶ AI建议本轮无需展开新容器")
+                
+                # 检查停止条件
+                if completeness >= completeness_threshold:
+                    self._log(f"✅ 场景完整性已达 {completeness}%，停止生成")
+                    break
+                
+                # 检查新增节点数
+                last_round = self.round_history[-1]
+                if last_round.new_nodes_count < min_new_nodes_per_round:
+                    self._log(f"⚠️ 上一轮新增节点数({last_round.new_nodes_count})低于阈值({min_new_nodes_per_round})，停止生成")
+                    break
+                
+                continue
+            
+            self._log(f"▶ 本轮计划展开 {len(containers_to_expand)} 个容器")
+            
+            # 按优先级排序
+            containers_to_expand.sort(key=lambda x: x.get("priority", 1), reverse=True)
+            
+            # 4. 并行展开容器
+            expanded_containers_names = []
+            new_nodes_added = 0
+            
+            # 找出要展开的容器对象
+            containers_to_process = []
+            for container_info in containers_to_expand:
+                container_name = container_info["name"]
+                container = self._find_container_by_name(scene, container_name)
+                if container:
+                    # 检查深度限制
+                    if container.level < self.config.max_depth:
+                        containers_to_process.append(container)
+                        expanded_containers_names.append(container_name)
+                    else:
+                        self._log(f"   ⚠️ {container_name} 已达最大深度，跳过展开")
+                else:
+                    self._log(f"   ⚠️ 找不到容器: {container_name}")
+            
+            if containers_to_process:
+                self._log(f"▶ 并行展开 {len(containers_to_process)} 个容器...")
+                
+                # 创建展开任务（限制并发数）
+                semaphore = asyncio.Semaphore(self.max_concurrent)
+                
+                async def expand_with_semaphore(container):
+                    async with semaphore:
+                        return await self._expand_single_container_async(container, context)
+                
+                tasks = [expand_with_semaphore(c) for c in containers_to_process]
+                
+                # 等待所有展开完成
+                results = await asyncio.gather(*tasks)
+                
+                # 统计新增节点
+                for container in containers_to_process:
+                    new_nodes_added += len(container.children)
+            
+            # 5. 记录本轮信息
+            round_info = RoundInfo(
+                round_number=round_num,
+                expanded_containers=expanded_containers_names,
+                new_nodes_count=new_nodes_added,
+                summary=analysis.get("summary", ""),
+                completeness_score=completeness,
+                issues=issues,
+                optimization_suggestions=suggestions
+            )
+            self.round_history.append(round_info)
+            
+            self._log(f"\n=== 第 {round_num} 轮完成 ===")
+            self._log(f"展开容器: {len(expanded_containers_names)} 个")
+            self._log(f"新增节点: {new_nodes_added} 个")
+            self._log(f"当前完整性: {completeness}%")
+            self._log(f"下一轮重点: {analysis.get('next_round_focus', '无')}")
+            
+            # 6. 检查是否应该停止
+            if completeness >= completeness_threshold:
+                self._log(f"✅ 场景完整性已达 {completeness}%，停止生成")
+                break
+            
+            if new_nodes_added < min_new_nodes_per_round and round_num > 1:
+                self._log(f"⚠️ 本轮新增节点数({new_nodes_added})低于阈值({min_new_nodes_per_round})，停止生成")
+                break
+            
+            if self.stats.total_nodes_generated >= self.config.max_total_nodes:
+                self._log(f"⚠️ 已达到最大节点数限制({self.config.max_total_nodes})，停止生成")
+                break
+        
+        # 计算最终统计
+        end_time = datetime.now()
+        self.stats.generation_time = (end_time - start_time).total_seconds()
+        scene.calculate_statistics()
+        
+        # 输出轮次总结
+        self._print_round_summary()
+        
+        return scene
+    
     def _generate_initial_nodes(self, context: SceneContext) -> List[SceneNode]:
         """生成初始场景节点"""
         self._log("调用AI生成初始节点...")
@@ -364,11 +610,16 @@ class SceneGenerator:
                 self._log("达到最大深度限制，停止展开")
                 break
             
-            if self.config.parallel_expansion and len(valid_containers) > 1:
-                await self._expand_containers_batch_async(valid_containers, context)
-            else:
-                for container in valid_containers:
-                    await self._expand_single_container_async(container, context)
+            self._log(f"并行展开 {len(valid_containers)} 个容器")
+            
+            # 创建所有容器的异步任务
+            tasks = [
+                self._expand_single_container_async(container, context)
+                for container in valid_containers
+            ]
+            
+            # 等待所有任务完成（真正并发）
+            await asyncio.gather(*tasks)
     
     def _expand_single_container(
         self, 
@@ -391,20 +642,26 @@ class SceneGenerator:
             
             nodes_data = response.get("nodes", [])
             
+            added_count = 0
             for node_data in nodes_data[:self.config.max_nodes_per_container]:
-                child = self._create_node_from_ai_response(
-                    node_data,
-                    level=container.level + 1,
-                    parent_path=container.get_full_path(),
-                    theme=f"{container.theme} > {node_data.get('name', '')}"
-                )
-                container.add_child(child)
-                self.stats.total_nodes_generated += 1
+                # 成本控制：检查是否应该添加
+                if self._should_add_node(node_data):
+                    child = self._create_node_from_ai_response(
+                        node_data,
+                        level=container.level + 1,
+                        parent_path=container.get_full_path(),
+                        theme=f"{container.theme} > {node_data.get('name', '')}"
+                    )
+                    container.add_child(child)
+                    self.stats.total_nodes_generated += 1
+                    added_count += 1
+                else:
+                    self._log(f"   ⏭️ 跳过添加（成本控制）: {node_data.get('name', '未知')}")
             
             container.is_expanded = True
             self.stats.total_containers_expanded += 1
             
-            self._log(f"  -> 添加了 {len(container.children)} 个子节点")
+            self._log(f"  -> 添加了 {added_count} 个子节点（跳过 {len(nodes_data) - added_count} 个）")
             
         except Exception as e:
             self._log(f"展开容器 {container.name} 失败: {e}")
@@ -431,20 +688,26 @@ class SceneGenerator:
             
             nodes_data = response.get("nodes", [])
             
+            added_count = 0
             for node_data in nodes_data[:self.config.max_nodes_per_container]:
-                child = self._create_node_from_ai_response(
-                    node_data,
-                    level=container.level + 1,
-                    parent_path=container.get_full_path(),
-                    theme=f"{container.theme} > {node_data.get('name', '')}"
-                )
-                container.add_child(child)
-                self.stats.total_nodes_generated += 1
+                # 成本控制：检查是否应该添加
+                if self._should_add_node(node_data):
+                    child = self._create_node_from_ai_response(
+                        node_data,
+                        level=container.level + 1,
+                        parent_path=container.get_full_path(),
+                        theme=f"{container.theme} > {node_data.get('name', '')}"
+                    )
+                    container.add_child(child)
+                    self.stats.total_nodes_generated += 1
+                    added_count += 1
+                else:
+                    self._log(f"   ⏭️ 跳过添加（成本控制）: {node_data.get('name', '未知')}")
             
             container.is_expanded = True
             self.stats.total_containers_expanded += 1
             
-            self._log(f"  -> 添加了 {len(container.children)} 个子节点")
+            self._log(f"  -> 添加了 {added_count} 个子节点（跳过 {len(nodes_data) - added_count} 个）")
             
         except Exception as e:
             self._log(f"展开容器 {container.name} 失败: {e}")
@@ -483,6 +746,339 @@ class SceneGenerator:
                 for container in batch
             ]
             await asyncio.gather(*tasks)
+    
+    def _scene_to_node_dicts(self, scene: Scene) -> List[Dict[str, Any]]:
+        """将场景节点转换为字典列表（用于AI分析）"""
+        nodes = []
+        
+        def collect_nodes(node):
+            node_dict = {
+                "name": node.name,
+                "node_type": node.node_type.value,
+                "level": node.level,
+                "description": node.description[:100] if node.description else "",
+            }
+            if isinstance(node, ContainerNode):
+                node_dict["container_type"] = node.container_type.value
+                node_dict["children_count"] = len(node.children)
+            nodes.append(node_dict)
+            
+            if isinstance(node, ContainerNode):
+                for child in node.children:
+                    collect_nodes(child)
+        
+        for root in scene.root_nodes:
+            collect_nodes(root)
+        
+        return nodes
+    
+    def _find_container_by_name(self, scene: Scene, name: str) -> Optional[ContainerNode]:
+        """根据名称查找容器节点"""
+        def search(node):
+            if isinstance(node, ContainerNode) and node.name == name:
+                return node
+            if isinstance(node, ContainerNode):
+                for child in node.children:
+                    result = search(child)
+                    if result:
+                        return result
+            return None
+        
+        for root in scene.root_nodes:
+            result = search(root)
+            if result:
+                return result
+        return None
+    
+    def _find_node_by_name(self, scene: Scene, name: str) -> Optional[SceneNode]:
+        """根据名称查找节点"""
+        def search(node):
+            if node.name == name:
+                return node
+            if isinstance(node, ContainerNode):
+                for child in node.children:
+                    result = search(child)
+                    if result:
+                        return result
+            return None
+        
+        for root in scene.root_nodes:
+            result = search(root)
+            if result:
+                return result
+        return None
+    
+    def _apply_node_updates(self, scene: Scene, updated_nodes: List[Dict[str, Any]]):
+        """
+        应用节点更新 - 优化版：偏向精简和删除
+        
+        更新规则：
+        1. 如果节点在updated_nodes中但不在当前场景 -> 添加（谨慎添加）
+        2. 如果节点在当前场景但不在updated_nodes中 -> 删除（精简）
+        3. 如果节点两者都在，但类型/属性变化 -> 更新
+        """
+        self._log("🔍 执行节点优化...")
+        
+        # 获取当前所有节点的名称集合
+        current_nodes_dict = {}
+        def collect_nodes(node):
+            current_nodes_dict[node.name] = node
+            if isinstance(node, ContainerNode):
+                for child in node.children:
+                    collect_nodes(child)
+        
+        for root in scene.root_nodes:
+            collect_nodes(root)
+        
+        # 获取优化建议中的节点名称
+        updated_names = {node.get("name") for node in updated_nodes if node.get("name")}
+        
+        # 1. 找出要删除的节点（在场景中但不在优化建议中）
+        nodes_to_delete = set(current_nodes_dict.keys()) - updated_names
+        
+        if nodes_to_delete:
+            self._log(f"🗑️ 删除 {len(nodes_to_delete)} 个冗余节点:")
+            for node_name in list(nodes_to_delete)[:10]:  # 只显示前10个
+                self._log(f"   - {node_name}")
+            
+            if len(nodes_to_delete) > 10:
+                self._log(f"   ... 等 {len(nodes_to_delete)} 个节点")
+            
+            # 从场景中删除节点
+            for node_name in nodes_to_delete:
+                node_to_delete = current_nodes_dict[node_name]
+                self._remove_node_from_scene(scene, node_to_delete)
+        
+        # 2. 处理新增或更新的节点
+        nodes_added = 0
+        nodes_updated = 0
+        
+        for node_data in updated_nodes:
+            node_name = node_data.get("name", "")
+            if not node_name:
+                continue
+            
+            if node_name in current_nodes_dict:
+                # 节点存在，检查是否需要更新
+                existing_node = current_nodes_dict[node_name]
+                if self._should_update_node(existing_node, node_data):
+                    self._update_node(existing_node, node_data)
+                    nodes_updated += 1
+                    self._log(f"🔄 更新节点: {node_name}")
+            else:
+                # 节点不存在，考虑是否添加
+                # 添加前进行成本评估：只有确实重要的节点才添加
+                if self._should_add_node(node_data):
+                    new_node = self._create_node_from_ai_response(node_data)
+                    scene.root_nodes.append(new_node)
+                    nodes_added += 1
+                    self._log(f"➕ 添加节点: {node_name}")
+                else:
+                    self._log(f"⏭️ 跳过添加（成本控制）: {node_name}")
+        
+        self._log(f"📊 优化结果: 删除 {len(nodes_to_delete)} 个，更新 {nodes_updated} 个，新增 {nodes_added} 个")
+    
+    def _remove_node_from_scene(self, scene: Scene, node_to_delete: SceneNode):
+        """从场景中删除节点"""
+        
+        def remove_from_parent(parent: ContainerNode, target: SceneNode) -> bool:
+            """从父节点中删除子节点"""
+            for i, child in enumerate(parent.children):
+                if child is target:
+                    parent.children.pop(i)
+                    return True
+                if isinstance(child, ContainerNode):
+                    if remove_from_parent(child, target):
+                        return True
+            return False
+        
+        # 检查是否是根节点
+        for i, root in enumerate(scene.root_nodes):
+            if root is node_to_delete:
+                scene.root_nodes.pop(i)
+                return
+        
+        # 否则在子节点中查找
+        for root in scene.root_nodes:
+            if isinstance(root, ContainerNode):
+                if remove_from_parent(root, node_to_delete):
+                    return
+    
+    def _should_update_node(self, existing_node: SceneNode, new_data: Dict[str, Any]) -> bool:
+        """
+        判断是否需要更新节点
+        
+        只更新真正有意义的变更：
+        1. 节点类型变化（item <-> container）
+        2. 容器类型变化（physical <-> character <-> abstract）
+        3. 描述有明显改进
+        """
+        new_type = NodeType(new_data.get("node_type", "item"))
+        
+        # 节点类型变化 - 需要更新
+        if existing_node.node_type != new_type:
+            return True
+        
+        # 对于容器节点，检查容器类型变化
+        if isinstance(existing_node, ContainerNode):
+            new_container_type = ContainerType(new_data.get("container_type", "physical"))
+            if existing_node.container_type != new_container_type:
+                return True
+        
+        # 检查描述是否有显著改进（更长、更详细）
+        new_desc = new_data.get("description", "")
+        if len(new_desc) > len(existing_node.description) * 1.5:  # 描述长度增加50%以上
+            return True
+        
+        # 默认不更新，节省成本
+        return False
+    
+    def _update_node(self, node: SceneNode, new_data: Dict[str, Any]):
+        """更新节点属性"""
+        # 更新基础属性
+        node.description = new_data.get("description", node.description)
+        node.position = new_data.get("position", node.position)
+        
+        # 更新节点类型（如果需要）
+        new_type = NodeType(new_data.get("node_type", "item"))
+        if node.node_type != new_type:
+            # 类型转换需要特殊处理
+            self._convert_node_type(node, new_type, new_data)
+        
+        # 更新容器特有属性
+        if isinstance(node, ContainerNode):
+            new_container_type = ContainerType(new_data.get("container_type", "physical"))
+            node.container_type = new_container_type
+        
+        # 更新物品特有属性
+        if isinstance(node, ItemNode):
+            attrs = new_data.get("attributes", {})
+            node.material = attrs.get("material", node.material)
+            node.color = attrs.get("color", node.color)
+            node.size = attrs.get("size", node.size)
+            node.condition = attrs.get("condition", node.condition)
+    
+    def _convert_node_type(self, node: SceneNode, new_type: NodeType, data: Dict[str, Any]):
+        """转换节点类型（item <-> container）"""
+        self._log(f"🔄 转换节点类型: {node.name} ({node.node_type.value} -> {new_type.value})")
+        
+        # 这里需要实现节点替换，但由于涉及场景结构，比较复杂
+        # 暂时只记录日志，不实际转换
+        self._log(f"   ⚠️ 类型转换功能暂未实现")
+    
+    def _should_add_node(self, node_data: Dict[str, Any]) -> bool:
+        """
+        成本控制：判断是否应该添加新节点
+        
+        添加条件：
+        1. 节点有详细描述（不是空的）
+        2. 节点有明确的场景作用
+        3. 不是过于琐碎的物品
+        """
+        if not self.config.cost_control:
+            return True
+        
+        name = node_data.get("name", "")
+        description = node_data.get("description", "")
+        node_type = node_data.get("node_type", "item")
+        
+        # 1. 长度检查
+        if len(description) < self.config.min_description_length:
+            self._log(f"   ⚠️ 描述太短 ({len(description)} < {self.config.min_description_length})")
+            return False
+        
+        # 2. 总节点数检查
+        if self.stats.total_nodes_generated >= self.config.max_total_nodes:
+            self._log(f"   ⚠️ 已达到最大节点数限制 ({self.config.max_total_nodes})")
+            return False
+        
+        # 3. 物品节点的额外检查
+        if node_type == "item":
+            # 忽略过于通用的物品
+            generic_items = ["桌子", "椅子", "门", "窗户", "墙", "地板", "天花板", "空气", "光线"]
+            if name in generic_items and len(description) < 20:
+                self._log(f"   ⚠️ 通用物品且描述简单: {name}")
+                return False
+            
+            # 检查是否可能是冗余物品
+            if "墙上" in description or "地面" in description or "角落" in description:
+                # 建筑结构相关的物品，如果描述简单就跳过
+                if len(description) < 15:
+                    return False
+        
+        return True
+    
+    def _identify_redundant_nodes(self, scene: Scene) -> List[SceneNode]:
+        """
+        识别冗余节点（用于激进剪枝）
+        """
+        redundant = []
+        
+        def check_node(node):
+            # 判断节点是否冗余的条件
+            if isinstance(node, ItemNode):
+                # 物品节点冗余条件
+                if not node.description or len(node.description) < 5:
+                    redundant.append(node)
+                elif node.name in ["未知物品", "杂物", "其他", "东西"]:
+                    redundant.append(node)
+            
+            elif isinstance(node, ContainerNode):
+                # 容器节点冗余条件
+                if not node.children and not node.description:
+                    # 空容器且无描述
+                    redundant.append(node)
+                elif node.container_type == ContainerType.ABSTRACT and not node.children:
+                    # 空的抽象容器
+                    redundant.append(node)
+                
+                # 递归检查子节点
+                for child in node.children:
+                    check_node(child)
+        
+        for root in scene.root_nodes:
+            check_node(root)
+        
+        return redundant
+    
+    def _aggressive_pruning(self, scene: Scene):
+        """
+        激进剪枝：删除所有可删除的节点
+        """
+        if not self.config.aggressive_pruning:
+            return
+        
+        self._log("🔪 执行激进剪枝...")
+        
+        redundant_nodes = self._identify_redundant_nodes(scene)
+        
+        if redundant_nodes:
+            self._log(f"发现 {len(redundant_nodes)} 个冗余节点")
+            for node in redundant_nodes[:10]:  # 只显示前10个
+                self._log(f"  删除: {node.name}")
+            if len(redundant_nodes) > 10:
+                self._log(f"   ... 等 {len(redundant_nodes)} 个节点")
+            
+            for node in redundant_nodes:
+                self._remove_node_from_scene(scene, node)
+    
+    def _print_round_summary(self):
+        """打印轮次总结"""
+        self._log("\n" + "="*60)
+        self._log("📊 生成轮次总结")
+        self._log("="*60)
+        
+        for round_info in self.round_history:
+            if round_info.round_number == 0:
+                self._log(f"\n第 0 轮（初始生成）:")
+                self._log(f"  新增节点: {round_info.new_nodes_count}")
+            else:
+                self._log(f"\n第 {round_info.round_number} 轮:")
+                self._log(f"  新增节点: {round_info.new_nodes_count}")
+                self._log(f"  展开容器: {', '.join(round_info.expanded_containers) if round_info.expanded_containers else '无'}")
+                self._log(f"  完整性评分: {round_info.completeness_score}%")
+                if round_info.issues:
+                    self._log(f"  发现问题: {len(round_info.issues)}个")
 
 
 class SceneVisualizer:
