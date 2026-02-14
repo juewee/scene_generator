@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>场景生成器 - 结果展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #888;
+            font-size: 1.1em;
+        }
+
+        .upload-section {
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .upload-section:hover {
+            border-color: #3a7bd5;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .upload-section.dragover {
+            border-color: #00d2ff;
+            background: rgba(0,210,255,0.1);
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .upload-section h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .upload-section p {
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .upload-btn {
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,210,255,0.3);
+        }
+
+        .main-content {
+            display: none;
+        }
+
+        .main-content.active {
+            display: block;
+        }
+
+        /* 统计卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-card .label {
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* 上下文信息 */
+        .context-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .context-section h3 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .context-item {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .context-item .label {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .context-item .value {
+            color: #fff;
+            font-size: 1em;
+        }
+
+        /* 场景树 */
+        .tree-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tree-section h3 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tree-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tree-btn {
+            background: rgba(255,255,255,0.1);
+            color: #e0e0e0;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tree-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .tree-container {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .tree-node {
+            margin: 5px 0;
+        }
+
+        .node-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .node-header:hover {
+            background: rgba(0,0,0,0.4);
+        }
+
+        .node-toggle {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            transition: transform 0.2s;
+        }
+
+        .node-toggle.expanded {
+            transform: rotate(90deg);
+        }
+
+        .node-toggle.empty {
+            opacity: 0.3;
+        }
+
+        .node-icon {
+            font-size: 1.2em;
+        }
+
+        .node-name {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .node-type {
+            font-size: 0.8em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        .node-type.item {
+            background: rgba(76, 175, 80, 0.3);
+            color: #81c784;
+        }
+
+        .node-type.container {
+            background: rgba(33, 150, 243, 0.3);
+            color: #64b5f6;
+        }
+
+        .node-type.physical {
+            background: rgba(255, 152, 0, 0.3);
+            color: #ffb74d;
+        }
+
+        .node-type.character {
+            background: rgba(156, 39, 176, 0.3);
+            color: #ce93d8;
+        }
+
+        .node-type.abstract {
+            background: rgba(0, 188, 212, 0.3);
+            color: #4dd0e1;
+        }
+
+        .node-children {
+            margin-left: 30px;
+            border-left: 2px solid rgba(255,255,255,0.1);
+            padding-left: 10px;
+            display: none;
+        }
+
+        .node-children.expanded {
+            display: block;
+        }
+
+        .node-details {
+            display: none;
+            padding: 12px;
+            margin-top: 8px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        .node-details.active {
+            display: block;
+        }
+
+        .detail-row {
+            display: flex;
+            margin: 5px 0;
+        }
+
+        .detail-label {
+            color: #888;
+            width: 80px;
+            flex-shrink: 0;
+        }
+
+        .detail-value {
+            color: #e0e0e0;
+        }
+
+        /* 搜索过滤 */
+        .search-section {
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 25px;
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: #3a7bd5;
+        }
+
+        .search-input::placeholder {
+            color: #666;
+        }
+
+        /* 图例 */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .context-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 场景生成器</h1>
+            <p>AI驱动的层次化场景生成系统 - 结果展示</p>
+        </header>
+
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-icon">📁</div>
+            <h3>上传场景JSON文件</h3>
+            <p>拖拽文件到此处，或点击选择文件</p>
+            <input type="file" id="fileInput" class="file-input" accept=".json">
+            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">选择文件</button>
+        </div>
+
+        <div class="main-content" id="mainContent">
+            <!-- 统计信息 -->
+            <div class="stats-grid" id="statsGrid"></div>
+
+            <!-- 上下文信息 -->
+            <div class="context-section">
+                <h3>📋 场景上下文</h3>
+                <div class="context-grid" id="contextGrid"></div>
+            </div>
+
+            <!-- 场景树 -->
+            <div class="tree-section">
+                <h3>🌳 场景结构</h3>
+                
+                <div class="search-section">
+                    <input type="text" class="search-input" id="searchInput" placeholder="搜索节点...">
+                </div>
+
+                <div class="tree-controls">
+                    <button class="tree-btn" onclick="expandAll()">展开全部</button>
+                    <button class="tree-btn" onclick="collapseAll()">折叠全部</button>
+                    <button class="tree-btn" onclick="loadSampleData()">加载示例数据</button>
+                </div>
+
+                <div class="tree-container" id="treeContainer"></div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #81c784;"></div>
+                        <span>物品节点</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffb74d;"></div>
+                        <span>物理容器</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ce93d8;"></div>
+                        <span>人物容器</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4dd0e1;"></div>
+                        <span>抽象容器</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let sceneData = null;
+
+        // 文件上传处理
+        const uploadSection = document.getElementById('uploadSection');
+        const fileInput = document.getElementById('fileInput');
+
+        uploadSection.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadSection.classList.add('dragover');
+        });
+
+        uploadSection.addEventListener('dragleave', () => {
+            uploadSection.classList.remove('dragover');
+        });
+
+        uploadSection.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadSection.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file) handleFile(file);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleFile(file);
+        });
+
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    sceneData = JSON.parse(e.target.result);
+                    renderScene();
+                } catch (err) {
+                    alert('JSON解析失败: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // 渲染场景
+        function renderScene() {
+            document.getElementById('uploadSection').style.display = 'none';
+            document.getElementById('mainContent').classList.add('active');
+
+            renderStats();
+            renderContext();
+            renderTree();
+        }
+
+        // 渲染统计信息
+        function renderStats() {
+            const stats = sceneData.statistics || {};
+            const statsHtml = `
+                <div class="stat-card">
+                    <div class="icon">📦</div>
+                    <div class="value">${stats.total_items || 0}</div>
+                    <div class="label">物品节点</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">🗄️</div>
+                    <div class="value">${stats.total_containers || 0}</div>
+                    <div class="label">容器节点</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">📊</div>
+                    <div class="value">${stats.max_depth_reached || 0}</div>
+                    <div class="label">最大深度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">🎬</div>
+                    <div class="value">${sceneData.scene_id || '-'}</div>
+                    <div class="label">场景ID</div>
+                </div>
+            `;
+            document.getElementById('statsGrid').innerHTML = statsHtml;
+        }
+
+        // 渲染上下文
+        function renderContext() {
+            const context = sceneData.context || '';
+            const lines = context.split('\n').filter(l => l.trim());
+            let html = '';
+            
+            lines.forEach(line => {
+                const match = line.match(/【(.+?)】(.+)/);
+                if (match) {
+                    html += `
+                        <div class="context-item">
+                            <div class="label">${match[1]}</div>
+                            <div class="value">${match[2]}</div>
+                        </div>
+                    `;
+                }
+            });
+
+            if (!html) {
+                html = `<div class="context-item">
+                    <div class="label">场景信息</div>
+                    <div class="value">${context || '无'}</div>
+                </div>`;
+            }
+
+            document.getElementById('contextGrid').innerHTML = html;
+        }
+
+        // 渲染树形结构
+        function renderTree() {
+            const nodes = sceneData.root_nodes || [];
+            const container = document.getElementById('treeContainer');
+            container.innerHTML = nodes.map(node => renderNode(node, 0)).join('');
+        }
+
+        function renderNode(node, depth) {
+            const isContainer = node.node_type === 'container';
+            const hasChildren = isContainer && node.children && node.children.length > 0;
+            const containerType = node.container_type || 'container';
+            
+            const iconMap = {
+                item: '📦',
+                physical: '🗄️',
+                character: '👤',
+                abstract: '💭'
+            };
+
+            const icon = isContainer ? (iconMap[containerType] || '📦') : iconMap.item;
+            const typeClass = isContainer ? containerType : 'item';
+            const typeLabel = isContainer ? 
+                (containerType === 'physical' ? '物理容器' : 
+                 containerType === 'character' ? '人物容器' : 
+                 containerType === 'abstract' ? '抽象容器' : '容器') : '物品';
+
+            let childrenHtml = '';
+            if (hasChildren) {
+                childrenHtml = `<div class="node-children" data-depth="${depth}">
+                    ${node.children.map(child => renderNode(child, depth + 1)).join('')}
+                </div>`;
+            }
+
+            const detailsHtml = `
+                <div class="node-details" id="details-${node.node_id || Math.random().toString(36).substr(2, 9)}">
+                    ${node.description ? `<div class="detail-row"><span class="detail-label">描述:</span><span class="detail-value">${node.description}</span></div>` : ''}
+                    ${node.position ? `<div class="detail-row"><span class="detail-label">位置:</span><span class="detail-value">${node.position}</span></div>` : ''}
+                    ${node.level !== undefined ? `<div class="detail-row"><span class="detail-label">层级:</span><span class="detail-value">${node.level}</span></div>` : ''}
+                    ${node.full_path ? `<div class="detail-row"><span class="detail-label">路径:</span><span class="detail-value">${node.full_path}</span></div>` : ''}
+                    ${node.attributes && Object.keys(node.attributes).length > 0 ? 
+                        `<div class="detail-row"><span class="detail-label">属性:</span><span class="detail-value">${JSON.stringify(node.attributes)}</span></div>` : ''}
+                </div>
+            `;
+
+            return `
+                <div class="tree-node" data-name="${node.name}" data-type="${typeClass}">
+                    <div class="node-header" onclick="toggleNode(this, event)">
+                        <span class="node-toggle ${hasChildren ? '' : 'empty'}">${hasChildren ? '▶' : '•'}</span>
+                        <span class="node-icon">${icon}</span>
+                        <span class="node-name">${node.name}</span>
+                        <span class="node-type ${typeClass}">${typeLabel}</span>
+                    </div>
+                    ${detailsHtml}
+                    ${childrenHtml}
+                </div>
+            `;
+        }
+
+        function toggleNode(header, event) {
+            event.stopPropagation();
+            
+            const toggle = header.querySelector('.node-toggle');
+            const details = header.nextElementSibling;
+            const children = header.parentElement.querySelector('.node-children');
+
+            // 切换详情
+            if (details && details.classList.contains('node-details')) {
+                details.classList.toggle('active');
+            }
+
+            // 切换子节点
+            if (children && children.classList.contains('node-children')) {
+                children.classList.toggle('expanded');
+                toggle.classList.toggle('expanded');
+            }
+        }
+
+        function expandAll() {
+            document.querySelectorAll('.node-children').forEach(el => el.classList.add('expanded'));
+            document.querySelectorAll('.node-toggle').forEach(el => {
+                if (!el.classList.contains('empty')) el.classList.add('expanded');
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.node-children').forEach(el => el.classList.remove('expanded'));
+            document.querySelectorAll('.node-toggle').forEach(el => el.classList.remove('expanded'));
+            document.querySelectorAll('.node-details').forEach(el => el.classList.remove('active'));
+        }
+
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.tree-node').forEach(node => {
+                const name = node.dataset.name.toLowerCase();
+                if (query === '' || name.includes(query)) {
+                    node.style.display = 'block';
+                    if (query !== '') {
+                        // 展开匹配节点的父节点
+                        let parent = node.parentElement;
+                        while (parent) {
+                            if (parent.classList.contains('node-children')) {
+                                parent.classList.add('expanded');
+                                const toggle = parent.previousElementSibling?.querySelector('.node-toggle');
+                                if (toggle) toggle.classList.add('expanded');
+                            }
+                            parent = parent.parentElement;
+                        }
+                    }
+                } else {
+                    node.style.display = 'none';
+                }
+            });
+        });
+
+        // 加载示例数据
+        function loadSampleData() {
+            sceneData = {
+                "scene_id": "abc12345",
+                "scene_name": "场景_20240101_120000",
+                "context": "【剧本背景】一位古代书生在书房中苦读，准备科举考试。窗外月光如水，书桌上堆满了书籍和文房四宝。\n【场景需求】生成一个古代书房场景，需要体现书生的学习环境和生活状态\n【时代背景】明朝\n【地点】江南某小镇的书房\n【氛围】宁静、专注、略带忧郁\n【风格】古典文人风格",
+                "root_nodes": [
+                    {
+                        "name": "书生",
+                        "node_type": "container",
+                        "container_type": "character",
+                        "description": "一位身着明代儒生服饰的年轻书生，正在书房内专心读书",
+                        "level": 0,
+                        "position": "坐在书案后的椅子上",
+                        "attributes": {"服饰": "青色襕衫", "状态": "专注"},
+                        "node_id": "n001",
+                        "full_path": "书生",
+                        "children": [
+                            {
+                                "name": "襕衫",
+                                "node_type": "item",
+                                "description": "明代儒生常服，青色棉麻质地",
+                                "level": 1,
+                                "attributes": {"材质": "棉麻", "颜色": "青色"},
+                                "node_id": "n001-1",
+                                "full_path": "书生/襕衫"
+                            },
+                            {
+                                "name": "折扇",
+                                "node_type": "item",
+                                "description": "一把竹骨折扇，扇面题有诗句",
+                                "level": 1,
+                                "attributes": {"材质": "竹骨纸面"},
+                                "node_id": "n001-2",
+                                "full_path": "书生/折扇"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "书案",
+                        "node_type": "container",
+                        "container_type": "physical",
+                        "description": "一张明代风格的书桌，硬木制成，桌面宽阔",
+                        "level": 0,
+                        "position": "书房中央靠窗位置",
+                        "attributes": {"材质": "黄花梨木", "颜色": "深棕色"},
+                        "node_id": "n002",
+                        "full_path": "书案",
+                        "children": [
+                            {
+                                "name": "文房四宝",
+                                "node_type": "container",
+                                "container_type": "physical",
+                                "description": "笔、墨、纸、砚的统称",
+                                "level": 1,
+                                "node_id": "n002-1",
+                                "full_path": "书案/文房四宝",
+                                "children": [
+                                    {"name": "毛笔", "node_type": "item", "level": 2, "node_id": "n002-1-1", "full_path": "书案/文房四宝/毛笔"},
+                                    {"name": "墨锭", "node_type": "item", "level": 2, "node_id": "n002-1-2", "full_path": "书案/文房四宝/墨锭"},
+                                    {"name": "宣纸", "node_type": "item", "level": 2, "node_id": "n002-1-3", "full_path": "书案/文房四宝/宣纸"},
+                                    {"name": "石砚", "node_type": "item", "level": 2, "node_id": "n002-1-4", "full_path": "书案/文房四宝/石砚"}
+                                ]
+                            },
+                            {
+                                "name": "线装书",
+                                "node_type": "item",
+                                "description": "明代典型的书籍装帧形式",
+                                "level": 1,
+                                "attributes": {"颜色": "蓝色封面"},
+                                "node_id": "n002-2",
+                                "full_path": "书案/线装书"
+                            },
+                            {
+                                "name": "油灯",
+                                "node_type": "item",
+                                "description": "陶瓷油灯，提供照明",
+                                "level": 1,
+                                "position": "书案一角",
+                                "node_id": "n002-3",
+                                "full_path": "书案/油灯"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "书架",
+                        "node_type": "container",
+                        "container_type": "physical",
+                        "description": "多宝阁书架，存放线装书和文玩",
+                        "level": 0,
+                        "position": "靠墙摆放",
+                        "node_id": "n003",
+                        "full_path": "书架",
+                        "children": [
+                            {"name": "四书五经", "node_type": "item", "level": 1, "node_id": "n003-1", "full_path": "书架/四书五经"},
+                            {"name": "诗词集", "node_type": "item", "level": 1, "node_id": "n003-2", "full_path": "书架/诗词集"},
+                            {"name": "古琴", "node_type": "item", "level": 1, "node_id": "n003-3", "full_path": "书架/古琴"}
+                        ]
+                    },
+                    {
+                        "name": "香炉",
+                        "node_type": "item",
+                        "description": "小型陶瓷香炉，燃着檀香",
+                        "level": 0,
+                        "position": "书案一角",
+                        "attributes": {"材质": "陶瓷", "状态": "轻烟袅袅"},
+                        "node_id": "n004",
+                        "full_path": "香炉"
+                    }
+                ],
+                "statistics": {
+                    "total_items": 12,
+                    "total_containers": 4,
+                    "max_depth_reached": 2
+                }
+            };
+            renderScene();
+        }
+    </script>
+</body>
+</html>

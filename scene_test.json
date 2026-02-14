@@ -1,0 +1,4506 @@
+{
+  "scene_id": "f2ea3334",
+  "scene_name": "场景_20260212_131553",
+  "context": "【剧本背景】一位古代书生在书房中苦读，准备科举考试。窗外月光如水，书桌上堆满了书籍和文房四宝。\n【场景需求】生成一个古代书房场景，需要体现书生的学习环境\n【时代背景】明朝\n【地点】江南小镇\n【氛围】宁静、专注",
+  "root_nodes": [
+    {
+      "name": "书生",
+      "node_type": "container",
+      "description": "一位身着青色直裰的年轻书生，正襟危坐于书桌前，神情专注地研读经义，为科举考试做准备。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "书生的内容",
+      "position": "坐在书桌前的榆木圈椅上",
+      "attributes": {
+        "material": "棉布（衣物）",
+        "color": "青色直裰，头戴方巾",
+        "size": "中等身材",
+        "condition": "精神专注，略带疲惫"
+      },
+      "node_id": "11dde8c4",
+      "full_path": "书生",
+      "container_type": "character",
+      "is_expanded": true,
+      "children": [
+        {
+          "name": "青色直裰",
+          "node_type": "container",
+          "description": "书生所穿的明代儒生常服，青色棉布质地，款式简洁，象征其读书人的身份。",
+          "level": 1,
+          "parent_path": "书生",
+          "theme": "书生的内容",
+          "position": "穿在书生身上",
+          "attributes": {
+            "material": "棉布",
+            "color": "青色",
+            "size": "合身",
+            "condition": "整洁，略有磨损"
+          },
+          "node_id": "44f003e0",
+          "full_path": "书生/青色直裰",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "白色中衣",
+              "node_type": "container",
+              "description": "穿在直裰里面的贴身衣物，棉布材质，干净整洁，是明代士人常见的里衣。",
+              "level": 2,
+              "parent_path": "书生/青色直裰",
+              "theme": "书生的内容",
+              "position": "被青色直裰完全覆盖在内",
+              "attributes": {
+                "material": "棉布",
+                "color": "白色",
+                "size": "合身",
+                "condition": "干净，略有浆洗痕迹"
+              },
+              "node_id": "9e9383d2",
+              "full_path": "书生/青色直裰/白色中衣",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "棉布内衬",
+                  "node_type": "item",
+                  "description": "白色中衣最内层的贴身部分，由柔软吸汗的棉布制成，直接接触皮肤，穿着舒适。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/白色中衣",
+                  "theme": "书生的内容",
+                  "position": "衣物最内层",
+                  "attributes": {
+                    "material": "棉布",
+                    "color": "本白色",
+                    "size": "合身",
+                    "condition": "干净，略有磨损"
+                  },
+                  "node_id": "138e5dd3",
+                  "full_path": "书生/青色直裰/白色中衣/棉布内衬",
+                  "material": "棉布",
+                  "color": "本白色",
+                  "size": "合身",
+                  "condition": "干净，略有磨损"
+                },
+                {
+                  "name": "交领系带",
+                  "node_type": "item",
+                  "description": "用于固定中衣前襟的两条细长棉布带，在右腋下侧系结，是明代中衣的典型闭合方式。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/白色中衣",
+                  "theme": "书生的内容",
+                  "position": "衣物前襟处",
+                  "attributes": {
+                    "material": "棉布",
+                    "color": "白色",
+                    "size": "细长",
+                    "condition": "整洁，系结牢固"
+                  },
+                  "node_id": "d20a8daa",
+                  "full_path": "书生/青色直裰/白色中衣/交领系带",
+                  "material": "棉布",
+                  "color": "白色",
+                  "size": "细长",
+                  "condition": "整洁，系结牢固"
+                },
+                {
+                  "name": "右衽前襟",
+                  "node_type": "item",
+                  "description": "按照“右衽”汉服传统裁制的前襟部分，向左掩，是华夏衣冠的典型特征，象征文明礼制。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/白色中衣",
+                  "theme": "书生的内容",
+                  "position": "衣物正面",
+                  "attributes": {
+                    "material": "棉布",
+                    "color": "白色",
+                    "size": "覆盖前胸",
+                    "condition": "平整，无污渍"
+                  },
+                  "node_id": "746d6e23",
+                  "full_path": "书生/青色直裰/白色中衣/右衽前襟",
+                  "material": "棉布",
+                  "color": "白色",
+                  "size": "覆盖前胸",
+                  "condition": "平整，无污渍"
+                },
+                {
+                  "name": "窄袖袖口",
+                  "node_type": "item",
+                  "description": "中衣的袖口部分，较为窄小，方便外罩直裰等宽袖袍服，袖口边缘有简单的棉线滚边。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/白色中衣",
+                  "theme": "书生的内容",
+                  "position": "衣物袖端",
+                  "attributes": {
+                    "material": "棉布",
+                    "color": "白色",
+                    "size": "窄口",
+                    "condition": "干净，边缘平整"
+                  },
+                  "node_id": "5a83f5eb",
+                  "full_path": "书生/青色直裰/白色中衣/窄袖袖口",
+                  "material": "棉布",
+                  "color": "白色",
+                  "size": "窄口",
+                  "condition": "干净，边缘平整"
+                }
+              ],
+              "item_count": 4,
+              "container_count": 1
+            },
+            {
+              "name": "束腰丝绦",
+              "node_type": "item",
+              "description": "一条用来束紧直裰腰身的丝质带子，两端有简单的流苏装饰，是明代儒生服饰的常见配件。",
+              "level": 2,
+              "parent_path": "书生/青色直裰",
+              "theme": "书生的内容",
+              "position": "系于腰间，垂于身体一侧",
+              "attributes": {
+                "material": "丝绸",
+                "color": "深青色",
+                "size": "长约1.5米",
+                "condition": "完好，略有使用痕迹"
+              },
+              "node_id": "84f4046f",
+              "full_path": "书生/青色直裰/束腰丝绦",
+              "material": "丝绸",
+              "color": "深青色",
+              "size": "长约1.5米",
+              "condition": "完好，略有使用痕迹"
+            },
+            {
+              "name": "袖中暗袋",
+              "node_type": "container",
+              "description": "直裰宽大袖口内侧缝制的小口袋，用于存放一些随身小物件，方便取用且不显眼。",
+              "level": 2,
+              "parent_path": "书生/青色直裰",
+              "theme": "书生的内容",
+              "position": "位于左右袖口的内侧",
+              "attributes": {
+                "material": "同款棉布",
+                "color": "青色",
+                "size": "小型口袋",
+                "condition": "隐蔽，做工细致"
+              },
+              "node_id": "b9f73dfb",
+              "full_path": "书生/青色直裰/袖中暗袋",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "碎银",
+                  "node_type": "item",
+                  "description": "几块零散的碎银子，用于日常零花或应急，用一小块粗布包裹着。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/袖中暗袋",
+                  "theme": "书生的内容",
+                  "position": "暗袋底部",
+                  "attributes": {
+                    "material": "银",
+                    "color": "银白色",
+                    "size": "小块，约指甲盖大小",
+                    "condition": "略有磨损"
+                  },
+                  "node_id": "e0cbdeaf",
+                  "full_path": "书生/青色直裰/袖中暗袋/碎银",
+                  "material": "银",
+                  "color": "银白色",
+                  "size": "小块，约指甲盖大小",
+                  "condition": "略有磨损"
+                },
+                {
+                  "name": "铜钱",
+                  "node_type": "item",
+                  "description": "几枚“永乐通宝”铜钱，串在一根细麻绳上，方便携带和使用。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/袖中暗袋",
+                  "theme": "书生的内容",
+                  "position": "与碎银放在一起",
+                  "attributes": {
+                    "material": "铜",
+                    "color": "铜绿色",
+                    "size": "圆形方孔，直径约2.5厘米",
+                    "condition": "有使用痕迹"
+                  },
+                  "node_id": "9a7c4d23",
+                  "full_path": "书生/青色直裰/袖中暗袋/铜钱",
+                  "material": "铜",
+                  "color": "铜绿色",
+                  "size": "圆形方孔，直径约2.5厘米",
+                  "condition": "有使用痕迹"
+                },
+                {
+                  "name": "火折子",
+                  "node_type": "item",
+                  "description": "一个简易的火折子，竹筒制成，内装艾绒等易燃物，用于快速取火，如点灯或应急。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/袖中暗袋",
+                  "theme": "书生的内容",
+                  "position": "暗袋一侧，单独放置以防误触",
+                  "attributes": {
+                    "material": "竹筒、艾绒",
+                    "color": "竹黄色",
+                    "size": "细长筒状，长约10厘米",
+                    "condition": "半新，可用"
+                  },
+                  "node_id": "c0cfbb51",
+                  "full_path": "书生/青色直裰/袖中暗袋/火折子",
+                  "material": "竹筒、艾绒",
+                  "color": "竹黄色",
+                  "size": "细长筒状，长约10厘米",
+                  "condition": "半新，可用"
+                },
+                {
+                  "name": "小钥匙",
+                  "node_type": "item",
+                  "description": "一把黄铜小钥匙，可能是书桌抽屉或某个小箱匣的钥匙，对书生而言颇为重要。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/袖中暗袋",
+                  "theme": "书生的内容",
+                  "position": "用细绳系在暗袋内衬的布环上",
+                  "attributes": {
+                    "material": "黄铜",
+                    "color": "暗黄色",
+                    "size": "小巧，长约4厘米",
+                    "condition": "保存完好"
+                  },
+                  "node_id": "ae613797",
+                  "full_path": "书生/青色直裰/袖中暗袋/小钥匙",
+                  "material": "黄铜",
+                  "color": "暗黄色",
+                  "size": "小巧，长约4厘米",
+                  "condition": "保存完好"
+                },
+                {
+                  "name": "折叠小刀",
+                  "node_type": "item",
+                  "description": "一把可折叠的骨质柄小刀，刀刃锋利，用于裁纸、削笔或防身。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/袖中暗袋",
+                  "theme": "书生的内容",
+                  "position": "暗袋另一侧，刀柄朝外便于抽取",
+                  "attributes": {
+                    "material": "铁质刀刃，骨质刀柄",
+                    "color": "刀刃银灰，刀柄米白",
+                    "size": "折叠后长约8厘米",
+                    "condition": "刀刃保养良好"
+                  },
+                  "node_id": "c440744b",
+                  "full_path": "书生/青色直裰/袖中暗袋/折叠小刀",
+                  "material": "铁质刀刃，骨质刀柄",
+                  "color": "刀刃银灰，刀柄米白",
+                  "size": "折叠后长约8厘米",
+                  "condition": "刀刃保养良好"
+                }
+              ],
+              "item_count": 5,
+              "container_count": 1
+            },
+            {
+              "name": "怀中物品",
+              "node_type": "container",
+              "description": "书生贴身收藏在直裰前襟内的重要或私人物品，紧贴中衣存放。",
+              "level": 2,
+              "parent_path": "书生/青色直裰",
+              "theme": "书生的内容",
+              "position": "置于直裰前襟内侧，贴近胸口",
+              "attributes": {
+                "material": "N/A",
+                "color": "N/A",
+                "size": "N/A",
+                "condition": "N/A"
+              },
+              "node_id": "cb0c06b1",
+              "full_path": "书生/青色直裰/怀中物品",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "家书",
+                  "node_type": "item",
+                  "description": "一封来自远方家人的书信，纸张已有些许磨损和折痕，字迹工整。信中多是家人的问候、鼓励以及对书生科举的殷切期盼，是书生重要的精神寄托。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/怀中物品",
+                  "theme": "书生的内容",
+                  "position": "被仔细折叠，放在最贴近心口的位置。",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "微黄",
+                    "size": "手掌大小",
+                    "condition": "略有磨损，但保存完好"
+                  },
+                  "node_id": "715dac1a",
+                  "full_path": "书生/青色直裰/怀中物品/家书",
+                  "material": "宣纸",
+                  "color": "微黄",
+                  "size": "手掌大小",
+                  "condition": "略有磨损，但保存完好"
+                },
+                {
+                  "name": "碎银荷包",
+                  "node_type": "container",
+                  "description": "一个用青色粗布缝制的小荷包，针脚细密但朴素，是书生母亲亲手缝制。里面装着书生仅有的盘缠和应急钱。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/怀中物品",
+                  "theme": "书生的内容",
+                  "position": "紧挨着家书存放。",
+                  "attributes": {
+                    "material": "粗布",
+                    "color": "青色",
+                    "size": "巴掌大小",
+                    "condition": "半旧，但干净整洁"
+                  },
+                  "node_id": "9ff1bb6f",
+                  "full_path": "书生/青色直裰/怀中物品/碎银荷包",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "护身符",
+                  "node_type": "item",
+                  "description": "一枚用红绳系着的铜钱，或是从家乡寺庙求来的平安符。寓意平安顺遂、金榜题名，是书生重要的心理慰藉。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/怀中物品",
+                  "theme": "书生的内容",
+                  "position": "与荷包放在一起。",
+                  "attributes": {
+                    "material": "铜/布符",
+                    "color": "红绳，铜色或符纸黄色",
+                    "size": "小巧",
+                    "condition": "因长期佩戴摩挲而光滑"
+                  },
+                  "node_id": "d4d5dd81",
+                  "full_path": "书生/青色直裰/怀中物品/护身符",
+                  "material": "铜/布符",
+                  "color": "红绳，铜色或符纸黄色",
+                  "size": "小巧",
+                  "condition": "因长期佩戴摩挲而光滑"
+                },
+                {
+                  "name": "私印",
+                  "node_type": "item",
+                  "description": "一方小小的青田石私章，刻有书生的表字或斋号。用于在重要书信或得意文章上钤印，是书生身份和雅趣的象征。",
+                  "level": 3,
+                  "parent_path": "书生/青色直裰/怀中物品",
+                  "theme": "书生的内容",
+                  "position": "用一小块软布包裹，防止磕碰。",
+                  "attributes": {
+                    "material": "青田石",
+                    "color": "青灰色",
+                    "size": "指节大小",
+                    "condition": "完好，边角圆润"
+                  },
+                  "node_id": "59be80a4",
+                  "full_path": "书生/青色直裰/怀中物品/私印",
+                  "material": "青田石",
+                  "color": "青灰色",
+                  "size": "指节大小",
+                  "condition": "完好，边角圆润"
+                }
+              ],
+              "item_count": 3,
+              "container_count": 2
+            }
+          ],
+          "item_count": 13,
+          "container_count": 5
+        },
+        {
+          "name": "头巾",
+          "node_type": "item",
+          "description": "一块深色的四方巾，包裹着书生的发髻，是明代书生常见的头饰。",
+          "level": 1,
+          "parent_path": "书生",
+          "theme": "书生的内容",
+          "position": "戴在书生头上",
+          "attributes": {
+            "material": "棉布",
+            "color": "深蓝色",
+            "size": "适中",
+            "condition": "干净平整"
+          },
+          "node_id": "7fea1a15",
+          "full_path": "书生/头巾",
+          "material": "棉布",
+          "color": "深蓝色",
+          "size": "适中",
+          "condition": "干净平整"
+        },
+        {
+          "name": "布鞋",
+          "node_type": "item",
+          "description": "一双黑色千层底布鞋，鞋面干净，鞋底沾有些许从庭院带入的尘土。",
+          "level": 1,
+          "parent_path": "书生",
+          "theme": "书生的内容",
+          "position": "穿在书生脚上",
+          "attributes": {
+            "material": "棉布、麻绳",
+            "color": "黑色",
+            "size": "合脚",
+            "condition": "略有磨损"
+          },
+          "node_id": "17eb1f72",
+          "full_path": "书生/布鞋",
+          "material": "棉布、麻绳",
+          "color": "黑色",
+          "size": "合脚",
+          "condition": "略有磨损"
+        },
+        {
+          "name": "经义书卷",
+          "node_type": "container",
+          "description": "书生正在研读的科举考试核心教材，可能是《四书章句集注》中的一册，书页因频繁翻阅而微微卷边。",
+          "level": 1,
+          "parent_path": "书生",
+          "theme": "书生的内容",
+          "position": "被书生双手持握，置于书桌之上",
+          "attributes": {
+            "material": "宣纸、线装",
+            "color": "纸张泛黄，封面深蓝",
+            "size": "约一尺长，半尺宽",
+            "condition": "有阅读痕迹和少量批注"
+          },
+          "node_id": "8234ad51",
+          "full_path": "书生/经义书卷",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "书卷封面",
+              "node_type": "container",
+              "description": "书卷的硬质封面，可能是蓝布或深色纸张裱糊而成，封面中央贴有写着书名的签条，如“《大学章句》”或“《中庸章句》”。",
+              "level": 2,
+              "parent_path": "书生/经义书卷",
+              "theme": "书生的内容",
+              "position": "书卷的最外层",
+              "attributes": {
+                "material": "裱糊纸张或蓝布，木质签条",
+                "color": "深蓝、靛青或深褐色",
+                "size": "略大于内页",
+                "condition": "边角有轻微磨损，签条字迹清晰"
+              },
+              "node_id": "08f35cba",
+              "full_path": "书生/经义书卷/书卷封面",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "书名签条",
+                  "node_type": "item",
+                  "description": "一张贴在封面中央的签条，上面用端正的楷书写着书名，如“《大学章句》”或“《中庸章句》”。签条边缘可能因年代久远而微微卷曲或泛黄。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/书卷封面",
+                  "theme": "书生的内容",
+                  "position": "封面中央",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "米白或淡黄",
+                    "size": "小型",
+                    "condition": "略有磨损，墨迹清晰"
+                  },
+                  "node_id": "cca06509",
+                  "full_path": "书生/经义书卷/书卷封面/书名签条",
+                  "material": "宣纸",
+                  "color": "米白或淡黄",
+                  "size": "小型",
+                  "condition": "略有磨损，墨迹清晰"
+                },
+                {
+                  "name": "蓝布裱糊层",
+                  "node_type": "item",
+                  "description": "覆盖在封面硬纸板外层的蓝色棉布或绸布，是明代书籍装帧的常见样式。布料纹理细腻，颜色沉稳，可能因频繁翻阅而在边角处略有褪色或磨损。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/书卷封面",
+                  "theme": "书生的内容",
+                  "position": "覆盖整个封面",
+                  "attributes": {
+                    "material": "棉布或绸",
+                    "color": "靛蓝或深蓝",
+                    "size": "与封面同大",
+                    "condition": "整洁，边角有使用痕迹"
+                  },
+                  "node_id": "f922ba0d",
+                  "full_path": "书生/经义书卷/书卷封面/蓝布裱糊层",
+                  "material": "棉布或绸",
+                  "color": "靛蓝或深蓝",
+                  "size": "与封面同大",
+                  "condition": "整洁，边角有使用痕迹"
+                },
+                {
+                  "name": "硬质衬板",
+                  "node_type": "container",
+                  "description": "封面内部的硬质衬板，通常由多层纸张或薄木板裱糊而成，为书卷提供支撑和保护。这是封面结构的主体部分。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/书卷封面",
+                  "theme": "书生的内容",
+                  "position": "蓝布裱糊层之下",
+                  "attributes": {
+                    "material": "裱糊纸张或薄木",
+                    "color": "原木色或纸张本色",
+                    "size": "与封面同大",
+                    "condition": "平整坚固"
+                  },
+                  "node_id": "2e746eab",
+                  "full_path": "书生/经义书卷/书卷封面/硬质衬板",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "装订线孔",
+                  "node_type": "item",
+                  "description": "封面边缘用于穿线装订书籍的小孔。通常为两个或四个，排列整齐，线孔周围可能因线绳长期摩擦而更加光滑。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/书卷封面",
+                  "theme": "书生的内容",
+                  "position": "封面边缘（书脊侧）",
+                  "attributes": {
+                    "material": "与衬板相同",
+                    "color": "与衬板相同",
+                    "size": "微小孔洞",
+                    "condition": "清晰可见，边缘光滑"
+                  },
+                  "node_id": "757b0efb",
+                  "full_path": "书生/经义书卷/书卷封面/装订线孔",
+                  "material": "与衬板相同",
+                  "color": "与衬板相同",
+                  "size": "微小孔洞",
+                  "condition": "清晰可见，边缘光滑"
+                }
+              ],
+              "item_count": 3,
+              "container_count": 2
+            },
+            {
+              "name": "内页正文",
+              "node_type": "container",
+              "description": "书卷的核心部分，印有《四书》原文及朱熹等大儒的权威注释。采用雕版印刷，字体为工整的宋体。",
+              "level": 2,
+              "parent_path": "书生/经义书卷",
+              "theme": "书生的内容",
+              "position": "封面之内",
+              "attributes": {
+                "material": "宣纸或竹纸",
+                "color": "纸张泛黄",
+                "size": "与书卷整体一致",
+                "condition": "因频繁翻阅，部分书页边缘微卷，留有书生阅读时的折痕；页边空白处可能有极少量细小的朱笔批注或记号"
+              },
+              "node_id": "3660b4b9",
+              "full_path": "书生/经义书卷/内页正文",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "《大学》章节",
+                  "node_type": "container",
+                  "description": "《四书》之首，印有《大学》的完整原文。页面顶端有朱笔圈点的痕迹，重点段落旁有书生用蝇头小楷写下的心得“格物致知”四字。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/内页正文",
+                  "theme": "书生的内容",
+                  "position": "位于书卷前半部分，当前展开的页面",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "微黄的纸色，墨色字迹",
+                    "size": "占据数页篇幅",
+                    "condition": "页面边缘有轻微磨损，但字迹清晰"
+                  },
+                  "node_id": "3e6e625d",
+                  "full_path": "书生/经义书卷/内页正文/《大学》章节",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《中庸》章节",
+                  "node_type": "container",
+                  "description": "印有《中庸》的原文及朱熹的章句集注。注释部分字体略小，排列紧密，阐述了“中和”、“诚明”等核心思想。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/内页正文",
+                  "theme": "书生的内容",
+                  "position": "位于《大学》章节之后",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "墨色字迹，朱红色句读圆圈",
+                    "size": "占据数页篇幅",
+                    "condition": "页面较为洁净，注释处有新的折角"
+                  },
+                  "node_id": "6829a212",
+                  "full_path": "书生/经义书卷/内页正文/《中庸》章节",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《论语》章节",
+                  "node_type": "container",
+                  "description": "篇幅最长的部分，收录了《论语》各篇。每章之后附有朱熹的《论语集注》，阐发微言大义。书页间夹着一片褪色的红叶作为书签。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/内页正文",
+                  "theme": "书生的内容",
+                  "position": "位于书卷中部，当前被红叶书签标记的位置",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "墨色字迹，泛黄的书签",
+                    "size": "占据书卷大部分篇幅",
+                    "condition": "频繁翻阅导致纸张柔软，部分页面有汗渍"
+                  },
+                  "node_id": "f979db2c",
+                  "full_path": "书生/经义书卷/内页正文/《论语》章节",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《孟子》章节",
+                  "node_type": "container",
+                  "description": "印有《孟子》原文及注释，着重于“性善”、“仁政”等论述。页面空白处有书生用细笔写下的疑问：“浩然之气，何以养之？”",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/内页正文",
+                  "theme": "书生的内容",
+                  "position": "位于书卷后半部分",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "墨色字迹，淡灰色批注",
+                    "size": "占据数页篇幅",
+                    "condition": "页面相对较新，批注墨迹未完全干透"
+                  },
+                  "node_id": "cd7d4a7a",
+                  "full_path": "书生/经义书卷/内页正文/《孟子》章节",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "朱子集注",
+                  "node_type": "item",
+                  "description": "贯穿全书的核心注释，以双行小字的形式刊印在原文下方或段落之后，是科举考试的标准解释和答题依据。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/内页正文",
+                  "theme": "书生的内容",
+                  "position": "分散穿插于各经典原文之间",
+                  "attributes": {
+                    "material": "墨与纸",
+                    "color": "统一的墨色",
+                    "size": "小号字体",
+                    "condition": "印刷清晰，是书生重点研读的部分"
+                  },
+                  "node_id": "1e647009",
+                  "full_path": "书生/经义书卷/内页正文/朱子集注",
+                  "material": "墨与纸",
+                  "color": "统一的墨色",
+                  "size": "小号字体",
+                  "condition": "印刷清晰，是书生重点研读的部分"
+                },
+                {
+                  "name": "句读与重点标记",
+                  "node_type": "item",
+                  "description": "印刷时已标好的红色句读圆圈（标点），以及书生自己用朱笔或墨笔划出的重点线、圆圈。",
+                  "level": 3,
+                  "parent_path": "书生/经义书卷/内页正文",
+                  "theme": "书生的内容",
+                  "position": "遍布正文各处，尤其在关键义理句旁",
+                  "attributes": {
+                    "material": "朱砂墨与普通墨",
+                    "color": "红色与黑色",
+                    "size": "细微的标记",
+                    "condition": "新旧墨迹交织，显示反复研读"
+                  },
+                  "node_id": "e0d84271",
+                  "full_path": "书生/经义书卷/内页正文/句读与重点标记",
+                  "material": "朱砂墨与普通墨",
+                  "color": "红色与黑色",
+                  "size": "细微的标记",
+                  "condition": "新旧墨迹交织，显示反复研读"
+                }
+              ],
+              "item_count": 2,
+              "container_count": 5
+            },
+            {
+              "name": "书签",
+              "node_type": "item",
+              "description": "一片压平的红色枫叶或一张窄长的宣纸条，夹在书生当前正在研读的章节处。",
+              "level": 2,
+              "parent_path": "书生/经义书卷",
+              "theme": "书生的内容",
+              "position": "夹在内页正文的某一页中",
+              "attributes": {
+                "material": "植物叶片或宣纸",
+                "color": "红色或原木色",
+                "size": "长约三寸，宽约半寸",
+                "condition": "干燥平整"
+              },
+              "node_id": "43e6bc69",
+              "full_path": "书生/经义书卷/书签",
+              "material": "植物叶片或宣纸",
+              "color": "红色或原木色",
+              "size": "长约三寸，宽约半寸",
+              "condition": "干燥平整"
+            },
+            {
+              "name": "防蠹纸",
+              "node_type": "item",
+              "description": "一张浸过防虫药水的黄色纸张，通常带有淡淡药草味，夹在书卷前后或书匣中用以保护书籍免受虫蛀。",
+              "level": 2,
+              "parent_path": "书生/经义书卷",
+              "theme": "书生的内容",
+              "position": "可能夹在书卷扉页或末页",
+              "attributes": {
+                "material": "浸药纸张",
+                "color": "暗黄色",
+                "size": "与书页相仿",
+                "condition": "略有脆感，药味已很淡"
+              },
+              "node_id": "d509130f",
+              "full_path": "书生/经义书卷/防蠹纸",
+              "material": "浸药纸张",
+              "color": "暗黄色",
+              "size": "与书页相仿",
+              "condition": "略有脆感，药味已很淡"
+            }
+          ],
+          "item_count": 7,
+          "container_count": 8
+        },
+        {
+          "name": "毛笔",
+          "node_type": "item",
+          "description": "一支常用的狼毫毛笔，笔尖湿润，显然刚刚使用过，用于在书卷上做笔记或批注。",
+          "level": 1,
+          "parent_path": "书生",
+          "theme": "书生的内容",
+          "position": "暂时搁在书桌的笔山上",
+          "attributes": {
+            "material": "竹杆、狼毫",
+            "color": "竹黄色，笔毫深褐色",
+            "size": "中等大小",
+            "condition": "笔尖湿润，使用中"
+          },
+          "node_id": "480b04b6",
+          "full_path": "书生/毛笔",
+          "material": "竹杆、狼毫",
+          "color": "竹黄色，笔毫深褐色",
+          "size": "中等大小",
+          "condition": "笔尖湿润，使用中"
+        },
+        {
+          "name": "随身锦囊",
+          "node_type": "container",
+          "description": "一个挂在书生腰间或置于袖中的小锦囊，用于存放零碎私人物品。",
+          "level": 1,
+          "parent_path": "书生",
+          "theme": "书生的内容",
+          "position": "系于书生腰间",
+          "attributes": {
+            "material": "锦缎",
+            "color": "藏青色",
+            "size": "巴掌大小",
+            "condition": "略有褪色"
+          },
+          "node_id": "12afa6f9",
+          "full_path": "书生/随身锦囊",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "几枚铜钱",
+              "node_type": "item",
+              "description": "几枚磨损的铜钱，用于日常零星开销，如买些点心或纸笔。",
+              "level": 2,
+              "parent_path": "书生/随身锦囊",
+              "theme": "书生的内容",
+              "position": "散落在锦囊底部",
+              "attributes": {
+                "material": "铜",
+                "color": "暗黄铜色",
+                "size": "小",
+                "condition": "有磨损痕迹"
+              },
+              "node_id": "0f37f590",
+              "full_path": "书生/随身锦囊/几枚铜钱",
+              "material": "铜",
+              "color": "暗黄铜色",
+              "size": "小",
+              "condition": "有磨损痕迹"
+            },
+            {
+              "name": "一枚印章",
+              "node_type": "item",
+              "description": "一枚小巧的私印，用于在信函或书籍上钤印，石质，刻有书生的字号。",
+              "level": 2,
+              "parent_path": "书生/随身锦囊",
+              "theme": "书生的内容",
+              "position": "用一小块软布包裹，置于锦囊一侧",
+              "attributes": {
+                "material": "青田石",
+                "color": "青灰色带纹理",
+                "size": "小",
+                "condition": "保存完好，印面清晰"
+              },
+              "node_id": "7371a668",
+              "full_path": "书生/随身锦囊/一枚印章",
+              "material": "青田石",
+              "color": "青灰色带纹理",
+              "size": "小",
+              "condition": "保存完好，印面清晰"
+            },
+            {
+              "name": "一小包茶叶",
+              "node_type": "container",
+              "description": "一个用油纸仔细包好的小包，里面是少许提神用的茶叶，可能是龙井或碧螺春。",
+              "level": 2,
+              "parent_path": "书生/随身锦囊",
+              "theme": "书生的内容",
+              "position": "折叠平整，放在锦囊内",
+              "attributes": {
+                "material": "油纸",
+                "color": "淡褐色",
+                "size": "很小",
+                "condition": "包装完好"
+              },
+              "node_id": "fbd82636",
+              "full_path": "书生/随身锦囊/一小包茶叶",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "茶叶",
+                  "node_type": "item",
+                  "description": "一小撮经过精心炒制的茶叶，色泽翠绿，条索紧结，散发着淡淡的清香。这是书生用来提神醒脑的珍贵之物，在苦读时泡上一杯，能驱散困意。",
+                  "level": 3,
+                  "parent_path": "书生/随身锦囊/一小包茶叶",
+                  "theme": "书生的内容",
+                  "position": "包裹在油纸包的中心",
+                  "attributes": {
+                    "material": "植物（茶叶）",
+                    "color": "翠绿色",
+                    "size": "少量，约够冲泡两三次",
+                    "condition": "干燥，保存完好"
+                  },
+                  "node_id": "82c03c2c",
+                  "full_path": "书生/随身锦囊/一小包茶叶/茶叶",
+                  "material": "植物（茶叶）",
+                  "color": "翠绿色",
+                  "size": "少量，约够冲泡两三次",
+                  "condition": "干燥，保存完好"
+                },
+                {
+                  "name": "油纸包",
+                  "node_type": "container",
+                  "description": "一张防潮的油纸，被仔细地折叠包裹成一个小方包，用以保护内部珍贵的茶叶不受潮气影响。纸包表面可能留有茶叶铺的印记或简单的折痕。",
+                  "level": 3,
+                  "parent_path": "书生/随身锦囊/一小包茶叶",
+                  "theme": "书生的内容",
+                  "position": "包裹着茶叶的外部",
+                  "attributes": {
+                    "material": "油纸",
+                    "color": "浅黄色或褐色",
+                    "size": "手掌心大小",
+                    "condition": "略有皱褶，但完整"
+                  },
+                  "node_id": "f2dda24e",
+                  "full_path": "书生/随身锦囊/一小包茶叶/油纸包",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "细麻绳",
+                  "node_type": "item",
+                  "description": "一根细细的麻绳，用来捆扎油纸包，防止其散开。绳结打得简单而牢固，体现了打包时的细心。",
+                  "level": 3,
+                  "parent_path": "书生/随身锦囊/一小包茶叶",
+                  "theme": "书生的内容",
+                  "position": "缠绕并系紧油纸包",
+                  "attributes": {
+                    "material": "麻",
+                    "color": "原麻色或浅棕色",
+                    "size": "长约20厘米",
+                    "condition": "整洁，无磨损"
+                  },
+                  "node_id": "eeec0be8",
+                  "full_path": "书生/随身锦囊/一小包茶叶/细麻绳",
+                  "material": "麻",
+                  "color": "原麻色或浅棕色",
+                  "size": "长约20厘米",
+                  "condition": "整洁，无磨损"
+                }
+              ],
+              "item_count": 2,
+              "container_count": 2
+            },
+            {
+              "name": "一把小钥匙",
+              "node_type": "item",
+              "description": "一把黄铜小钥匙，可能是用来开启书桌抽屉或某个小箱子的。",
+              "level": 2,
+              "parent_path": "书生/随身锦囊",
+              "theme": "书生的内容",
+              "position": "用细绳系着，单独放置以防丢失",
+              "attributes": {
+                "material": "黄铜",
+                "color": "铜黄色",
+                "size": "很小",
+                "condition": "略有氧化"
+              },
+              "node_id": "32d13ec5",
+              "full_path": "书生/随身锦囊/一把小钥匙",
+              "material": "黄铜",
+              "color": "铜黄色",
+              "size": "很小",
+              "condition": "略有氧化"
+            },
+            {
+              "name": "一张折叠的信笺",
+              "node_type": "item",
+              "description": "一张折叠整齐的信笺，上面可能抄录了某位先贤的格言、一首激励自己的诗，或是家人的简短嘱咐。",
+              "level": 2,
+              "parent_path": "书生/随身锦囊",
+              "theme": "书生的内容",
+              "position": "平整地叠放在锦囊内",
+              "attributes": {
+                "material": "宣纸",
+                "color": "微黄",
+                "size": "小",
+                "condition": "边缘略有磨损，但字迹清晰"
+              },
+              "node_id": "c66ff096",
+              "full_path": "书生/随身锦囊/一张折叠的信笺",
+              "material": "宣纸",
+              "color": "微黄",
+              "size": "小",
+              "condition": "边缘略有磨损，但字迹清晰"
+            }
+          ],
+          "item_count": 6,
+          "container_count": 3
+        },
+        {
+          "name": "专注的神情",
+          "node_type": "container",
+          "description": "书生全神贯注于经义之中，眉头微蹙，眼神紧盯着文字，完全沉浸在学问的世界里，对外界干扰浑然不觉。这体现了他为科举苦读的专注氛围。",
+          "level": 1,
+          "parent_path": "书生",
+          "theme": "书生的内容",
+          "position": "体现在书生的面部和姿态上",
+          "attributes": {
+            "material": "无",
+            "color": "无",
+            "size": "无",
+            "condition": "高度集中"
+          },
+          "node_id": "98e72214",
+          "full_path": "书生/专注的神情",
+          "container_type": "abstract",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "紧蹙的眉头",
+              "node_type": "item",
+              "description": "书生因深入思考经义中的疑难问题而不自觉地皱起眉头，形成几道浅浅的纹路，显示出他内心的专注与思索的深度。",
+              "level": 2,
+              "parent_path": "书生/专注的神情",
+              "theme": "书生的内容",
+              "position": "位于书生前额下方，双眼上方。",
+              "attributes": {
+                "material": "皮肤",
+                "color": "肤色",
+                "size": "细微的纹路",
+                "condition": "因专注思考而自然形成"
+              },
+              "node_id": "f4864411",
+              "full_path": "书生/专注的神情/紧蹙的眉头",
+              "material": "皮肤",
+              "color": "肤色",
+              "size": "细微的纹路",
+              "condition": "因专注思考而自然形成"
+            },
+            {
+              "name": "凝视的目光",
+              "node_type": "item",
+              "description": "书生的眼神紧紧锁定在书页的文字上，目光如炬，仿佛要将每一个字的含义都吸入脑海，完全不受外界月光或声响的干扰。",
+              "level": 2,
+              "parent_path": "书生/专注的神情",
+              "theme": "书生的内容",
+              "position": "聚焦于桌面的书页之上。",
+              "attributes": {
+                "material": "生物特征",
+                "color": "深色瞳孔",
+                "size": "专注的视线范围",
+                "condition": "高度集中，纹丝不动"
+              },
+              "node_id": "1722860e",
+              "full_path": "书生/专注的神情/凝视的目光",
+              "material": "生物特征",
+              "color": "深色瞳孔",
+              "size": "专注的视线范围",
+              "condition": "高度集中，纹丝不动"
+            },
+            {
+              "name": "微动的嘴唇",
+              "node_type": "item",
+              "description": "书生在默读或轻声吟诵经文，嘴唇轻微开合，却几乎不发出声音，这是古代读书人常见的“默诵”习惯，有助于记忆和理解。",
+              "level": 2,
+              "parent_path": "书生/专注的神情",
+              "theme": "书生的内容",
+              "position": "位于面部鼻子下方。",
+              "attributes": {
+                "material": "皮肤与肌肉",
+                "color": "自然唇色",
+                "size": "细微的动作",
+                "condition": "持续、低频率地默念"
+              },
+              "node_id": "a190d7bf",
+              "full_path": "书生/专注的神情/微动的嘴唇",
+              "material": "皮肤与肌肉",
+              "color": "自然唇色",
+              "size": "细微的动作",
+              "condition": "持续、低频率地默念"
+            },
+            {
+              "name": "挺直的脊背",
+              "node_type": "item",
+              "description": "尽管久坐，书生仍保持着端正的坐姿，脊背挺直不倚靠，这既是读书人的礼仪要求，也反映了其沉浸学习时自内而外的认真姿态。",
+              "level": 2,
+              "parent_path": "书生/专注的神情",
+              "theme": "书生的内容",
+              "position": "支撑着整个上半身，位于座椅之上。",
+              "attributes": {
+                "material": "身体骨骼与肌肉",
+                "color": "被衣物遮盖",
+                "size": "端正的坐姿轮廓",
+                "condition": "紧绷而专注，略显疲惫但坚持"
+              },
+              "node_id": "e832061e",
+              "full_path": "书生/专注的神情/挺直的脊背",
+              "material": "身体骨骼与肌肉",
+              "color": "被衣物遮盖",
+              "size": "端正的坐姿轮廓",
+              "condition": "紧绷而专注，略显疲惫但坚持"
+            },
+            {
+              "name": "持书的手",
+              "node_type": "container",
+              "description": "书生的一只手稳稳地扶着或压着书页的边缘，防止书页合拢或翻动，手指可能因用力而微微发白，动作稳定而持久。",
+              "level": 2,
+              "parent_path": "书生/专注的神情",
+              "theme": "书生的内容",
+              "position": "放置在摊开的书册一侧。",
+              "attributes": {
+                "material": "皮肤、骨骼",
+                "color": "肤色",
+                "size": "成年男子的手",
+                "condition": "稳定，略有紧绷"
+              },
+              "node_id": "849eddc4",
+              "full_path": "书生/专注的神情/持书的手",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "书页",
+                  "node_type": "item",
+                  "description": "被手压住的书页边缘，纸张是泛黄的宣纸或竹纸，上面用毛笔写着工整的楷书或行书，内容可能是四书五经或策论文章。月光下，墨迹清晰可见。",
+                  "level": 3,
+                  "parent_path": "书生/专注的神情/持书的手",
+                  "theme": "书生的内容",
+                  "position": "被书生的手指稳稳地压在桌面上，位于书本的当前阅读页。",
+                  "attributes": {
+                    "material": "宣纸/竹纸",
+                    "color": "泛黄",
+                    "size": "书本单页大小",
+                    "condition": "平整，边缘因按压而略有褶皱"
+                  },
+                  "node_id": "eaf2bc13",
+                  "full_path": "书生/专注的神情/持书的手/书页",
+                  "material": "宣纸/竹纸",
+                  "color": "泛黄",
+                  "size": "书本单页大小",
+                  "condition": "平整，边缘因按压而略有褶皱"
+                },
+                {
+                  "name": "手指",
+                  "node_type": "container",
+                  "description": "书生的几根手指（可能是食指、中指和拇指）具体执行按压动作的部分。指节分明，因持续用力按压书页而显得稳定，指尖可能因用力而颜色略淡。指甲修剪整齐，干净。",
+                  "level": 3,
+                  "parent_path": "书生/专注的神情/持书的手",
+                  "theme": "书生的内容",
+                  "position": "接触并按压在书页的边缘。",
+                  "attributes": {
+                    "material": "皮肤",
+                    "color": "肤色，指尖因压力微微发白",
+                    "size": "正常成人手指大小",
+                    "condition": "稳定，略有用力痕迹"
+                  },
+                  "node_id": "9887baad",
+                  "full_path": "书生/专注的神情/持书的手/手指",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "袖口",
+                  "node_type": "container",
+                  "description": "书生所穿直裰或深衣的袖口，可能是素色棉布或麻布材质。因手臂前伸压书，袖口自然垂落，可能轻轻搭在书本或桌面上。",
+                  "level": 3,
+                  "parent_path": "书生/专注的神情/持书的手",
+                  "theme": "书生的内容",
+                  "position": "环绕在手腕处，部分覆盖手背。",
+                  "attributes": {
+                    "material": "棉布/麻布",
+                    "color": "青色、蓝色或灰色等素色",
+                    "size": "常规袖口大小",
+                    "condition": "整洁，略有磨损"
+                  },
+                  "node_id": "cf4054b9",
+                  "full_path": "书生/专注的神情/持书的手/袖口",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                }
+              ],
+              "item_count": 1,
+              "container_count": 3
+            }
+          ],
+          "item_count": 5,
+          "container_count": 4
+        }
+      ],
+      "item_count": 34,
+      "container_count": 21
+    },
+    {
+      "name": "书桌",
+      "node_type": "container",
+      "description": "一张宽大的榆木书桌，桌面略有磨损，显示出长期使用的痕迹，是书生学习和书写的核心区域。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "书桌的内容",
+      "position": "书房中央，靠窗摆放",
+      "attributes": {
+        "material": "榆木",
+        "color": "深棕色",
+        "size": "较大，可供铺展卷轴",
+        "condition": "整洁但布满使用痕迹"
+      },
+      "node_id": "1ec54898",
+      "full_path": "书桌",
+      "container_type": "physical",
+      "is_expanded": true,
+      "children": [
+        {
+          "name": "四书五经",
+          "node_type": "container",
+          "description": "一摞线装书籍，包括《大学》、《中庸》、《论语》、《孟子》以及《诗经》、《尚书》等科举必考经典，书页因反复翻阅而微微卷边，部分书脊有磨损。",
+          "level": 1,
+          "parent_path": "书桌",
+          "theme": "书桌的内容",
+          "position": "堆叠在书桌的左上角，靠近窗台，方便取阅。",
+          "attributes": {
+            "material": "宣纸、棉线、硬纸板封面",
+            "color": "封面多为靛蓝或深褐色，内页泛黄",
+            "size": "大小不一，多为16开或32开线装本",
+            "condition": "有使用痕迹，但保存尚好"
+          },
+          "node_id": "3eadda1d",
+          "full_path": "书桌/四书五经",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "《大学》",
+              "node_type": "item",
+              "description": "《四书》之一，朱熹编定的《四书章句集注》版本。书页上有书生用朱笔圈点的痕迹和蝇头小楷的批注，内容是关于“格物致知”、“修身齐家”的论述。",
+              "level": 2,
+              "parent_path": "书桌/四书五经",
+              "theme": "书桌的内容",
+              "position": "位于书摞的上层或中层，因常被翻阅而较为显眼。",
+              "attributes": {
+                "material": "宣纸、棉线装订",
+                "color": "纸张泛黄，封面为深蓝色或青色布面",
+                "size": "约20cm x 15cm，线装本",
+                "condition": "书页卷边，边角有磨损，内有大量阅读笔记"
+              },
+              "node_id": "96cd76f5",
+              "full_path": "书桌/四书五经/《大学》",
+              "material": "宣纸、棉线装订",
+              "color": "纸张泛黄，封面为深蓝色或青色布面",
+              "size": "约20cm x 15cm，线装本",
+              "condition": "书页卷边，边角有磨损，内有大量阅读笔记"
+            },
+            {
+              "name": "《中庸》",
+              "node_type": "item",
+              "description": "《四书》之一，同样为朱熹集注本。书页相对较新，但关键段落旁有墨笔划的重点线，显示书生正在重点研读“中和”、“诚明”等概念。",
+              "level": 2,
+              "parent_path": "书桌/四书五经",
+              "theme": "书桌的内容",
+              "position": "与《大学》叠放在一起。",
+              "attributes": {
+                "material": "宣纸、棉线装订",
+                "color": "封面为褐色或灰色布面",
+                "size": "约20cm x 15cm，线装本",
+                "condition": "有翻阅痕迹，内有划线批注"
+              },
+              "node_id": "49673a1a",
+              "full_path": "书桌/四书五经/《中庸》",
+              "material": "宣纸、棉线装订",
+              "color": "封面为褐色或灰色布面",
+              "size": "约20cm x 15cm，线装本",
+              "condition": "有翻阅痕迹，内有划线批注"
+            },
+            {
+              "name": "《论语》",
+              "node_type": "item",
+              "description": "《四书》之一，书生的启蒙和常备经典。书脊磨损最为严重，内页遍布不同时期的笔记，从稚嫩的笔迹到如今较为工整的楷书，记录着书生的成长。",
+              "level": 2,
+              "parent_path": "书桌/四书五经",
+              "theme": "书桌的内容",
+              "position": "可能位于书摞的中下层，因最旧最厚而显得扎实。",
+              "attributes": {
+                "material": "宣纸、棉线装订",
+                "color": "封面颜色已褪，呈暗黄色或浅褐色",
+                "size": "稍厚，约20cm x 15cm",
+                "condition": "书脊开裂，用细线重新加固过，书页严重卷边泛黄"
+              },
+              "node_id": "926f4f44",
+              "full_path": "书桌/四书五经/《论语》",
+              "material": "宣纸、棉线装订",
+              "color": "封面颜色已褪，呈暗黄色或浅褐色",
+              "size": "稍厚，约20cm x 15cm",
+              "condition": "书脊开裂，用细线重新加固过，书页严重卷边泛黄"
+            },
+            {
+              "name": "《孟子》",
+              "node_type": "item",
+              "description": "《四书》之一。书页间夹着几张用作书签的干枯竹叶或纸条，标记着关于“性善”、“养气”等科举常考篇章。",
+              "level": 2,
+              "parent_path": "书桌/四书五经",
+              "theme": "书桌的内容",
+              "position": "与《论语》相邻。",
+              "attributes": {
+                "material": "宣纸、棉线装订",
+                "color": "封面为深绿色或蓝色布面",
+                "size": "约20cm x 15cm，线装本",
+                "condition": "有正常使用磨损，书内有自制书签"
+              },
+              "node_id": "0506af4a",
+              "full_path": "书桌/四书五经/《孟子》",
+              "material": "宣纸、棉线装订",
+              "color": "封面为深绿色或蓝色布面",
+              "size": "约20cm x 15cm，线装本",
+              "condition": "有正常使用磨损，书内有自制书签"
+            },
+            {
+              "name": "《诗经》",
+              "node_type": "item",
+              "description": "《五经》之一，毛诗注本。不仅用于科举，书生偶尔也会在疲累时轻声诵读其中的风雅篇章。书角有轻微的水渍痕迹（可能是茶渍或雨水）。",
+              "level": 2,
+              "parent_path": "书桌/四书五经",
+              "theme": "书桌的内容",
+              "position": "位于这摞书的下层或另一侧。",
+              "attributes": {
+                "material": "宣纸、棉线装订",
+                "color": "封面为浅灰色或米白色布面",
+                "size": "约20cm x 15cm，线装本",
+                "condition": "书页有轻微水渍和卷边"
+              },
+              "node_id": "4faf7b07",
+              "full_path": "书桌/四书五经/《诗经》",
+              "material": "宣纸、棉线装订",
+              "color": "封面为浅灰色或米白色布面",
+              "size": "约20cm x 15cm，线装本",
+              "condition": "书页有轻微水渍和卷边"
+            },
+            {
+              "name": "《尚书》",
+              "node_type": "item",
+              "description": "《五经》之一，内容艰深古奥。书页空白处有书生用细小字迹做的释义和考证笔记，显得格外认真。",
+              "level": 2,
+              "parent_path": "书桌/四书五经",
+              "theme": "书桌的内容",
+              "position": "与《诗经》叠放在一起，因较少翻阅而相对平整。",
+              "attributes": {
+                "material": "宣纸、棉线装订",
+                "color": "封面为玄色（黑中带红）布面",
+                "size": "约20cm x 15cm，线装本",
+                "condition": "相对较新，但内页笔记密集"
+              },
+              "node_id": "15b35efe",
+              "full_path": "书桌/四书五经/《尚书》",
+              "material": "宣纸、棉线装订",
+              "color": "封面为玄色（黑中带红）布面",
+              "size": "约20cm x 15cm，线装本",
+              "condition": "相对较新，但内页笔记密集"
+            },
+            {
+              "name": "科举范文集",
+              "node_type": "container",
+              "description": "一本手抄或坊间刻印的八股文范文选集，收录了历届科举优秀答卷。这是书生模拟练习和揣摩“圣贤口气”的重要参考，比正经经典翻阅得更频繁。",
+              "level": 2,
+              "parent_path": "书桌/四书五经",
+              "theme": "书桌的内容",
+              "position": "可能单独放在这摞书的顶部，方便随时取用。",
+              "attributes": {
+                "material": "竹纸或品质稍差的纸张，线装或简易装订",
+                "color": "封面简陋，可能是黄色或褐色纸皮",
+                "size": "尺寸不一，可能略小",
+                "condition": "书页松散，边缘脏污，满是折痕和标记"
+              },
+              "node_id": "55c809c2",
+              "full_path": "书桌/四书五经/科举范文集",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "《成化十一年会试墨卷》",
+                  "node_type": "container",
+                  "description": "一本收录了成化十一年会试优秀答卷的范文集，书页边缘因频繁翻阅而微微卷曲、发黑。首页有书生用朱笔圈点的痕迹，重点段落旁写有“破题精妙”、“承转自然”等批注。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/科举范文集",
+                  "theme": "书桌的内容",
+                  "position": "夹在范文集中部，因经常参考而位置突出",
+                  "attributes": {
+                    "material": "竹纸，线装",
+                    "color": "纸张泛黄，墨迹深黑，朱批鲜红",
+                    "size": "约一掌宽，两掌长",
+                    "condition": "旧但保存尚可，有明显使用痕迹"
+                  },
+                  "node_id": "2cc6ade3",
+                  "full_path": "书桌/四书五经/科举范文集/《成化十一年会试墨卷》",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《嘉靖八年状元策》",
+                  "node_type": "container",
+                  "description": "单独成册的一本小册子，专门收录了嘉靖八年状元罗洪先的殿试对策文章。被视为“程文”典范，书生对其中的起承转合、引经据典之处反复研读，册子比别的更显破旧。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/科举范文集",
+                  "theme": "书桌的内容",
+                  "position": "位于范文集靠后的部分，用一根褪色的蓝布书签标记着",
+                  "attributes": {
+                    "material": "棉纸，简陋的线订",
+                    "color": "封面为靛蓝色（已褪色），内页深黄",
+                    "size": "较小，便于携带翻阅",
+                    "condition": "非常破旧，书脊有开裂，内页有大量折角和笔记"
+                  },
+                  "node_id": "b975bade",
+                  "full_path": "书桌/四书五经/科举范文集/《嘉靖八年状元策》",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "书生习作草稿",
+                  "node_type": "item",
+                  "description": "几张夹在范文集里的毛边纸，上面是书生模仿范文风格练习的八股文草稿。字迹时而工整时而潦草，有大量涂改和替换词句的痕迹，反映了其揣摩和练习的过程。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/科举范文集",
+                  "theme": "书桌的内容",
+                  "position": "松散地夹在不同范文篇章之间",
+                  "attributes": {
+                    "material": "毛边纸",
+                    "color": "纸张原色，墨迹灰黑",
+                    "size": "不规则尺寸",
+                    "condition": "皱褶，有墨渍和涂改"
+                  },
+                  "node_id": "e989f285",
+                  "full_path": "书桌/四书五经/科举范文集/书生习作草稿",
+                  "material": "毛边纸",
+                  "color": "纸张原色，墨迹灰黑",
+                  "size": "不规则尺寸",
+                  "condition": "皱褶，有墨渍和涂改"
+                },
+                {
+                  "name": "银朱批注笔",
+                  "node_type": "item",
+                  "description": "一支短小的狼毫笔，笔尖沾有干涸的银朱（朱砂）痕迹。书生专门用来在范文上圈点精彩句子、结构转折处，或写下自己的心得批注。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/科举范文集",
+                  "theme": "书桌的内容",
+                  "position": "横放在翻开的《成化十一年会试墨卷》页面上",
+                  "attributes": {
+                    "material": "竹杆，狼毫笔头",
+                    "color": "竹杆原色，笔头有红色残留",
+                    "size": "短小精致",
+                    "condition": "使用中，笔尖微秃"
+                  },
+                  "node_id": "0682993a",
+                  "full_path": "书桌/四书五经/科举范文集/银朱批注笔",
+                  "material": "竹杆，狼毫笔头",
+                  "color": "竹杆原色，笔头有红色残留",
+                  "size": "短小精致",
+                  "condition": "使用中，笔尖微秃"
+                }
+              ],
+              "item_count": 2,
+              "container_count": 3
+            },
+            {
+              "name": "书生手抄笔记",
+              "node_type": "container",
+              "description": "一叠或数册用麻线粗略装订的毛边纸册子，里面是书生亲手抄录的经典重点、名家注解以及自己的心得体会。是书生心血所在。",
+              "level": 2,
+              "parent_path": "书桌/四书五经",
+              "theme": "书桌的内容",
+              "position": "夹在或放在这摞经典书籍之间。",
+              "attributes": {
+                "material": "毛边纸、麻线",
+                "color": "纸张原色，封面无特别装饰",
+                "size": "小于正式书籍，便于携带和记录",
+                "condition": "纸张粗糙，墨迹新旧不一，频繁使用"
+              },
+              "node_id": "d9ddecb6",
+              "full_path": "书桌/四书五经/书生手抄笔记",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "《四书章句集注》摘抄册",
+                  "node_type": "container",
+                  "description": "一本用毛边纸装订的小册子，专门用于抄录朱熹的《四书章句集注》中的核心章句和注解。字迹工整，部分段落旁有朱笔圈点。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/书生手抄笔记",
+                  "theme": "书桌的内容",
+                  "position": "位于笔记叠的最上方或中间位置",
+                  "attributes": {
+                    "material": "毛边纸、麻线",
+                    "color": "纸张泛黄，墨色黑，朱砂红",
+                    "size": "约手掌大小，厚度约半寸",
+                    "condition": "边角略有磨损，但保存完好"
+                  },
+                  "node_id": "953c5b2a",
+                  "full_path": "书桌/四书五经/书生手抄笔记/《四书章句集注》摘抄册",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《春秋》经传心得札记",
+                  "node_type": "container",
+                  "description": "一册较厚的笔记，内容庞杂。前半部分是按时间顺序抄录的《春秋》经文及《左传》关键事件，后半部分则是书生自己对于“微言大义”和人物褒贬的详细分析和疑问。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/书生手抄笔记",
+                  "theme": "书桌的内容",
+                  "position": "可能压在笔记叠的中下部",
+                  "attributes": {
+                    "material": "毛边纸、麻线",
+                    "color": "纸张颜色深浅不一，墨迹有新有旧",
+                    "size": "稍大，厚度约一寸",
+                    "condition": "翻阅频繁，装订线有些松动"
+                  },
+                  "node_id": "4f5fe718",
+                  "full_path": "书桌/四书五经/书生手抄笔记/《春秋》经传心得札记",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "策论范文与破题技巧集",
+                  "node_type": "container",
+                  "description": "一本专门收集优秀科举策论范文和破题、承题技巧的笔记。里面抄录了历年乡试、会试的优秀答卷片段，以及书院先生讲授的写作要领。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/书生手抄笔记",
+                  "theme": "书桌的内容",
+                  "position": "与其它笔记并列放置",
+                  "attributes": {
+                    "material": "毛边纸、麻线",
+                    "color": "纸张较新，墨迹清晰",
+                    "size": "中等大小，厚度适中",
+                    "condition": "相对较新，是近期重点学习的资料"
+                  },
+                  "node_id": "ff0a4939",
+                  "full_path": "书桌/四书五经/书生手抄笔记/策论范文与破题技巧集",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "诗词佳句与典故摘录",
+                  "node_type": "item",
+                  "description": "并非独立成册，而是分散在各笔记空白处或末尾的补充内容。抄录了经典诗文中的佳句、常用典故和优美对仗，用于丰富文章辞藻。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/书生手抄笔记",
+                  "theme": "书桌的内容",
+                  "position": "散见于各册笔记的边角或附录",
+                  "attributes": {
+                    "material": "墨、纸",
+                    "color": "墨色",
+                    "size": "零散段落",
+                    "condition": "字迹有时匆忙，但内容珍贵"
+                  },
+                  "node_id": "ab9acbe2",
+                  "full_path": "书桌/四书五经/书生手抄笔记/诗词佳句与典故摘录",
+                  "material": "墨、纸",
+                  "color": "墨色",
+                  "size": "零散段落",
+                  "condition": "字迹有时匆忙，但内容珍贵"
+                },
+                {
+                  "name": "自拟试题与模拟答卷",
+                  "node_type": "item",
+                  "description": "几页单独夹在笔记中的毛边纸，上面是书生自己拟定的模拟试题以及尝试撰写的答卷草稿。可见修改涂抹的痕迹。",
+                  "level": 3,
+                  "parent_path": "书桌/四书五经/书生手抄笔记",
+                  "theme": "书桌的内容",
+                  "position": "夹在《策论范文与破题技巧集》或最常用的笔记中",
+                  "attributes": {
+                    "material": "毛边纸",
+                    "color": "纸张较白，墨迹凌乱",
+                    "size": "单页或数页",
+                    "condition": "褶皱较多，有反复修改的痕迹"
+                  },
+                  "node_id": "4fd735f2",
+                  "full_path": "书桌/四书五经/书生手抄笔记/自拟试题与模拟答卷",
+                  "material": "毛边纸",
+                  "color": "纸张较白，墨迹凌乱",
+                  "size": "单页或数页",
+                  "condition": "褶皱较多，有反复修改的痕迹"
+                }
+              ],
+              "item_count": 2,
+              "container_count": 4
+            }
+          ],
+          "item_count": 10,
+          "container_count": 8
+        },
+        {
+          "name": "文房四宝",
+          "node_type": "container",
+          "description": "一套完整的书写工具，是书生每日研墨挥毫的必需品，整齐地摆放在桌面中央靠前的位置。",
+          "level": 1,
+          "parent_path": "书桌",
+          "theme": "书桌的内容",
+          "position": "位于桌面中央偏右，砚台居中，笔架、笔洗、墨锭、纸张环绕。",
+          "attributes": {
+            "material": "多种（石材、竹木、动物毛、宣纸等）",
+            "color": "多为天然材质颜色，如青黑、原木色、白色",
+            "size": "中等，适合桌面摆放",
+            "condition": "常用，但维护良好"
+          },
+          "node_id": "d6b0f1b3",
+          "full_path": "书桌/文房四宝",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "毛笔",
+              "node_type": "item",
+              "description": "一支制作精良的毛笔，笔杆由湘妃竹制成，笔头为精选的狼毫，笔尖聚拢，是书生日常书写和练习书法的主要工具。通常放置在笔搁或笔山上。",
+              "level": 2,
+              "parent_path": "书桌/文房四宝",
+              "theme": "书桌的内容",
+              "position": "文房四宝组合中，通常位于砚台右侧或前方。",
+              "attributes": {
+                "material": "湘妃竹、狼毫",
+                "color": "笔杆为黄褐色带斑点，笔头为深棕色",
+                "size": "中等长度，约一尺",
+                "condition": "笔尖略有磨损，但保养得当，干净整洁"
+              },
+              "node_id": "602dc320",
+              "full_path": "书桌/文房四宝/毛笔",
+              "material": "湘妃竹、狼毫",
+              "color": "笔杆为黄褐色带斑点，笔头为深棕色",
+              "size": "中等长度，约一尺",
+              "condition": "笔尖略有磨损，但保养得当，干净整洁"
+            },
+            {
+              "name": "墨锭",
+              "node_type": "item",
+              "description": "一块长方形的松烟墨锭，表面有精美的金色花纹装饰和“金不换”字样铭文。需要配合砚台和水研磨使用，散发出淡淡的墨香。",
+              "level": 2,
+              "parent_path": "书桌/文房四宝",
+              "theme": "书桌的内容",
+              "position": "通常置于砚台旁边或专门的墨床上。",
+              "attributes": {
+                "material": "松烟、胶",
+                "color": "漆黑色，带有金色纹饰",
+                "size": "长约三寸，宽约一寸",
+                "condition": "棱角分明，使用痕迹明显，一端因研磨而略显圆润"
+              },
+              "node_id": "9f41c9c4",
+              "full_path": "书桌/文房四宝/墨锭",
+              "material": "松烟、胶",
+              "color": "漆黑色，带有金色纹饰",
+              "size": "长约三寸，宽约一寸",
+              "condition": "棱角分明，使用痕迹明显，一端因研磨而略显圆润"
+            },
+            {
+              "name": "宣纸",
+              "node_type": "container",
+              "description": "一叠质地细腻、吸水性好的宣纸，是书生用于书写文章、练习书法或绘制小幅画作的载体。纸张洁白，边缘裁切整齐。",
+              "level": 2,
+              "parent_path": "书桌/文房四宝",
+              "theme": "书桌的内容",
+              "position": "通常叠放在砚台和毛笔的后方或左侧。",
+              "attributes": {
+                "material": "青檀树皮等植物纤维",
+                "color": "米白色",
+                "size": "约一尺见方",
+                "condition": "平整，最上面几张略有卷边"
+              },
+              "node_id": "2804be09",
+              "full_path": "书桌/文房四宝/宣纸",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "已书写的文章草稿",
+                  "node_type": "item",
+                  "description": "一张写满工整小楷的宣纸，上面是书生为科举考试准备的策论文章草稿，字迹清秀，偶有修改涂抹的痕迹。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/宣纸",
+                  "theme": "书桌的内容",
+                  "position": "位于宣纸叠的顶部或中间位置",
+                  "attributes": {
+                    "material": "宣纸、墨",
+                    "color": "纸张为白色，墨迹为黑色",
+                    "size": "标准宣纸尺寸",
+                    "condition": "已使用，略有褶皱"
+                  },
+                  "node_id": "e9a0228e",
+                  "full_path": "书桌/文房四宝/宣纸/已书写的文章草稿",
+                  "material": "宣纸、墨",
+                  "color": "纸张为白色，墨迹为黑色",
+                  "size": "标准宣纸尺寸",
+                  "condition": "已使用，略有褶皱"
+                },
+                {
+                  "name": "临摹的字帖",
+                  "node_type": "item",
+                  "description": "一张用于练习书法的宣纸，上面是书生临摹的某位书法名家（如王羲之、颜真卿）的字帖，笔画结构尚在揣摩阶段。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/宣纸",
+                  "theme": "书桌的内容",
+                  "position": "可能夹在宣纸叠中",
+                  "attributes": {
+                    "material": "宣纸、墨",
+                    "color": "白色纸张，黑色墨迹",
+                    "size": "标准宣纸尺寸",
+                    "condition": "已使用，墨迹未干透"
+                  },
+                  "node_id": "ed04c344",
+                  "full_path": "书桌/文房四宝/宣纸/临摹的字帖",
+                  "material": "宣纸、墨",
+                  "color": "白色纸张，黑色墨迹",
+                  "size": "标准宣纸尺寸",
+                  "condition": "已使用，墨迹未干透"
+                },
+                {
+                  "name": "空白宣纸",
+                  "node_type": "item",
+                  "description": "数张完全空白的宣纸，质地均匀，等待被用于书写新的文章或练习。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/宣纸",
+                  "theme": "书桌的内容",
+                  "position": "位于宣纸叠的中下部，数量最多",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "洁白",
+                    "size": "标准宣纸尺寸",
+                    "condition": "崭新，平整"
+                  },
+                  "node_id": "92484a9c",
+                  "full_path": "书桌/文房四宝/宣纸/空白宣纸",
+                  "material": "宣纸",
+                  "color": "洁白",
+                  "size": "标准宣纸尺寸",
+                  "condition": "崭新，平整"
+                },
+                {
+                  "name": "小幅水墨画练习",
+                  "node_type": "item",
+                  "description": "一张绘有简单水墨画（如竹石、山水小品）的宣纸，笔法虽显稚嫩，但意境清雅，是书生读书间隙的消遣之作。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/宣纸",
+                  "theme": "书桌的内容",
+                  "position": "可能位于宣纸叠底部",
+                  "attributes": {
+                    "material": "宣纸、墨、水",
+                    "color": "黑白水墨，淡雅",
+                    "size": "小幅",
+                    "condition": "墨迹已干，画面完整"
+                  },
+                  "node_id": "91910a04",
+                  "full_path": "书桌/文房四宝/宣纸/小幅水墨画练习",
+                  "material": "宣纸、墨、水",
+                  "color": "黑白水墨，淡雅",
+                  "size": "小幅",
+                  "condition": "墨迹已干，画面完整"
+                },
+                {
+                  "name": "试笔的废纸",
+                  "node_type": "item",
+                  "description": "一两张被随意涂画或试笔的宣纸，上面有墨点、笔画或不成句的字，显示出书生在调整笔锋或墨量时的痕迹。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/宣纸",
+                  "theme": "书桌的内容",
+                  "position": "可能夹杂在宣纸叠中或单独放在一边",
+                  "attributes": {
+                    "material": "宣纸、墨",
+                    "color": "杂乱墨迹",
+                    "size": "标准或裁剪后的小片",
+                    "condition": "废弃，有皱褶"
+                  },
+                  "node_id": "5f3fcac0",
+                  "full_path": "书桌/文房四宝/宣纸/试笔的废纸",
+                  "material": "宣纸、墨",
+                  "color": "杂乱墨迹",
+                  "size": "标准或裁剪后的小片",
+                  "condition": "废弃，有皱褶"
+                }
+              ],
+              "item_count": 5,
+              "container_count": 1
+            },
+            {
+              "name": "砚台",
+              "node_type": "container",
+              "description": "一方端石制成的砚台，造型古朴，砚堂平整，墨池较深。砚台边缘雕刻有简单的云纹，是研墨和盛放墨汁的容器。",
+              "level": 2,
+              "parent_path": "书桌/文房四宝",
+              "theme": "书桌的内容",
+              "position": "文房四宝组合的中心或靠前位置。",
+              "attributes": {
+                "material": "端溪石",
+                "color": "紫褐色带石眼",
+                "size": "长约五寸，宽约三寸",
+                "condition": "砚堂内残留有少许干涸的墨迹，整体洁净"
+              },
+              "node_id": "080753ac",
+              "full_path": "书桌/文房四宝/砚台",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "墨块",
+                  "node_type": "item",
+                  "description": "一块上好的松烟墨，呈长方形条状，表面光滑，带有淡淡的松香。书生正在使用它研墨。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/砚台",
+                  "theme": "书桌的内容",
+                  "position": "放置在砚台的砚堂上，一端浸在墨池边缘的水中。",
+                  "attributes": {
+                    "material": "松烟、胶",
+                    "color": "深黑色，表面有光泽",
+                    "size": "长约三寸，宽约一寸",
+                    "condition": "使用中，一端已被研磨"
+                  },
+                  "node_id": "aa883558",
+                  "full_path": "书桌/文房四宝/砚台/墨块",
+                  "material": "松烟、胶",
+                  "color": "深黑色，表面有光泽",
+                  "size": "长约三寸，宽约一寸",
+                  "condition": "使用中，一端已被研磨"
+                },
+                {
+                  "name": "墨汁",
+                  "node_type": "item",
+                  "description": "新研磨出的墨汁，色泽乌黑发亮，浓度适中，散发着墨香。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/砚台",
+                  "theme": "书桌的内容",
+                  "position": "盛放在砚台较深的墨池中。",
+                  "attributes": {
+                    "material": "水与墨的混合物",
+                    "color": "乌黑",
+                    "size": "约半池",
+                    "condition": "液态，新鲜研磨"
+                  },
+                  "node_id": "6361bc2e",
+                  "full_path": "书桌/文房四宝/砚台/墨汁",
+                  "material": "水与墨的混合物",
+                  "color": "乌黑",
+                  "size": "约半池",
+                  "condition": "液态，新鲜研磨"
+                },
+                {
+                  "name": "水盂",
+                  "node_type": "container",
+                  "description": "一个配套的小巧瓷质水盂，用于盛放研墨所需的清水。造型简洁，与砚台风格相配。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/砚台",
+                  "theme": "书桌的内容",
+                  "position": "紧挨着砚台右侧放置。",
+                  "attributes": {
+                    "material": "白瓷",
+                    "color": "白色",
+                    "size": "小巧，口径约两寸",
+                    "condition": "洁净"
+                  },
+                  "node_id": "c3f95a06",
+                  "full_path": "书桌/文房四宝/砚台/水盂",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "笔舔",
+                  "node_type": "item",
+                  "description": "一块扁平的瓷片或玉片，用于理顺毛笔笔锋、刮去多余墨汁。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/砚台",
+                  "theme": "书桌的内容",
+                  "position": "放置在砚台左侧或前方。",
+                  "attributes": {
+                    "material": "青瓷",
+                    "color": "青灰色",
+                    "size": "巴掌大小",
+                    "condition": "表面沾有少许墨渍"
+                  },
+                  "node_id": "f90b18e4",
+                  "full_path": "书桌/文房四宝/砚台/笔舔",
+                  "material": "青瓷",
+                  "color": "青灰色",
+                  "size": "巴掌大小",
+                  "condition": "表面沾有少许墨渍"
+                }
+              ],
+              "item_count": 3,
+              "container_count": 2
+            },
+            {
+              "name": "笔洗",
+              "node_type": "container",
+              "description": "一个小巧的陶瓷笔洗，用于盛水以润笔或清洗毛笔。器形简洁，釉色温润，是保持毛笔洁净的重要工具。",
+              "level": 2,
+              "parent_path": "书桌/文房四宝",
+              "theme": "书桌的内容",
+              "position": "通常位于砚台或毛笔的侧方。",
+              "attributes": {
+                "material": "青白瓷",
+                "color": "月白色",
+                "size": "口径约三寸",
+                "condition": "内有半池清水，清澈见底"
+              },
+              "node_id": "c27f175f",
+              "full_path": "书桌/文房四宝/笔洗",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "清水",
+                  "node_type": "item",
+                  "description": "笔洗中盛放的清水，用于润湿毛笔笔尖或清洗笔头上的墨迹。水质清澈，在月光下微微泛着光。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/笔洗",
+                  "theme": "书桌的内容",
+                  "position": "盛于笔洗内部",
+                  "attributes": {
+                    "material": "水",
+                    "color": "透明",
+                    "size": "约半满",
+                    "condition": "洁净，略有墨色晕染"
+                  },
+                  "node_id": "5a2adbad",
+                  "full_path": "书桌/文房四宝/笔洗/清水",
+                  "material": "水",
+                  "color": "透明",
+                  "size": "约半满",
+                  "condition": "洁净，略有墨色晕染"
+                },
+                {
+                  "name": "墨渍",
+                  "node_type": "item",
+                  "description": "清洗毛笔后残留的淡淡墨渍，如烟云般在水中缓慢扩散，为清水增添了一丝书卷气。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/笔洗",
+                  "theme": "书桌的内容",
+                  "position": "漂浮或溶解于笔洗的清水中",
+                  "attributes": {
+                    "material": "墨",
+                    "color": "淡黑色",
+                    "size": "微小，逐渐扩散",
+                    "condition": "新鲜，未完全沉淀"
+                  },
+                  "node_id": "b3961b5e",
+                  "full_path": "书桌/文房四宝/笔洗/墨渍",
+                  "material": "墨",
+                  "color": "淡黑色",
+                  "size": "微小，逐渐扩散",
+                  "condition": "新鲜，未完全沉淀"
+                }
+              ],
+              "item_count": 2,
+              "container_count": 1
+            },
+            {
+              "name": "笔搁",
+              "node_type": "item",
+              "description": "一个山形或桥形的瓷质或木制笔搁，用于暂时搁置蘸满墨汁的毛笔，防止墨汁污损书桌或纸张。",
+              "level": 2,
+              "parent_path": "书桌/文房四宝",
+              "theme": "书桌的内容",
+              "position": "通常放置在毛笔和砚台之间。",
+              "attributes": {
+                "material": "酸枝木",
+                "color": "深红褐色",
+                "size": "小巧，长约两寸",
+                "condition": "表面光滑，有一处墨点痕迹"
+              },
+              "node_id": "00623b54",
+              "full_path": "书桌/文房四宝/笔搁",
+              "material": "酸枝木",
+              "color": "深红褐色",
+              "size": "小巧，长约两寸",
+              "condition": "表面光滑，有一处墨点痕迹"
+            },
+            {
+              "name": "水滴（水注）",
+              "node_type": "container",
+              "description": "一个小巧的铜制或瓷制水注，用于向砚台中滴水以控制研墨的浓度。造型可能为蟾蜍、乌龟等祥瑞形状，带有小孔。",
+              "level": 2,
+              "parent_path": "书桌/文房四宝",
+              "theme": "书桌的内容",
+              "position": "靠近砚台和笔洗。",
+              "attributes": {
+                "material": "黄铜",
+                "color": "古铜色",
+                "size": "小巧，可握于掌心",
+                "condition": "表面有包浆，略有氧化"
+              },
+              "node_id": "7a8a8d8e",
+              "full_path": "书桌/文房四宝/水滴（水注）",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "铜制蟾蜍水滴",
+                  "node_type": "container",
+                  "description": "一个精巧的铜制水滴，整体造型是一只蹲伏的蟾蜍，背部有一个用于注水的小孔，嘴部有一个细小的出水口。蟾蜍造型栩栩如生，寓意“蟾宫折桂”，寄托了书生对科举高中的美好愿望。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/水滴（水注）",
+                  "theme": "书桌的内容",
+                  "position": "放置在砚台旁边，方便取用。",
+                  "attributes": {
+                    "material": "黄铜",
+                    "color": "暗金色，带有使用产生的温润包浆",
+                    "size": "小巧，长约两寸，高约一寸",
+                    "condition": "保存完好，略有使用痕迹"
+                  },
+                  "node_id": "d678b9d0",
+                  "full_path": "书桌/文房四宝/水滴（水注）/铜制蟾蜍水滴",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "瓷制龟形水滴",
+                  "node_type": "container",
+                  "description": "一个素雅的青白瓷水滴，造型为一只昂首的乌龟，龟壳为注水口，龟嘴为出水口。造型古朴稳重，寓意长寿与坚毅，符合书生刻苦攻读的心境。",
+                  "level": 3,
+                  "parent_path": "书桌/文房四宝/水滴（水注）",
+                  "theme": "书桌的内容",
+                  "position": "与铜制水滴并排放在砚台旁，作为备用。",
+                  "attributes": {
+                    "material": "瓷器",
+                    "color": "青白色釉",
+                    "size": "与铜制水滴相仿",
+                    "condition": "完好无损，釉面光洁"
+                  },
+                  "node_id": "1d92560d",
+                  "full_path": "书桌/文房四宝/水滴（水注）/瓷制龟形水滴",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                }
+              ],
+              "item_count": 0,
+              "container_count": 3
+            }
+          ],
+          "item_count": 13,
+          "container_count": 8
+        },
+        {
+          "name": "油灯",
+          "node_type": "item",
+          "description": "一盏黄铜底座、玻璃灯罩的油灯，灯芯已修剪过，灯油尚余小半，是书生夜间苦读的主要光源。月光下，其光芒与月色交相辉映。",
+          "level": 1,
+          "parent_path": "书桌",
+          "theme": "书桌的内容",
+          "position": "放置在书桌的右前方，远离书籍和纸张，以防失火。",
+          "attributes": {
+            "material": "黄铜、玻璃",
+            "color": "铜黄色，玻璃透明",
+            "size": "小型，一掌可握",
+            "condition": "正在使用，灯罩略有熏黑"
+          },
+          "node_id": "8485601a",
+          "full_path": "书桌/油灯",
+          "material": "黄铜、玻璃",
+          "color": "铜黄色，玻璃透明",
+          "size": "小型，一掌可握",
+          "condition": "正在使用，灯罩略有熏黑"
+        },
+        {
+          "name": "未完成的文章草稿",
+          "node_type": "item",
+          "description": "数张摊开的宣纸，上面用毛笔写满了八股文章的草稿，字迹工整但有多处涂改的墨点，旁边还有朱笔批注的痕迹，可能是自我修改或师长指点。",
+          "level": 1,
+          "parent_path": "书桌",
+          "theme": "书桌的内容",
+          "position": "平铺在书桌正中央，压在砚台和笔架下方。",
+          "attributes": {
+            "material": "宣纸、墨、朱砂",
+            "color": "白纸黑字，间有红色批注",
+            "size": "标准尺牍大小",
+            "condition": "正在进行中，墨迹已干"
+          },
+          "node_id": "3995c50d",
+          "full_path": "书桌/未完成的文章草稿",
+          "material": "宣纸、墨、朱砂",
+          "color": "白纸黑字，间有红色批注",
+          "size": "标准尺牍大小",
+          "condition": "正在进行中，墨迹已干"
+        },
+        {
+          "name": "青瓷笔洗",
+          "node_type": "item",
+          "description": "一个素雅的青瓷小水盂，内盛清水，用于涮洗毛笔。水面平静，映照着跳动的灯火。",
+          "level": 1,
+          "parent_path": "书桌",
+          "theme": "书桌的内容",
+          "position": "位于砚台的右侧，紧挨着笔架。",
+          "attributes": {
+            "material": "瓷器",
+            "color": "青釉色",
+            "size": "小碗大小",
+            "condition": "洁净，内有清水"
+          },
+          "node_id": "55099d03",
+          "full_path": "书桌/青瓷笔洗",
+          "material": "瓷器",
+          "color": "青釉色",
+          "size": "小碗大小",
+          "condition": "洁净，内有清水"
+        },
+        {
+          "name": "黄杨木镇纸",
+          "node_type": "item",
+          "description": "一对雕刻着简单竹纹的黄杨木镇纸，表面光滑温润，用来压平展开的纸张和书籍。",
+          "level": 1,
+          "parent_path": "书桌",
+          "theme": "书桌的内容",
+          "position": "一根压在展开的文章草稿上端，一根放在那摞《四书五经》的顶部。",
+          "attributes": {
+            "material": "黄杨木",
+            "color": "浅黄褐色",
+            "size": "长约一尺，宽约一寸",
+            "condition": "光滑，有包浆"
+          },
+          "node_id": "f69a484e",
+          "full_path": "书桌/黄杨木镇纸",
+          "material": "黄杨木",
+          "color": "浅黄褐色",
+          "size": "长约一尺，宽约一寸",
+          "condition": "光滑，有包浆"
+        }
+      ],
+      "item_count": 27,
+      "container_count": 17
+    },
+    {
+      "name": "书架",
+      "node_type": "container",
+      "description": "一个顶天立地的柏木书架，分多层，整齐地码放着经史子集、科举范文及相关注疏。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "书架的内容",
+      "position": "靠墙摆放，位于书桌右侧",
+      "attributes": {
+        "material": "柏木",
+        "color": "原木色",
+        "size": "高大，占据一面墙",
+        "condition": "书籍摆放整齐，略有积尘"
+      },
+      "node_id": "05237deb",
+      "full_path": "书架",
+      "container_type": "physical",
+      "is_expanded": true,
+      "children": [
+        {
+          "name": "四书五经",
+          "node_type": "container",
+          "description": "一套完整的儒家经典，包括《大学》、《中庸》、《论语》、《孟子》四书，以及《诗经》、《尚书》、《礼记》、《周易》、《春秋》五经。书脊磨损，书页泛黄，多有朱笔圈点和蝇头小楷的批注，是书生反复研读的核心教材。",
+          "level": 1,
+          "parent_path": "书架",
+          "theme": "书架的内容",
+          "position": "书架中间层，最显眼的位置",
+          "attributes": {
+            "material": "纸质，线装",
+            "color": "蓝布封面，泛黄内页",
+            "size": "大小不一，多为中型开本",
+            "condition": "频繁使用，有磨损和批注痕迹"
+          },
+          "node_id": "9d443402",
+          "full_path": "书架/四书五经",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "《大学》",
+              "node_type": "item",
+              "description": "儒家经典《四书》之一，书页因反复翻阅而边缘微卷，扉页有书生手书的“明明德”三字，正文间有朱笔圈点与墨笔小注，批注多为对“格物致知”的理解。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "置于《四书五经》套书最上方或左侧",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张泛黄，封面为靛蓝色布面",
+                "size": "约长25厘米，宽15厘米",
+                "condition": "保存完好，但有明显使用痕迹"
+              },
+              "node_id": "21c89707",
+              "full_path": "书架/四书五经/《大学》",
+              "material": "宣纸，线装",
+              "color": "纸张泛黄，封面为靛蓝色布面",
+              "size": "约长25厘米，宽15厘米",
+              "condition": "保存完好，但有明显使用痕迹"
+            },
+            {
+              "name": "《中庸》",
+              "node_type": "item",
+              "description": "儒家经典《四书》之一，书页间夹有数片干枯的竹叶作为书签。书中关于“中和”、“诚明”的段落旁批注密密麻麻，可见书生在此处用力最深。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "紧邻《大学》放置",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张泛黄，封面为深褐色布面",
+                "size": "约长25厘米，宽15厘米",
+                "condition": "书脊略有开裂，用细线重新加固过"
+              },
+              "node_id": "86bb81ad",
+              "full_path": "书架/四书五经/《中庸》",
+              "material": "宣纸，线装",
+              "color": "纸张泛黄，封面为深褐色布面",
+              "size": "约长25厘米，宽15厘米",
+              "condition": "书脊略有开裂，用细线重新加固过"
+            },
+            {
+              "name": "《论语》",
+              "node_type": "item",
+              "description": "儒家经典《四书》之一，书角磨损最为严重。书中“学而时习之”、“仁者爱人”等章句旁不仅有批注，还有书生模仿先贤语气做的简短心得。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "紧邻《中庸》放置",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张深黄，封面为墨绿色布面",
+                "size": "约长25厘米，宽15厘米",
+                "condition": "磨损明显，但字迹清晰"
+              },
+              "node_id": "1fee0aa6",
+              "full_path": "书架/四书五经/《论语》",
+              "material": "宣纸，线装",
+              "color": "纸张深黄，封面为墨绿色布面",
+              "size": "约长25厘米，宽15厘米",
+              "condition": "磨损明显，但字迹清晰"
+            },
+            {
+              "name": "《孟子》",
+              "node_type": "item",
+              "description": "儒家经典《四书》之一，书页相对较新，但《公孙丑》、《尽心》等篇的页边空白处写满了对“性善论”和“养气说”的疑问与思考。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "紧邻《论语》放置，为《四书》最后一本",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张微黄，封面为赭石色布面",
+                "size": "约长25厘米，宽15厘米",
+                "condition": "较新，但内页批注甚多"
+              },
+              "node_id": "d767a645",
+              "full_path": "书架/四书五经/《孟子》",
+              "material": "宣纸，线装",
+              "color": "纸张微黄，封面为赭石色布面",
+              "size": "约长25厘米，宽15厘米",
+              "condition": "较新，但内页批注甚多"
+            },
+            {
+              "name": "《诗经》",
+              "node_type": "item",
+              "description": "儒家经典《五经》之一，收录西周至春秋的诗歌。书页间有淡淡的墨香和霉味，《国风》部分尤其多折角，一些描写自然景物的诗句旁绘有简单的简笔山水。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "置于《五经》部分的首位",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张黄旧，封面为浅灰色布面",
+                "size": "约长28厘米，宽18厘米",
+                "condition": "有轻微水渍，但不影响阅读"
+              },
+              "node_id": "bd3c14df",
+              "full_path": "书架/四书五经/《诗经》",
+              "material": "宣纸，线装",
+              "color": "纸张黄旧，封面为浅灰色布面",
+              "size": "约长28厘米，宽18厘米",
+              "condition": "有轻微水渍，但不影响阅读"
+            },
+            {
+              "name": "《尚书》",
+              "node_type": "item",
+              "description": "儒家经典《五经》之一，记载上古历史文献。文字古奥艰深，书中有大量书生查阅字典后留下的音注和义释，显得颇为吃力。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "紧邻《诗经》放置",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张暗黄，封面为玄黑色布面",
+                "size": "约长28厘米，宽18厘米",
+                "condition": "保存尚可，翻阅次数相对较少"
+              },
+              "node_id": "0002b5aa",
+              "full_path": "书架/四书五经/《尚书》",
+              "material": "宣纸，线装",
+              "color": "纸张暗黄，封面为玄黑色布面",
+              "size": "约长28厘米，宽18厘米",
+              "condition": "保存尚可，翻阅次数相对较少"
+            },
+            {
+              "name": "《礼记》",
+              "node_type": "container",
+              "description": "儒家经典《五经》之一，阐述礼仪制度。本书因内容庞杂，书生将其与科举相关的《大学》、《中庸》篇（原为《礼记》中的两篇）单独抽出研读，故本书主要关注其他礼仪规范。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "紧邻《尚书》放置",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张泛黄，封面为绛紫色布面",
+                "size": "约长28厘米，宽18厘米",
+                "condition": "书体较厚，略有变形"
+              },
+              "node_id": "f5274380",
+              "full_path": "书架/四书五经/《礼记》",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "《曲礼》篇",
+                  "node_type": "container",
+                  "description": "《礼记》的开篇，主要阐述日常生活中的行为举止、言语应对等基本礼仪规范，如“毋不敬，俨若思，安定辞”等。书页边缘有书生用蝇头小楷做的批注，记录其理解。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《礼记》",
+                  "theme": "书架的内容",
+                  "position": "位于《礼记》书册的前部",
+                  "attributes": {
+                    "material": "宣纸、墨迹",
+                    "color": "纸张泛黄，墨色深浅不一",
+                    "size": "书页大小",
+                    "condition": "书页有经常翻阅的折痕，但保存完好"
+                  },
+                  "node_id": "22d3b764",
+                  "full_path": "书架/四书五经/《礼记》/《曲礼》篇",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《檀弓》篇",
+                  "node_type": "container",
+                  "description": "《礼记》中著名篇章，多记载孔子及其弟子关于丧葬、祭祀礼仪的言论和故事，是理解古代丧礼制度的重要文献。书生在此篇上贴有数张红色标签，标记重点。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《礼记》",
+                  "theme": "书架的内容",
+                  "position": "位于《礼记》书册的中部",
+                  "attributes": {
+                    "material": "宣纸、墨迹、红色标签纸",
+                    "color": "纸张黄旧，红色标签醒目",
+                    "size": "书页大小",
+                    "condition": "翻阅频繁，部分段落下有划线"
+                  },
+                  "node_id": "419fd797",
+                  "full_path": "书架/四书五经/《礼记》/《檀弓》篇",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《王制》篇",
+                  "node_type": "container",
+                  "description": "阐述古代国家制度、分封、爵禄、巡守、祭祀等王者之制。对于理解古代政治架构有重要价值，是科举策论可能涉及的背景知识。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《礼记》",
+                  "theme": "书架的内容",
+                  "position": "位于《礼记》书册的中后部",
+                  "attributes": {
+                    "material": "宣纸、墨迹",
+                    "color": "纸张颜色均匀",
+                    "size": "书页大小",
+                    "condition": "较新，翻阅痕迹相对较少"
+                  },
+                  "node_id": "1b793821",
+                  "full_path": "书架/四书五经/《礼记》/《王制》篇",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《礼运》篇",
+                  "node_type": "container",
+                  "description": "包含著名的“大同”、“小康”社会理想描述，是儒家社会政治思想的重要篇章。书生在此处空白处写有“治国平天下之本”的感悟。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《礼记》",
+                  "theme": "书架的内容",
+                  "position": "位于《礼记》书册的后部",
+                  "attributes": {
+                    "material": "宣纸、墨迹",
+                    "color": "纸张微黄，旁批墨色较新",
+                    "size": "书页大小",
+                    "condition": "页面有折角，旁批字迹清晰"
+                  },
+                  "node_id": "46f9d771",
+                  "full_path": "书架/四书五经/《礼记》/《礼运》篇",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《学记》篇",
+                  "node_type": "container",
+                  "description": "中国古代最早专门论述教育、教学问题的著作，涉及教育作用、制度、原则、方法等。虽非科举核心，但书生为修身明理而读。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《礼记》",
+                  "theme": "书架的内容",
+                  "position": "位于《礼记》书册的末尾部分",
+                  "attributes": {
+                    "material": "宣纸、墨迹",
+                    "color": "纸张颜色偏白",
+                    "size": "书页大小",
+                    "condition": "干净整洁，有少量铅笔（或石墨）做的记号"
+                  },
+                  "node_id": "28be1b0c",
+                  "full_path": "书架/四书五经/《礼记》/《学记》篇",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "夹页的枫叶书签",
+                  "node_type": "item",
+                  "description": "一片压平的红色枫叶，被用作书签，夹在《礼记》的某一重要篇章之间。可能是书生秋日读书时随手夹入，带有自然意趣。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《礼记》",
+                  "theme": "书架的内容",
+                  "position": "夹在《檀弓》篇附近",
+                  "attributes": {
+                    "material": "干燥的枫叶",
+                    "color": "暗红色，叶脉清晰",
+                    "size": "手掌大小",
+                    "condition": "干燥平整，边缘微卷"
+                  },
+                  "node_id": "e0bce80b",
+                  "full_path": "书架/四书五经/《礼记》/夹页的枫叶书签",
+                  "material": "干燥的枫叶",
+                  "color": "暗红色，叶脉清晰",
+                  "size": "手掌大小",
+                  "condition": "干燥平整，边缘微卷"
+                }
+              ],
+              "item_count": 1,
+              "container_count": 6
+            },
+            {
+              "name": "《周易》",
+              "node_type": "container",
+              "description": "儒家经典《五经》之一，包含哲学与占卜内容。书中有许多折页，对应六十四卦的卦辞和爻辞，书生在旁试图用儒家思想进行解读，批注中充满思辨。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "紧邻《礼记》放置",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张黄旧，封面为深蓝色布面，上有八卦图案",
+                "size": "约长28厘米，宽18厘米",
+                "condition": "书角有破损，用同色纸张修补过"
+              },
+              "node_id": "ae1eb9eb",
+              "full_path": "书架/四书五经/《周易》",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "卦辞与爻辞折页",
+                  "node_type": "container",
+                  "description": "书中被反复翻阅、折叠的页面，对应《周易》六十四卦的卦辞和爻辞。纸张因长期使用而边缘微卷，泛着温润的黄色。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《周易》",
+                  "theme": "书架的内容",
+                  "position": "分散在书籍的不同章节，对应各卦位置",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "米黄，有墨迹",
+                    "size": "书页大小",
+                    "condition": "有折痕、轻微磨损，但保存完好"
+                  },
+                  "node_id": "8238db78",
+                  "full_path": "书架/四书五经/《周易》/卦辞与爻辞折页",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "书生批注",
+                  "node_type": "container",
+                  "description": "书生用蝇头小楷在书页天头、地脚及行间空白处写下的解读与思辨。墨色有深有浅，可见是多次研读时添加，内容多引《论语》、《孟子》以解《易》。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《周易》",
+                  "theme": "书架的内容",
+                  "position": "遍布于书页的空白处，尤其是卦爻辞旁",
+                  "attributes": {
+                    "material": "墨、宣纸",
+                    "color": "黑色墨迹",
+                    "size": "细小楷书",
+                    "condition": "字迹清晰，墨迹已干透"
+                  },
+                  "node_id": "77d690d7",
+                  "full_path": "书架/四书五经/《周易》/书生批注",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "卦象图解",
+                  "node_type": "item",
+                  "description": "书中印有或手绘的六十四卦卦象图，由阴阳爻（“—”为阳，“--”为阴）六层组成，是理解卦意的核心图示。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《周易》",
+                  "theme": "书架的内容",
+                  "position": "通常位于每卦正文起始处",
+                  "attributes": {
+                    "material": "墨印或手绘",
+                    "color": "黑白",
+                    "size": "图示大小",
+                    "condition": "清晰可辨"
+                  },
+                  "node_id": "5adc4f27",
+                  "full_path": "书架/四书五经/《周易》/卦象图解",
+                  "material": "墨印或手绘",
+                  "color": "黑白",
+                  "size": "图示大小",
+                  "condition": "清晰可辨"
+                },
+                {
+                  "name": "系辞与文言",
+                  "node_type": "item",
+                  "description": "《周易》中解释卦爻辞深层哲理的篇章（《系辞传》、《文言传》等），是儒家思想阐发《易》理的重要部分，书生重点研读之处。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《周易》",
+                  "theme": "书架的内容",
+                  "position": "位于书籍后部或相关卦后附录",
+                  "attributes": {
+                    "material": "印刷文字",
+                    "color": "黑色",
+                    "size": "标准正文",
+                    "condition": "页面有阅读痕迹"
+                  },
+                  "node_id": "506fedbe",
+                  "full_path": "书架/四书五经/《周易》/系辞与文言",
+                  "material": "印刷文字",
+                  "color": "黑色",
+                  "size": "标准正文",
+                  "condition": "页面有阅读痕迹"
+                },
+                {
+                  "name": "书签（竹制）",
+                  "node_type": "item",
+                  "description": "一片细长的竹片，夹在书生当前正在研读的卦象页面（如“乾卦”或“坤卦”），方便快速翻找。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《周易》",
+                  "theme": "书架的内容",
+                  "position": "夹在书页中",
+                  "attributes": {
+                    "material": "竹子",
+                    "color": "竹黄",
+                    "size": "细长条状",
+                    "condition": "光滑，略有使用痕迹"
+                  },
+                  "node_id": "06affab2",
+                  "full_path": "书架/四书五经/《周易》/书签（竹制）",
+                  "material": "竹子",
+                  "color": "竹黄",
+                  "size": "细长条状",
+                  "condition": "光滑，略有使用痕迹"
+                }
+              ],
+              "item_count": 3,
+              "container_count": 3
+            },
+            {
+              "name": "《春秋》及《三传》合订本",
+              "node_type": "container",
+              "description": "儒家经典《五经》之一，为编年体史书。此书为合订本，在《春秋》经文之下，以小字附录《左传》、《公羊传》、《穀梁传》的注解，是书生学习“微言大义”和应对经义题的关键资料，书页间夹满了写着人物事件关系的纸条。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "置于《五经》的最后，也是最厚的一册",
+              "attributes": {
+                "material": "宣纸，线装",
+                "color": "纸张颜色不均，封面为暗红色布面",
+                "size": "约长30厘米，宽20厘米，明显更厚",
+                "condition": "因频繁翻阅和夹带纸条而显得鼓胀"
+              },
+              "node_id": "e6844be0",
+              "full_path": "书架/四书五经/《春秋》及《三传》合订本",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "《春秋》经文",
+                  "node_type": "item",
+                  "description": "《春秋》的核心原文，以编年体形式记载了鲁国历史，文字极为简练，是书生研读的根本。书页因长期翻阅而略显毛边，但保存完好。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《春秋》及《三传》合订本",
+                  "theme": "书架的内容",
+                  "position": "合订本的主体部分，位于每页的上半部分或左侧，以较大字体印刷。",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "纸张泛黄，墨色乌黑",
+                    "size": "约长25厘米，宽15厘米",
+                    "condition": "完好，但有阅读痕迹"
+                  },
+                  "node_id": "af5f7001",
+                  "full_path": "书架/四书五经/《春秋》及《三传》合订本/《春秋》经文",
+                  "material": "宣纸",
+                  "color": "纸张泛黄，墨色乌黑",
+                  "size": "约长25厘米，宽15厘米",
+                  "condition": "完好，但有阅读痕迹"
+                },
+                {
+                  "name": "《左传》注解",
+                  "node_type": "container",
+                  "description": "以历史叙事为主的详细注解，夹注在《春秋》经文之下，用小字印刷。书生常用朱笔在此处圈点重要战争、会盟和人物事迹，以理解历史背景。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《春秋》及《三传》合订本",
+                  "theme": "书架的内容",
+                  "position": "紧接在对应的《春秋》经文段落下方，以双行小字排列。",
+                  "attributes": {
+                    "material": "宣纸，墨与朱砂",
+                    "color": "黑色印刷字，间有红色圈点",
+                    "size": "字体细小，密集排版",
+                    "condition": "页面布满细密的笔记标记"
+                  },
+                  "node_id": "e575e558",
+                  "full_path": "书架/四书五经/《春秋》及《三传》合订本/《左传》注解",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《公羊传》注解",
+                  "node_type": "container",
+                  "description": "侧重于阐发《春秋》的“微言大义”和义理，是应对科举经义题的关键。书生在此处的空白处写满了自己对“尊王”、“大一统”等概念的理解。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《春秋》及《三传》合订本",
+                  "theme": "书架的内容",
+                  "position": "与《左传》注解并列或交替出现，同样以小字附于经文下。",
+                  "attributes": {
+                    "material": "宣纸，墨",
+                    "color": "黑色印刷字，旁有大量蝇头小楷批注",
+                    "size": "字体细小",
+                    "condition": "页边和行间被笔记填满"
+                  },
+                  "node_id": "b2b70ebe",
+                  "full_path": "书架/四书五经/《春秋》及《三传》合订本/《公羊传》注解",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "《穀梁传》注解",
+                  "node_type": "container",
+                  "description": "另一派重要的义理注解，文风较为质朴。书生会对比《公》、《穀》两传的异同，在书页上做对比标记。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《春秋》及《三传》合订本",
+                  "theme": "书架的内容",
+                  "position": "与《左传》、《公羊传》注解一同附录，构成三传并陈的格局。",
+                  "attributes": {
+                    "material": "宣纸，墨",
+                    "color": "黑色印刷字",
+                    "size": "字体细小",
+                    "condition": "有划线和对勾等简单标记"
+                  },
+                  "node_id": "0bd8965c",
+                  "full_path": "书架/四书五经/《春秋》及《三传》合订本/《穀梁传》注解",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "人物关系纸条",
+                  "node_type": "item",
+                  "description": "书生为理清复杂的历史人物关系（如晋国诸卿、齐国田氏）而自制的学习便签，用细纸条写成，夹在相关的书页中。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《春秋》及《三传》合订本",
+                  "theme": "书架的内容",
+                  "position": "散落在记载重要人物事件的书页之间，露出边缘。",
+                  "attributes": {
+                    "material": "竹纸或廉价宣纸条",
+                    "color": "纸条原色微黄，墨字",
+                    "size": "细长条，宽约1-2厘米",
+                    "condition": "略有卷曲，字迹清晰"
+                  },
+                  "node_id": "b6e73c61",
+                  "full_path": "书架/四书五经/《春秋》及《三传》合订本/人物关系纸条",
+                  "material": "竹纸或廉价宣纸条",
+                  "color": "纸条原色微黄，墨字",
+                  "size": "细长条，宽约1-2厘米",
+                  "condition": "略有卷曲，字迹清晰"
+                },
+                {
+                  "name": "事件脉络纸条",
+                  "node_type": "item",
+                  "description": "记录如“城濮之战”、“弭兵之会”等重大事件前后因果的纸条，帮助书生构建历史时间线。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《春秋》及《三传》合订本",
+                  "theme": "书架的内容",
+                  "position": "夹在记载关键事件起始的书页处。",
+                  "attributes": {
+                    "material": "竹纸或廉价宣纸条",
+                    "color": "纸条原色微黄，墨字",
+                    "size": "稍宽一些的纸条",
+                    "condition": "有折叠痕迹"
+                  },
+                  "node_id": "3220fb80",
+                  "full_path": "书架/四书五经/《春秋》及《三传》合订本/事件脉络纸条",
+                  "material": "竹纸或廉价宣纸条",
+                  "color": "纸条原色微黄，墨字",
+                  "size": "稍宽一些的纸条",
+                  "condition": "有折叠痕迹"
+                },
+                {
+                  "name": "经义要点纸条",
+                  "node_type": "item",
+                  "description": "摘抄《公羊传》、《穀梁传》中关于“华夷之辨”、“复仇”等科举热门义理要点的纸条，用于考前背诵。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《春秋》及《三传》合订本",
+                  "theme": "书架的内容",
+                  "position": "集中夹在书的后半部分或相关经文章节。",
+                  "attributes": {
+                    "material": "竹纸",
+                    "color": "墨字，重要处或有红点标记",
+                    "size": "大小不一",
+                    "condition": "边缘磨损，显是经常抽看"
+                  },
+                  "node_id": "2e77d278",
+                  "full_path": "书架/四书五经/《春秋》及《三传》合订本/经义要点纸条",
+                  "material": "竹纸",
+                  "color": "墨字，重要处或有红点标记",
+                  "size": "大小不一",
+                  "condition": "边缘磨损，显是经常抽看"
+                },
+                {
+                  "name": "绸布书签",
+                  "node_type": "item",
+                  "description": "一块深蓝色或青色的绸布条，用作书签，标记书生当前重点研读或未完全理解的篇章。",
+                  "level": 3,
+                  "parent_path": "书架/四书五经/《春秋》及《三传》合订本",
+                  "theme": "书架的内容",
+                  "position": "夹在书本大约三分之一处，露出一截在书外。",
+                  "attributes": {
+                    "material": "丝绸",
+                    "color": "深蓝色或青色",
+                    "size": "长约30厘米，宽约2厘米",
+                    "condition": "干净但略有使用痕迹"
+                  },
+                  "node_id": "c89d513c",
+                  "full_path": "书架/四书五经/《春秋》及《三传》合订本/绸布书签",
+                  "material": "丝绸",
+                  "color": "深蓝色或青色",
+                  "size": "长约30厘米，宽约2厘米",
+                  "condition": "干净但略有使用痕迹"
+                }
+              ],
+              "item_count": 5,
+              "container_count": 4
+            },
+            {
+              "name": "书生手抄笔记",
+              "node_type": "item",
+              "description": "一叠用线简单装订的毛边纸，夹在《四书五经》之中。上面是书生用蝇头小楷抄录的经典重点、各家注解对比以及自己的应试心得，字迹工整而密集。",
+              "level": 2,
+              "parent_path": "书架/四书五经",
+              "theme": "书架的内容",
+              "position": "夹在《论语》与《孟子》之间",
+              "attributes": {
+                "material": "毛边纸，棉线",
+                "color": "纸张本白，已被手汗和墨迹染上淡黄",
+                "size": "约长22厘米，宽15厘米，厚约一指",
+                "condition": "边缘毛糙，但内页整齐"
+              },
+              "node_id": "51af5930",
+              "full_path": "书架/四书五经/书生手抄笔记",
+              "material": "毛边纸，棉线",
+              "color": "纸张本白，已被手汗和墨迹染上淡黄",
+              "size": "约长22厘米，宽15厘米，厚约一指",
+              "condition": "边缘毛糙，但内页整齐"
+            }
+          ],
+          "item_count": 16,
+          "container_count": 14
+        },
+        {
+          "name": "科举范文集",
+          "node_type": "container",
+          "description": "数册装订好的八股文范文汇编，收录了历届乡试、会试的优秀考卷和名家拟题范文。书页间夹着许多用作书签的枯叶或纸条，便于书生模仿学习文章结构和破题技巧。",
+          "level": 1,
+          "parent_path": "书架",
+          "theme": "书架的内容",
+          "position": "四书五经旁边",
+          "attributes": {
+            "material": "纸质，刻本或抄本",
+            "color": "浅褐色封面",
+            "size": "中等厚度",
+            "condition": "书角微卷，内页有大量折痕标记"
+          },
+          "node_id": "31c8eabf",
+          "full_path": "书架/科举范文集",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "乡试优秀考卷汇编",
+              "node_type": "container",
+              "description": "一本专门收录了历届江南地区乡试优秀考卷的册子。书页边缘因频繁翻阅而微微卷曲发黑，部分文章旁有朱笔批注的“破题精妙”、“承转自然”等评语，是书生重点研习的对象。",
+              "level": 2,
+              "parent_path": "书架/科举范文集",
+              "theme": "书架的内容",
+              "position": "位于《科举范文集》书册的上层，因常被取出而略显松散。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "泛黄的纸页，深蓝色的封皮",
+                "size": "约一掌宽，两掌长",
+                "condition": "使用痕迹明显，书脊略有磨损"
+              },
+              "node_id": "5e0dcb41",
+              "full_path": "书架/科举范文集/乡试优秀考卷汇编",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "弘治十五年乡试解元文章",
+                  "node_type": "container",
+                  "description": "一篇被收录在汇编开篇的考卷，是弘治十五年江南乡试解元（第一名）的答卷。文章以工整的馆阁体誊写，论述经义，结构严谨，被朱笔圈点为“典范”。书页上有书生反复临摹笔迹的痕迹。",
+                  "level": 3,
+                  "parent_path": "书架/科举范文集/乡试优秀考卷汇编",
+                  "theme": "书架的内容",
+                  "position": "位于汇编册子的最前几页，是重点研读篇目。",
+                  "attributes": {
+                    "material": "宣纸、墨迹",
+                    "color": "纸张泛黄，墨色浓黑，朱批鲜红",
+                    "size": "标准书页大小",
+                    "condition": "页面有轻微水渍和多次折叠翻阅的痕迹"
+                  },
+                  "node_id": "57ed39dd",
+                  "full_path": "书架/科举范文集/乡试优秀考卷汇编/弘治十五年乡试解元文章",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "正德八年经义破题范例",
+                  "node_type": "container",
+                  "description": "一组合辑，并非完整文章，而是专门摘录了正德八年乡试中数份优秀考卷的“破题”部分。旁边附有详细的批注，分析各家破题手法的优劣与异同，是书生练习文章开头的参考。",
+                  "level": 3,
+                  "parent_path": "书架/科举范文集/乡试优秀考卷汇编",
+                  "theme": "书架的内容",
+                  "position": "位于汇编中部，有单独的书签标记。",
+                  "attributes": {
+                    "material": "宣纸、墨迹",
+                    "color": "纸张颜色不均，批注墨色较淡",
+                    "size": "数页合集",
+                    "condition": "边缘磨损严重，显示经常翻到此处"
+                  },
+                  "node_id": "ca1aab35",
+                  "full_path": "书架/科举范文集/乡试优秀考卷汇编/正德八年经义破题范例",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "嘉靖初年策论精选",
+                  "node_type": "container",
+                  "description": "收录了嘉靖初年几篇关于时政、水利、边防的策论优秀答卷。文章不仅文采斐然，更展现了考生对实务的见解，篇末有批注“切中时弊，可为借鉴”。",
+                  "level": 3,
+                  "parent_path": "书架/科举范文集/乡试优秀考卷汇编",
+                  "theme": "书架的内容",
+                  "position": "位于汇编后半部分。",
+                  "attributes": {
+                    "material": "宣纸、墨迹",
+                    "color": "纸张较新，墨迹清晰",
+                    "size": "约十数页",
+                    "condition": "保存相对完好，但有新的学习笔记添加在空白处"
+                  },
+                  "node_id": "d281eaf4",
+                  "full_path": "书架/科举范文集/乡试优秀考卷汇编/嘉靖初年策论精选",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "书生研习笔记纸条",
+                  "node_type": "item",
+                  "description": "一张夹在“弘治十五年乡试解元文章”中的便条，是书生自己用毛笔写的学习心得，内容为“此处用典出自《左传》，吾当补记”。纸条很小，字迹潦草。",
+                  "level": 3,
+                  "parent_path": "书架/科举范文集/乡试优秀考卷汇编",
+                  "theme": "书架的内容",
+                  "position": "夹在指定文章的书页之间。",
+                  "attributes": {
+                    "material": "竹纸、墨迹",
+                    "color": "纸条淡黄色，墨迹灰黑",
+                    "size": "寸许宽，两寸长",
+                    "condition": "边缘毛糙，墨迹已干透"
+                  },
+                  "node_id": "72089a92",
+                  "full_path": "书架/科举范文集/乡试优秀考卷汇编/书生研习笔记纸条",
+                  "material": "竹纸、墨迹",
+                  "color": "纸条淡黄色，墨迹灰黑",
+                  "size": "寸许宽，两寸长",
+                  "condition": "边缘毛糙，墨迹已干透"
+                },
+                {
+                  "name": "朱批评语摘要",
+                  "node_type": "item",
+                  "description": "并非考卷原件的一部分，而是书生在汇编末尾空白页上自行整理抄录的、散见于各篇考卷中的朱批评语，如“气韵生动”、“理路清明”、“骨力遒劲”等，用于日常揣摩。",
+                  "level": 3,
+                  "parent_path": "书架/科举范文集/乡试优秀考卷汇编",
+                  "theme": "书架的内容",
+                  "position": "抄录在汇编册子的最后几页空白处。",
+                  "attributes": {
+                    "material": "宣纸、墨迹",
+                    "color": "书生墨迹为深灰色，与官方朱批对比明显",
+                    "size": "占数行位置",
+                    "condition": "墨迹新旧不一，是多次添加的结果"
+                  },
+                  "node_id": "aaca129b",
+                  "full_path": "书架/科举范文集/乡试优秀考卷汇编/朱批评语摘要",
+                  "material": "宣纸、墨迹",
+                  "color": "书生墨迹为深灰色，与官方朱批对比明显",
+                  "size": "占数行位置",
+                  "condition": "墨迹新旧不一，是多次添加的结果"
+                }
+              ],
+              "item_count": 2,
+              "container_count": 4
+            },
+            {
+              "name": "会试名家范文集",
+              "node_type": "container",
+              "description": "一本收录了京城会试级别名家拟题的范文集，文章结构更为严谨宏大，辞藻华丽。书中夹着一张写有“气象宏大，可学其骨架”的纸条。",
+              "level": 2,
+              "parent_path": "书架/科举范文集",
+              "theme": "书架的内容",
+              "position": "位于《科举范文集》的中部，保存相对完好。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "浅褐色封皮",
+                "size": "与乡试汇编相仿",
+                "condition": "较新，但内页有墨点标记"
+              },
+              "node_id": "b36da8ab",
+              "full_path": "书架/科举范文集/会试名家范文集",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "范文集正文",
+                  "node_type": "container",
+                  "description": "书的主体部分，收录了多篇会试级别的名家范文，纸张为宣纸，印刷清晰，墨迹工整。每篇文章前都有题目和作者简介。",
+                  "level": 3,
+                  "parent_path": "书架/科举范文集/会试名家范文集",
+                  "theme": "书架的内容",
+                  "position": "位于书籍的中间大部分页面",
+                  "attributes": {
+                    "material": "宣纸、墨",
+                    "color": "纸张微黄，墨色漆黑",
+                    "size": "标准书籍页面大小",
+                    "condition": "保存完好，有翻阅痕迹但无破损"
+                  },
+                  "node_id": "029477ad",
+                  "full_path": "书架/科举范文集/会试名家范文集/范文集正文",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "夹页纸条",
+                  "node_type": "item",
+                  "description": "一张夹在书中的小纸条，上面用行书写着“气象宏大，可学其骨架”八字批注，笔迹与书生不同，可能是师长或前辈所留。",
+                  "level": 3,
+                  "parent_path": "书架/科举范文集/会试名家范文集",
+                  "theme": "书架的内容",
+                  "position": "夹在书中关于“治国策论”的范文页之间",
+                  "attributes": {
+                    "material": "竹纸",
+                    "color": "淡黄色",
+                    "size": "约两指宽，三指长",
+                    "condition": "边缘略有毛边，墨迹已干透"
+                  },
+                  "node_id": "b611c920",
+                  "full_path": "书架/科举范文集/会试名家范文集/夹页纸条",
+                  "material": "竹纸",
+                  "color": "淡黄色",
+                  "size": "约两指宽，三指长",
+                  "condition": "边缘略有毛边，墨迹已干透"
+                },
+                {
+                  "name": "书籍封皮与扉页",
+                  "node_type": "container",
+                  "description": "书籍的蓝色布面封皮和内部的扉页。封皮上贴有题签，写着书名。扉页印有编纂者、书坊名及刊印年份。",
+                  "level": 3,
+                  "parent_path": "书架/科举范文集/会试名家范文集",
+                  "theme": "书架的内容",
+                  "position": "书籍的最外层和翻开后的第一页",
+                  "attributes": {
+                    "material": "蓝色棉布、纸",
+                    "color": "深蓝色封皮，白色扉页",
+                    "size": "与书籍同大",
+                    "condition": "封皮边角有轻微磨损，扉页洁净"
+                  },
+                  "node_id": "254e48b1",
+                  "full_path": "书架/科举范文集/会试名家范文集/书籍封皮与扉页",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                }
+              ],
+              "item_count": 1,
+              "container_count": 3
+            },
+            {
+              "name": "枯叶书签",
+              "node_type": "item",
+              "description": "一片已经彻底干燥、脉络清晰的梧桐叶，被平整地夹在书页中，标记着一篇关于“民本”思想的重点范文。",
+              "level": 2,
+              "parent_path": "书架/科举范文集",
+              "theme": "书架的内容",
+              "position": "夹在《乡试优秀考卷汇编》的中间部分。",
+              "attributes": {
+                "material": "植物叶片",
+                "color": "黄褐色",
+                "size": "手掌大小",
+                "condition": "干燥易碎，保存完好"
+              },
+              "node_id": "f96847e2",
+              "full_path": "书架/科举范文集/枯叶书签",
+              "material": "植物叶片",
+              "color": "黄褐色",
+              "size": "手掌大小",
+              "condition": "干燥易碎，保存完好"
+            },
+            {
+              "name": "批注纸条",
+              "node_type": "item",
+              "description": "数张裁切不齐的纸条，上面用蝇头小楷写着书生自己的学习心得，如“此处用典甚佳”、“破题可仿此式”等。墨迹有新有旧。",
+              "level": 2,
+              "parent_path": "书架/科举范文集",
+              "theme": "书架的内容",
+              "position": "分散夹在《科举范文集》的各册书中。",
+              "attributes": {
+                "material": "竹纸",
+                "color": "微黄的纸，黑色的墨",
+                "size": "长短不一，宽约一指",
+                "condition": "纸张柔软，边缘有毛边"
+              },
+              "node_id": "22229c21",
+              "full_path": "书架/科举范文集/批注纸条",
+              "material": "竹纸",
+              "color": "微黄的纸，黑色的墨",
+              "size": "长短不一，宽约一指",
+              "condition": "纸张柔软，边缘有毛边"
+            },
+            {
+              "name": "八股文结构图解",
+              "node_type": "item",
+              "description": "一张单独的对折纸张，上面用图示和文字详细分解了八股文“破题、承题、起讲、入手、起股、中股、后股、束股”的结构与写作要点，是书生的自学笔记。",
+              "level": 2,
+              "parent_path": "书架/科举范文集",
+              "theme": "书架的内容",
+              "position": "对折后夹在《会试名家范文集》的扉页处。",
+              "attributes": {
+                "material": "宣纸",
+                "color": "白色宣纸，墨线图解",
+                "size": "约一尺见方",
+                "condition": "折叠处有磨损，墨迹清晰"
+              },
+              "node_id": "6672d68a",
+              "full_path": "书架/科举范文集/八股文结构图解",
+              "material": "宣纸",
+              "color": "白色宣纸，墨线图解",
+              "size": "约一尺见方",
+              "condition": "折叠处有磨损，墨迹清晰"
+            }
+          ],
+          "item_count": 6,
+          "container_count": 8
+        },
+        {
+          "name": "史部典籍",
+          "node_type": "container",
+          "description": "包括《史记》、《汉书》、《资治通鉴》等史书，以及《大明律》等当代典章制度类书籍。用于积累典故、学习治国理政之道，是策论答题的重要知识储备。",
+          "level": 1,
+          "parent_path": "书架",
+          "theme": "书架的内容",
+          "position": "书架上层",
+          "attributes": {
+            "material": "纸质，部分为精装刻本",
+            "color": "深色封面（如深蓝、褐色）",
+            "size": "多为厚重的大部头",
+            "condition": "保存相对完好，翻阅痕迹少于四书五经"
+          },
+          "node_id": "4fb6734f",
+          "full_path": "书架/史部典籍",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "《史记》",
+              "node_type": "item",
+              "description": "西汉司马迁所著纪传体通史，记载了从黄帝时代到汉武帝太初四年间共三千多年的历史。书页边缘有书生阅读时留下的墨点批注，部分书页因反复翻阅而略显毛糙。",
+              "level": 2,
+              "parent_path": "书架/史部典籍",
+              "theme": "书架的内容",
+              "position": "位于史部典籍区域靠前位置，书脊朝外，便于取阅。",
+              "attributes": {
+                "material": "纸质（竹纸或皮纸），线装",
+                "color": "书衣为深蓝色或青色，内页泛黄",
+                "size": "中等开本，约一尺长，半尺宽",
+                "condition": "保存完好，但有频繁使用的痕迹"
+              },
+              "node_id": "79d8a305",
+              "full_path": "书架/史部典籍/《史记》",
+              "material": "纸质（竹纸或皮纸），线装",
+              "color": "书衣为深蓝色或青色，内页泛黄",
+              "size": "中等开本，约一尺长，半尺宽",
+              "condition": "保存完好，但有频繁使用的痕迹"
+            },
+            {
+              "name": "《汉书》",
+              "node_type": "item",
+              "description": "东汉班固所著纪传体断代史，主要记述西汉一朝历史。书中有书生用朱笔圈点的重点段落，尤其是帝王本纪和列传部分。",
+              "level": 2,
+              "parent_path": "书架/史部典籍",
+              "theme": "书架的内容",
+              "position": "紧邻《史记》摆放，书脊上贴有题签。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "书衣为褐色或灰色",
+                "size": "与《史记》相仿",
+                "condition": "书角略有磨损，内页平整"
+              },
+              "node_id": "43a3cdf1",
+              "full_path": "书架/史部典籍/《汉书》",
+              "material": "纸质，线装",
+              "color": "书衣为褐色或灰色",
+              "size": "与《史记》相仿",
+              "condition": "书角略有磨损，内页平整"
+            },
+            {
+              "name": "《资治通鉴》",
+              "node_type": "container",
+              "description": "北宋司马光主编的编年体通史巨著，涵盖从周威烈王到五代后周世宗的历史。书生为备考策论，重点研读其中关于治乱兴衰的论述。此为其中数册，并非全套。",
+              "level": 2,
+              "parent_path": "书架/史部典籍",
+              "theme": "书架的内容",
+              "position": "叠放在一起，位于史部典籍区域中部。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "书衣多为深青色或玄色",
+                "size": "册子较厚，开本略大",
+                "condition": "书口因翻阅而颜色加深"
+              },
+              "node_id": "fa99fb43",
+              "full_path": "书架/史部典籍/《资治通鉴》",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "书册一",
+                  "node_type": "container",
+                  "description": "《资治通鉴》中的一册，书脊上贴有标签，上书“卷第一百八十三·隋纪七”。书页边缘有轻微磨损，显示被频繁翻阅。书生在此册上用朱笔圈点了多处关于隋末民变与政权更迭的段落。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/《资治通鉴》",
+                  "theme": "书架的内容",
+                  "position": "叠放在《资治通鉴》书堆的上层",
+                  "attributes": {
+                    "material": "纸张、棉线、硬纸板封面",
+                    "color": "靛蓝色封面，泛黄的纸页",
+                    "size": "约长一尺，宽六寸，厚一寸",
+                    "condition": "封面有磨损，书页内有大量批注"
+                  },
+                  "node_id": "508244bf",
+                  "full_path": "书架/史部典籍/《资治通鉴》/书册一",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "书册二",
+                  "node_type": "container",
+                  "description": "《资治通鉴》中的另一册，封面标签为“卷第二百一十六·唐纪三十二”。此册主要记述开元盛世及安史之乱前后的历史。书生在关于姚崇、宋璟理政以及李林甫、杨国忠专权的章节旁，写下了许多蝇头小楷的感悟。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/《资治通鉴》",
+                  "theme": "书架的内容",
+                  "position": "叠放在《资治通鉴》书堆的中层",
+                  "attributes": {
+                    "material": "纸张、棉线、硬纸板封面",
+                    "color": "深褐色封面，纸页颜色较深",
+                    "size": "约长一尺，宽六寸，厚一寸余",
+                    "condition": "书角微卷，内有大量笔记"
+                  },
+                  "node_id": "75525b56",
+                  "full_path": "书架/史部典籍/《资治通鉴》/书册二",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "书签",
+                  "node_type": "item",
+                  "description": "一片压平的银杏叶，被用作书签，夹在《资治通鉴》的某一册中，标记着书生正在研读或需要反复查阅的页面。叶脉清晰，已呈干燥的浅黄色。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/《资治通鉴》",
+                  "theme": "书架的内容",
+                  "position": "夹在其中一册《资治通鉴》的书页内",
+                  "attributes": {
+                    "material": "植物（银杏叶）",
+                    "color": "浅黄色",
+                    "size": "长约三寸，宽约两寸",
+                    "condition": "干燥、平整、易碎"
+                  },
+                  "node_id": "19d32240",
+                  "full_path": "书架/史部典籍/《资治通鉴》/书签",
+                  "material": "植物（银杏叶）",
+                  "color": "浅黄色",
+                  "size": "长约三寸，宽约两寸",
+                  "condition": "干燥、平整、易碎"
+                },
+                {
+                  "name": "手抄笔记散页",
+                  "node_type": "item",
+                  "description": "几张从册中滑出的毛边纸散页，上面是书生用行楷抄录的《资治通鉴》精华摘要和个人策论提纲，内容涉及“纳谏”、“用人”、“吏治”等主题。墨迹深浅不一，显示非一时所写。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/《资治通鉴》",
+                  "theme": "书架的内容",
+                  "position": "松散地夹在或放在几册《资治通鉴》之间",
+                  "attributes": {
+                    "material": "毛边纸",
+                    "color": "米白色纸张，黑色墨迹",
+                    "size": "大小不一，多为巴掌大小",
+                    "condition": "有折痕，边缘不齐"
+                  },
+                  "node_id": "00e35b2c",
+                  "full_path": "书架/史部典籍/《资治通鉴》/手抄笔记散页",
+                  "material": "毛边纸",
+                  "color": "米白色纸张，黑色墨迹",
+                  "size": "大小不一，多为巴掌大小",
+                  "condition": "有折痕，边缘不齐"
+                }
+              ],
+              "item_count": 2,
+              "container_count": 3
+            },
+            {
+              "name": "《大明律》",
+              "node_type": "item",
+              "description": "明朝颁布的国家法典。书生为应对科举中可能涉及的时政策论题，必须熟悉当代律法条文。书中有大量折角和使用书签标记的痕迹。",
+              "level": 2,
+              "parent_path": "书架/史部典籍",
+              "theme": "书架的内容",
+              "position": "单独竖放在显眼位置，可能是最近常翻阅的书籍。",
+              "attributes": {
+                "material": "官刻纸质，装帧相对较新",
+                "color": "书衣可能为黄色或红色，体现官方典籍的庄重",
+                "size": "中等开本",
+                "condition": "较新，但内页有密集的阅读笔记"
+              },
+              "node_id": "85f2ec1d",
+              "full_path": "书架/史部典籍/《大明律》",
+              "material": "官刻纸质，装帧相对较新",
+              "color": "书衣可能为黄色或红色，体现官方典籍的庄重",
+              "size": "中等开本",
+              "condition": "较新，但内页有密集的阅读笔记"
+            },
+            {
+              "name": "《明实录》节选抄本",
+              "node_type": "item",
+              "description": "书生手抄的当朝《实录》部分章节，内容涉及近期重大朝政事件、皇帝诏令及大臣奏议。这是了解时政、积累策论素材的重要一手资料，字迹工整但略显急促。",
+              "level": 2,
+              "parent_path": "书架/史部典籍",
+              "theme": "书架的内容",
+              "position": "以册页或卷轴形式，可能用布包裹或夹在其他史书之间。",
+              "attributes": {
+                "material": "宣纸，手抄本",
+                "color": "纸张原色，墨迹黑色",
+                "size": "不定，可能为册页或卷轴",
+                "condition": "新旧不一，墨迹清晰"
+              },
+              "node_id": "04e0810d",
+              "full_path": "书架/史部典籍/《明实录》节选抄本",
+              "material": "宣纸，手抄本",
+              "color": "纸张原色，墨迹黑色",
+              "size": "不定，可能为册页或卷轴",
+              "condition": "新旧不一，墨迹清晰"
+            },
+            {
+              "name": "史论笔记",
+              "node_type": "container",
+              "description": "书生研读史书时所做的札记本，记录历史事件脉络、人物评价、治国理政的得失心得，以及可用于策论的典故和论点。",
+              "level": 2,
+              "parent_path": "书架/史部典籍",
+              "theme": "书架的内容",
+              "position": "可能是一本或几本册子，与史书穿插放置或单独放在一侧。",
+              "attributes": {
+                "material": "纸质笔记本或散页装订",
+                "color": "封面素色（蓝、灰），内页有墨迹",
+                "size": "小于正本书籍，便于随身携带和记录",
+                "condition": "页面写满，频繁使用"
+              },
+              "node_id": "ca21a022",
+              "full_path": "书架/史部典籍/史论笔记",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "《资治通鉴》摘录页",
+                  "node_type": "item",
+                  "description": "从《资治通鉴》中摘抄的关键段落，记录了汉唐盛世的兴衰转折点，字迹工整，旁边有朱笔圈点。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/史论笔记",
+                  "theme": "书架的内容",
+                  "position": "夹在笔记前半部分，靠近书脊处",
+                  "attributes": {
+                    "material": "宣纸",
+                    "color": "微黄",
+                    "size": "约一尺见方",
+                    "condition": "纸张边缘略有磨损，墨迹清晰"
+                  },
+                  "node_id": "f48a7c73",
+                  "full_path": "书架/史部典籍/史论笔记/《资治通鉴》摘录页",
+                  "material": "宣纸",
+                  "color": "微黄",
+                  "size": "约一尺见方",
+                  "condition": "纸张边缘略有磨损，墨迹清晰"
+                },
+                {
+                  "name": "人物评述集",
+                  "node_type": "container",
+                  "description": "一个用线装订的小册子，专门记录书生对历代帝王将相（如唐太宗、魏征、张居正等）的功过评价和性格分析，用于策论中的人物论证。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/史论笔记",
+                  "theme": "书架的内容",
+                  "position": "笔记中部，有麻绳捆扎痕迹",
+                  "attributes": {
+                    "material": "竹纸，麻绳",
+                    "color": "浅褐色封面",
+                    "size": "手掌大小",
+                    "condition": "封面有墨渍，内页写满蝇头小楷"
+                  },
+                  "node_id": "f19644f6",
+                  "full_path": "书架/史部典籍/史论笔记/人物评述集",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "典故索引签",
+                  "node_type": "item",
+                  "description": "数张裁切整齐的彩色笺纸，每张记录一个可用于策论的经典历史典故（如“商鞅立木”、“卧薪尝胆”），并标注了出处和适用论点。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/史论笔记",
+                  "theme": "书架的内容",
+                  "position": "散落在笔记后半部分的夹页中",
+                  "attributes": {
+                    "material": "彩色笺纸",
+                    "color": "淡青、粉红、鹅黄",
+                    "size": "寸许宽，三寸长",
+                    "condition": "崭新，边缘平整"
+                  },
+                  "node_id": "18714034",
+                  "full_path": "书架/史部典籍/史论笔记/典故索引签",
+                  "material": "彩色笺纸",
+                  "color": "淡青、粉红、鹅黄",
+                  "size": "寸许宽，三寸长",
+                  "condition": "崭新，边缘平整"
+                },
+                {
+                  "name": "治国方略心得",
+                  "node_type": "container",
+                  "description": "一叠用镇纸压平的稿纸，记录了书生研读史书后，对田制、漕运、边备、吏治等具体治国方略的得失总结和个人见解。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/史论笔记",
+                  "theme": "书架的内容",
+                  "position": "笔记最后部分，纸张较厚",
+                  "attributes": {
+                    "material": "毛边纸",
+                    "color": "原木色",
+                    "size": "八行笺格式",
+                    "condition": "字迹略显潦草，有多处修改涂抹"
+                  },
+                  "node_id": "68e48993",
+                  "full_path": "书架/史部典籍/史论笔记/治国方略心得",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "朱批疑问便条",
+                  "node_type": "item",
+                  "description": "几张狭长的纸条，用朱砂笔写着读书时产生的疑问（如“开元盛世何以急转直下？”），贴在相关摘录的旁边，等待进一步查证或思考。",
+                  "level": 3,
+                  "parent_path": "书架/史部典籍/史论笔记",
+                  "theme": "书架的内容",
+                  "position": "零星粘贴在笔记各处的摘录旁",
+                  "attributes": {
+                    "material": "薄棉纸",
+                    "color": "白色纸条，朱砂字迹",
+                    "size": "细长条",
+                    "condition": "粘贴牢固，字迹醒目"
+                  },
+                  "node_id": "4af4a363",
+                  "full_path": "书架/史部典籍/史论笔记/朱批疑问便条",
+                  "material": "薄棉纸",
+                  "color": "白色纸条，朱砂字迹",
+                  "size": "细长条",
+                  "condition": "粘贴牢固，字迹醒目"
+                }
+              ],
+              "item_count": 3,
+              "container_count": 3
+            }
+          ],
+          "item_count": 9,
+          "container_count": 7
+        },
+        {
+          "name": "诸子百家与文集",
+          "node_type": "container",
+          "description": "收录了《老子》、《庄子》、《韩非子》等诸子著作，以及唐宋八大家等文学名家的文集。用于拓宽思想，提升文采，但并非科举核心，摆放相对靠后。",
+          "level": 1,
+          "parent_path": "书架",
+          "theme": "书架的内容",
+          "position": "书架中上层，靠内侧",
+          "attributes": {
+            "material": "纸质",
+            "color": "封面颜色不一",
+            "size": "中等",
+            "condition": "较新，翻阅频率一般"
+          },
+          "node_id": "10e0ceaa",
+          "full_path": "书架/诸子百家与文集",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "《老子》",
+              "node_type": "item",
+              "description": "道家经典著作，收录了老子的思想言论，书页边缘有书生阅读时留下的轻微折痕和墨点批注。",
+              "level": 2,
+              "parent_path": "书架/诸子百家与文集",
+              "theme": "书架的内容",
+              "position": "位于书架‘诸子百家与文集’区域的前排左侧，与其他诸子著作并列。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "蓝色布质封面，内页泛黄",
+                "size": "中等，约一掌宽",
+                "condition": "保存完好，有阅读痕迹"
+              },
+              "node_id": "2b6e4f3b",
+              "full_path": "书架/诸子百家与文集/《老子》",
+              "material": "纸质，线装",
+              "color": "蓝色布质封面，内页泛黄",
+              "size": "中等，约一掌宽",
+              "condition": "保存完好，有阅读痕迹"
+            },
+            {
+              "name": "《庄子》",
+              "node_type": "item",
+              "description": "道家另一部重要经典，内篇外篇俱全。书中有多处书生用朱笔圈画的寓言故事和哲学思辨段落。",
+              "level": 2,
+              "parent_path": "书架/诸子百家与文集",
+              "theme": "书架的内容",
+              "position": "紧邻《老子》右侧放置。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "青色封面",
+                "size": "略厚于《老子》",
+                "condition": "书角微卷，内页有较多批注"
+              },
+              "node_id": "a3b5bee0",
+              "full_path": "书架/诸子百家与文集/《庄子》",
+              "material": "纸质，线装",
+              "color": "青色封面",
+              "size": "略厚于《老子》",
+              "condition": "书角微卷，内页有较多批注"
+            },
+            {
+              "name": "《韩非子》",
+              "node_type": "item",
+              "description": "法家集大成之作，收录韩非的政论文章。书页相对较新，批注较少，显示书生对此钻研不深。",
+              "level": 2,
+              "parent_path": "书架/诸子百家与文集",
+              "theme": "书架的内容",
+              "position": "位于《庄子》右侧，是诸子区域的最后一本。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "深褐色封面",
+                "size": "中等厚度",
+                "condition": "较新，翻阅痕迹少"
+              },
+              "node_id": "01f29010",
+              "full_path": "书架/诸子百家与文集/《韩非子》",
+              "material": "纸质，线装",
+              "color": "深褐色封面",
+              "size": "中等厚度",
+              "condition": "较新，翻阅痕迹少"
+            },
+            {
+              "name": "《昌黎先生集》",
+              "node_type": "item",
+              "description": "唐宋八大家之首韩愈的文集。书脊有磨损，显示是书生时常翻阅以学习其雄健文风的读物。",
+              "level": 2,
+              "parent_path": "书架/诸子百家与文集",
+              "theme": "书架的内容",
+              "position": "位于文集区域的开头，与诸子著作略有间隔。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "灰色封面",
+                "size": "较厚的一册",
+                "condition": "经常翻阅，书脊有磨损"
+              },
+              "node_id": "5ebcc1c7",
+              "full_path": "书架/诸子百家与文集/《昌黎先生集》",
+              "material": "纸质，线装",
+              "color": "灰色封面",
+              "size": "较厚的一册",
+              "condition": "经常翻阅，书脊有磨损"
+            },
+            {
+              "name": "《东坡全集》",
+              "node_type": "container",
+              "description": "宋代文豪苏轼的诗、词、文、赋全集，分装为数册。是书生陶冶性情、学习洒脱文笔的重要参考。",
+              "level": 2,
+              "parent_path": "书架/诸子百家与文集",
+              "theme": "书架的内容",
+              "position": "紧挨着《昌黎先生集》摆放，占据较大空间。",
+              "attributes": {
+                "material": "纸质，线装，多册合函",
+                "color": "浅棕色函套",
+                "size": "一套多册，体积较大",
+                "condition": "函套边角有磨损，内册保存尚好"
+              },
+              "node_id": "a142bf51",
+              "full_path": "书架/诸子百家与文集/《东坡全集》",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [
+                {
+                  "name": "卷一：诗集",
+                  "node_type": "container",
+                  "description": "收录苏轼早期诗作，包括《和子由渑池怀旧》等名篇。书册为线装，纸张泛黄但保存完好，封面有题签。",
+                  "level": 3,
+                  "parent_path": "书架/诸子百家与文集/《东坡全集》",
+                  "theme": "书架的内容",
+                  "position": "位于《东坡全集》函套内的第一册",
+                  "attributes": {
+                    "material": "宣纸、棉线、靛蓝布面",
+                    "color": "靛蓝封面，泛黄内页",
+                    "size": "约长25厘米，宽15厘米，厚2厘米",
+                    "condition": "完好，略有翻阅痕迹"
+                  },
+                  "node_id": "a39ba878",
+                  "full_path": "书架/诸子百家与文集/《东坡全集》/卷一：诗集",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "卷二：词集",
+                  "node_type": "container",
+                  "description": "收录苏轼词作，如《水调歌头·明月几时有》、《念奴娇·赤壁怀古》等。书册内有前人朱笔圈点批注。",
+                  "level": 3,
+                  "parent_path": "书架/诸子百家与文集/《东坡全集》",
+                  "theme": "书架的内容",
+                  "position": "位于《东坡全集》函套内的第二册",
+                  "attributes": {
+                    "material": "宣纸、棉线、靛蓝布面",
+                    "color": "靛蓝封面，泛黄内页有朱砂批注",
+                    "size": "约长25厘米，宽15厘米，厚1.5厘米",
+                    "condition": "完好，批注清晰"
+                  },
+                  "node_id": "35670494",
+                  "full_path": "书架/诸子百家与文集/《东坡全集》/卷二：词集",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "卷三：文集",
+                  "node_type": "container",
+                  "description": "收录苏轼的散文、书信、奏议等，如《前赤壁赋》、《记承天寺夜游》。是书生学习文章章法和思想的重要范本。",
+                  "level": 3,
+                  "parent_path": "书架/诸子百家与文集/《东坡全集》",
+                  "theme": "书架的内容",
+                  "position": "位于《东坡全集》函套内的第三册",
+                  "attributes": {
+                    "material": "宣纸、棉线、靛蓝布面",
+                    "color": "靛蓝封面，泛黄内页",
+                    "size": "约长25厘米，宽15厘米，厚2.5厘米",
+                    "condition": "完好，书脊略有磨损"
+                  },
+                  "node_id": "634a3702",
+                  "full_path": "书架/诸子百家与文集/《东坡全集》/卷三：文集",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "卷四：杂著与附录",
+                  "node_type": "container",
+                  "description": "收录苏轼的笔记、题跋、以及后人编纂的年谱简编。书册较薄。",
+                  "level": 3,
+                  "parent_path": "书架/诸子百家与文集/《东坡全集》",
+                  "theme": "书架的内容",
+                  "position": "位于《东坡全集》函套内的第四册",
+                  "attributes": {
+                    "material": "宣纸、棉线、靛蓝布面",
+                    "color": "靛蓝封面，泛黄内页",
+                    "size": "约长25厘米，宽15厘米，厚1厘米",
+                    "condition": "完好"
+                  },
+                  "node_id": "61b1b65e",
+                  "full_path": "书架/诸子百家与文集/《东坡全集》/卷四：杂著与附录",
+                  "container_type": "physical",
+                  "is_expanded": false,
+                  "children": [],
+                  "item_count": 0,
+                  "container_count": 1
+                },
+                {
+                  "name": "靛蓝布面函套",
+                  "node_type": "item",
+                  "description": "用于保护和收纳数册《东坡全集》的布面函套，正面以楷书题写“东坡全集”四字。",
+                  "level": 3,
+                  "parent_path": "书架/诸子百家与文集/《东坡全集》",
+                  "theme": "书架的内容",
+                  "position": "包裹着整套《东坡全集》",
+                  "attributes": {
+                    "material": "棉布、硬纸板",
+                    "color": "靛蓝色",
+                    "size": "约长26厘米，宽16厘米，高8厘米",
+                    "condition": "略有磨损，但整体结实"
+                  },
+                  "node_id": "9b0fce86",
+                  "full_path": "书架/诸子百家与文集/《东坡全集》/靛蓝布面函套",
+                  "material": "棉布、硬纸板",
+                  "color": "靛蓝色",
+                  "size": "约长26厘米，宽16厘米，高8厘米",
+                  "condition": "略有磨损，但整体结实"
+                }
+              ],
+              "item_count": 1,
+              "container_count": 5
+            },
+            {
+              "name": "《柳河东集》",
+              "node_type": "item",
+              "description": "唐代文学家柳宗元的文集。书中夹有几片干枯的枫叶作为书签，可能与书中描写的永州山水有关。",
+              "level": 2,
+              "parent_path": "书架/诸子百家与文集",
+              "theme": "书架的内容",
+              "position": "位于文集区域的中部。",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "暗红色封面",
+                "size": "中等厚度",
+                "condition": "内有自然书签，页面平整"
+              },
+              "node_id": "c2567879",
+              "full_path": "书架/诸子百家与文集/《柳河东集》",
+              "material": "纸质，线装",
+              "color": "暗红色封面",
+              "size": "中等厚度",
+              "condition": "内有自然书签，页面平整"
+            },
+            {
+              "name": "空置竹制书匣",
+              "node_type": "container",
+              "description": "一个精致的竹制书匣，目前空置，可能用于临时存放从书架上取下的某一册文集或用于收纳书生自己的文章草稿。",
+              "level": 2,
+              "parent_path": "书架/诸子百家与文集",
+              "theme": "书架的内容",
+              "position": "斜靠在‘诸子百家与文集’区域的最右侧，略微突出于书架。",
+              "attributes": {
+                "material": "竹制",
+                "color": "原竹色，略带包浆",
+                "size": "长约一尺，宽半尺",
+                "condition": "空置，内部清洁"
+              },
+              "node_id": "31b5788b",
+              "full_path": "书架/诸子百家与文集/空置竹制书匣",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [],
+              "item_count": 0,
+              "container_count": 1
+            }
+          ],
+          "item_count": 6,
+          "container_count": 7
+        },
+        {
+          "name": "工具书与注疏",
+          "node_type": "container",
+          "description": "包括《说文解字》等字书、《韵府群玉》等韵书，以及对四书五经的权威注疏本（如朱熹的《四书章句集注》）。是书生查阅字义、音韵和理解经义的工具。",
+          "level": 1,
+          "parent_path": "书架",
+          "theme": "书架的内容",
+          "position": "书架下层，便于取放",
+          "attributes": {
+            "material": "纸质",
+            "color": "朴素的封面",
+            "size": "有厚有薄",
+            "condition": "工具书边角磨损严重，注疏本有阅读痕迹"
+          },
+          "node_id": "49a7d9fb",
+          "full_path": "书架/工具书与注疏",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "《说文解字》",
+              "node_type": "item",
+              "description": "东汉许慎所著的权威字书，是书生查阅字形、字义和字源的根本工具。书页因频繁翻阅而略显毛边，书脊处有加固的痕迹。",
+              "level": 2,
+              "parent_path": "书架/工具书与注疏",
+              "theme": "书架的内容",
+              "position": "摆放在书架上层，便于取阅的位置",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "蓝布封面，内页泛黄",
+                "size": "中等开本",
+                "condition": "保存完好，但有使用痕迹"
+              },
+              "node_id": "891ac799",
+              "full_path": "书架/工具书与注疏/《说文解字》",
+              "material": "纸质，线装",
+              "color": "蓝布封面，内页泛黄",
+              "size": "中等开本",
+              "condition": "保存完好，但有使用痕迹"
+            },
+            {
+              "name": "《韵府群玉》",
+              "node_type": "item",
+              "description": "一部重要的韵书，用于查找字词的音韵和归类，是书生作诗赋、应对科举诗赋题的重要参考。",
+              "level": 2,
+              "parent_path": "书架/工具书与注疏",
+              "theme": "书架的内容",
+              "position": "与《说文解字》并排摆放",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "深青色封面",
+                "size": "中等开本",
+                "condition": "书角略有磨损"
+              },
+              "node_id": "6cabbc5f",
+              "full_path": "书架/工具书与注疏/《韵府群玉》",
+              "material": "纸质，线装",
+              "color": "深青色封面",
+              "size": "中等开本",
+              "condition": "书角略有磨损"
+            },
+            {
+              "name": "《四书章句集注》",
+              "node_type": "container",
+              "description": "朱熹对《大学》、《中庸》、《论语》、《孟子》的权威注释合集，是科举考试的标准教材和答题依据。书内有大量书生用蝇头小楷写下的批注和心得。",
+              "level": 2,
+              "parent_path": "书架/工具书与注疏",
+              "theme": "书架的内容",
+              "position": "放置在工具书区域最显眼、最易取用的位置",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "深褐色封面",
+                "size": "较厚的一册",
+                "condition": "书页内布满笔记，封面有磨损"
+              },
+              "node_id": "af2e9d64",
+              "full_path": "书架/工具书与注疏/《四书章句集注》",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [],
+              "item_count": 0,
+              "container_count": 1
+            },
+            {
+              "name": "《五经正义》",
+              "node_type": "container",
+              "description": "对《诗》、《书》、《礼》、《易》、《春秋》五部儒家经典的官方标准注疏本，是理解经义、应对经义题的核心参考书。",
+              "level": 2,
+              "parent_path": "书架/工具书与注疏",
+              "theme": "书架的内容",
+              "position": "紧挨着《四书章句集注》摆放",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "暗红色封面",
+                "size": "一套多册，体积较大",
+                "condition": "保存较为完好，但常用的一两册有明显翻阅痕迹"
+              },
+              "node_id": "c4c3a143",
+              "full_path": "书架/工具书与注疏/《五经正义》",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [],
+              "item_count": 0,
+              "container_count": 1
+            },
+            {
+              "name": "《康熙字典》",
+              "node_type": "item",
+              "description": "一部收字完备、释义详尽的大型字书（虽为清代编纂，但在此场景中可视为书生拥有的前代或当代重要字书的概念替代，体现其对工具书的重视）。书体厚重。",
+              "level": 2,
+              "parent_path": "书架/工具书与注疏",
+              "theme": "书架的内容",
+              "position": "放置在书架下层，因其厚重不便常取",
+              "attributes": {
+                "material": "纸质，线装",
+                "color": "黄色封面",
+                "size": "大开本，厚重",
+                "condition": "较新，翻阅次数相对较少"
+              },
+              "node_id": "6f0c9a28",
+              "full_path": "书架/工具书与注疏/《康熙字典》",
+              "material": "纸质，线装",
+              "color": "黄色封面",
+              "size": "大开本，厚重",
+              "condition": "较新，翻阅次数相对较少"
+            }
+          ],
+          "item_count": 3,
+          "container_count": 3
+        },
+        {
+          "name": "青瓷笔筒",
+          "node_type": "item",
+          "description": "一个素雅的青瓷笔筒，暂时闲置在书架的一格内，里面插着几支备用毛笔和一把竹制裁纸刀。",
+          "level": 1,
+          "parent_path": "书架",
+          "theme": "书架的内容",
+          "position": "书架某一层的空档处",
+          "attributes": {
+            "material": "瓷器",
+            "color": "青釉色",
+            "size": "中等，高约十五厘米",
+            "condition": "洁净，无破损"
+          },
+          "node_id": "93d75e4c",
+          "full_path": "书架/青瓷笔筒",
+          "material": "瓷器",
+          "color": "青釉色",
+          "size": "中等，高约十五厘米",
+          "condition": "洁净，无破损"
+        },
+        {
+          "name": "一叠手抄笔记",
+          "node_type": "item",
+          "description": "一叠用棉线粗略装订的毛边纸，是书生平日读书的心得、摘抄的佳句、练习的破题承题。字迹工整而密集。",
+          "level": 1,
+          "parent_path": "书架",
+          "theme": "书架的内容",
+          "position": "平放在书架某一层的书籍之上",
+          "attributes": {
+            "material": "毛边纸",
+            "color": "纸张原色，略有污渍",
+            "size": "约一指厚",
+            "condition": "边缘不齐，页面有墨渍"
+          },
+          "node_id": "e70fd170",
+          "full_path": "书架/一叠手抄笔记",
+          "material": "毛边纸",
+          "color": "纸张原色，略有污渍",
+          "size": "约一指厚",
+          "condition": "边缘不齐，页面有墨渍"
+        }
+      ],
+      "item_count": 42,
+      "container_count": 40
+    },
+    {
+      "name": "窗户",
+      "node_type": "container",
+      "description": "一扇雕花木窗，窗纸洁净，此刻敞开着，窗外是静谧的庭院，如水的月光洒入室内。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "窗户的内容",
+      "position": "书桌正前方",
+      "attributes": {
+        "material": "木材与窗纸",
+        "color": "木色窗框，透明窗纸",
+        "size": "中等大小",
+        "condition": "完好，洁净"
+      },
+      "node_id": "ff91a868",
+      "full_path": "窗户",
+      "container_type": "physical",
+      "is_expanded": true,
+      "children": [
+        {
+          "name": "窗框",
+          "node_type": "container",
+          "description": "由硬木制成的窗框，表面有精细的雕花，可能是简单的几何纹样或梅兰竹菊等文人喜爱的图案，结构稳固，支撑着整个窗户。",
+          "level": 1,
+          "parent_path": "窗户",
+          "theme": "窗户的内容",
+          "position": "构成窗户的主体框架",
+          "attributes": {
+            "material": "硬木（如榆木或榉木）",
+            "color": "深棕色，表面有清漆光泽",
+            "size": "与窗户等大",
+            "condition": "完好，保养得当"
+          },
+          "node_id": "13d10ec2",
+          "full_path": "窗户/窗框",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "窗纸",
+              "node_type": "item",
+              "description": "裱糊在窗格上的白色或米白色纸张，在月光下透出柔和的光晕。纸张质地坚韧，可能略有泛黄，是典型的明代窗户用纸。",
+              "level": 2,
+              "parent_path": "窗户/窗框",
+              "theme": "窗户的内容",
+              "position": "覆盖在窗框的各个窗格上",
+              "attributes": {
+                "material": "纸",
+                "color": "米白色/白色",
+                "size": "覆盖每个窗格",
+                "condition": "完好，略有岁月痕迹"
+              },
+              "node_id": "01be6877",
+              "full_path": "窗户/窗框/窗纸",
+              "material": "纸",
+              "color": "米白色/白色",
+              "size": "覆盖每个窗格",
+              "condition": "完好，略有岁月痕迹"
+            },
+            {
+              "name": "窗格",
+              "node_type": "container",
+              "description": "由窗框的木条分割出的一个个小格子，构成了窗户的基本骨架。木条纤细而笔直，将窗纸分割成规整的几何形状，如方形或菱形。",
+              "level": 2,
+              "parent_path": "窗户/窗框",
+              "theme": "窗户的内容",
+              "position": "构成窗框的内部支撑结构",
+              "attributes": {
+                "material": "硬木",
+                "color": "深棕色",
+                "size": "纤细",
+                "condition": "结构稳固"
+              },
+              "node_id": "fb14ad10",
+              "full_path": "窗户/窗框/窗格",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [],
+              "item_count": 0,
+              "container_count": 1
+            },
+            {
+              "name": "窗闩",
+              "node_type": "item",
+              "description": "一个简单的木制或铜制插销，用于从内部固定窗户，防止被风吹开或从外推开。造型朴素，与窗框融为一体。",
+              "level": 2,
+              "parent_path": "窗户/窗框",
+              "theme": "窗户的内容",
+              "position": "安装在窗框的一侧（内侧）",
+              "attributes": {
+                "material": "木/铜",
+                "color": "深棕色/古铜色",
+                "size": "小型",
+                "condition": "使用顺畅，略有磨损"
+              },
+              "node_id": "2148db30",
+              "full_path": "窗户/窗框/窗闩",
+              "material": "木/铜",
+              "color": "深棕色/古铜色",
+              "size": "小型",
+              "condition": "使用顺畅，略有磨损"
+            },
+            {
+              "name": "雕花纹样",
+              "node_type": "item",
+              "description": "窗框木料上雕刻的装饰图案。根据描述，可能是简洁的冰裂纹、回字纹等几何图案，也可能是寓意高洁的梅、兰、竹、菊浅浮雕，体现了主人的文人品味。",
+              "level": 2,
+              "parent_path": "窗户/窗框",
+              "theme": "窗户的内容",
+              "position": "雕刻在窗框的边框或显眼位置",
+              "attributes": {
+                "material": "木雕",
+                "color": "与窗框同色",
+                "size": "精细",
+                "condition": "清晰可见，细节完好"
+              },
+              "node_id": "c377c138",
+              "full_path": "窗户/窗框/雕花纹样",
+              "material": "木雕",
+              "color": "与窗框同色",
+              "size": "精细",
+              "condition": "清晰可见，细节完好"
+            },
+            {
+              "name": "窗台内侧边缘",
+              "node_type": "container",
+              "description": "窗框底部向室内延伸形成的窄小平台，是窗框与室内墙壁的连接部分，常会放置或掉落一些小物件。",
+              "level": 2,
+              "parent_path": "窗户/窗框",
+              "theme": "窗户的内容",
+              "position": "窗框底部，紧贴室内墙壁",
+              "attributes": {
+                "material": "硬木",
+                "color": "深棕色",
+                "size": "窄长条状",
+                "condition": "平整，可能有灰尘或使用痕迹"
+              },
+              "node_id": "d1298a6a",
+              "full_path": "窗户/窗框/窗台内侧边缘",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [],
+              "item_count": 0,
+              "container_count": 1
+            }
+          ],
+          "item_count": 3,
+          "container_count": 3
+        },
+        {
+          "name": "窗棂",
+          "node_type": "container",
+          "description": "窗框内分割窗格的木条，形成规则的方格或更复杂的图案（如冰裂纹、灯笼锦），是传统木窗的典型特征。",
+          "level": 1,
+          "parent_path": "窗户",
+          "theme": "窗户的内容",
+          "position": "镶嵌在窗框内部，分割出多个小格",
+          "attributes": {
+            "material": "与窗框相同的硬木",
+            "color": "深棕色",
+            "size": "细长条状",
+            "condition": "线条笔直，接缝严密"
+          },
+          "node_id": "59faf8ab",
+          "full_path": "窗户/窗棂",
+          "container_type": "physical",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "冰裂纹窗格",
+              "node_type": "container",
+              "description": "窗棂上形成的冰裂纹图案，由不规则的三角形和多边形木条拼接而成，模仿冰面裂开的自然纹理，是明代江南文人喜爱的雅致装饰。",
+              "level": 2,
+              "parent_path": "窗户/窗棂",
+              "theme": "窗户的内容",
+              "position": "覆盖在窗棂的主要可视区域",
+              "attributes": {
+                "material": "榉木或楠木",
+                "color": "深棕色，表面有清漆光泽",
+                "size": "覆盖整个窗框",
+                "condition": "完好，做工精细"
+              },
+              "node_id": "cb618c29",
+              "full_path": "窗户/窗棂/冰裂纹窗格",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [],
+              "item_count": 0,
+              "container_count": 1
+            },
+            {
+              "name": "灯笼锦窗格",
+              "node_type": "container",
+              "description": "窗棂上形成的灯笼锦图案，由纵横交错的直线和曲线木条构成，形似一串串灯笼，寓意“光明”和“喜庆”，常见于书房窗户。",
+              "level": 2,
+              "parent_path": "窗户/窗棂",
+              "theme": "窗户的内容",
+              "position": "位于窗棂的中心或下方区域",
+              "attributes": {
+                "material": "榉木",
+                "color": "原木色，略带岁月痕迹",
+                "size": "规则排列的方格单元",
+                "condition": "略有磨损，但结构稳固"
+              },
+              "node_id": "986be0e8",
+              "full_path": "窗户/窗棂/灯笼锦窗格",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [],
+              "item_count": 0,
+              "container_count": 1
+            },
+            {
+              "name": "窗纸",
+              "node_type": "item",
+              "description": "裱糊在窗棂方格上的白色或微黄宣纸，透光但不透明，月光透过时形成柔和的光影。纸上可能因潮湿或老化有细微褶皱。",
+              "level": 2,
+              "parent_path": "窗户/窗棂",
+              "theme": "窗户的内容",
+              "position": "紧贴窗棂内侧，覆盖每个方格",
+              "attributes": {
+                "material": "宣纸",
+                "color": "米白色",
+                "size": "与每个窗格匹配",
+                "condition": "平整，边缘略有泛黄"
+              },
+              "node_id": "a916aff1",
+              "full_path": "窗户/窗棂/窗纸",
+              "material": "宣纸",
+              "color": "米白色",
+              "size": "与每个窗格匹配",
+              "condition": "平整，边缘略有泛黄"
+            },
+            {
+              "name": "月光投影",
+              "node_type": "item",
+              "description": "窗外月光透过窗棂和窗纸，在书房地面上投下清晰的冰裂纹或灯笼锦图案的光影，随月光移动而缓慢变化。",
+              "level": 2,
+              "parent_path": "窗户/窗棂",
+              "theme": "窗户的内容",
+              "position": "从窗棂投射到书房地面或书桌一角",
+              "attributes": {
+                "material": "光线",
+                "color": "银白色",
+                "size": "与窗户等大",
+                "condition": "清晰、宁静"
+              },
+              "node_id": "aea6d760",
+              "full_path": "窗户/窗棂/月光投影",
+              "material": "光线",
+              "color": "银白色",
+              "size": "与窗户等大",
+              "condition": "清晰、宁静"
+            },
+            {
+              "name": "细小尘埃",
+              "node_type": "item",
+              "description": "附着在窗棂木条凹槽或窗纸边缘的细微灰尘，在月光斜照下隐约可见，增添静谧感。",
+              "level": 2,
+              "parent_path": "窗户/窗棂",
+              "theme": "窗户的内容",
+              "position": "窗棂表面和接缝处",
+              "attributes": {
+                "material": "灰尘",
+                "color": "灰白色",
+                "size": "微小",
+                "condition": "薄薄一层"
+              },
+              "node_id": "b33254e4",
+              "full_path": "窗户/窗棂/细小尘埃",
+              "material": "灰尘",
+              "color": "灰白色",
+              "size": "微小",
+              "condition": "薄薄一层"
+            }
+          ],
+          "item_count": 3,
+          "container_count": 3
+        },
+        {
+          "name": "窗纸",
+          "node_type": "item",
+          "description": "裱糊在窗棂格上的白色宣纸或韧性更好的皮纸，洁净透光，将月光柔和地过滤后洒入室内，纸上可能映出窗外竹影的淡淡轮廓。",
+          "level": 1,
+          "parent_path": "窗户",
+          "theme": "窗户的内容",
+          "position": "紧绷地裱糊在每一个窗棂格上",
+          "attributes": {
+            "material": "宣纸/皮纸",
+            "color": "白色，微微泛黄",
+            "size": "覆盖每个窗格",
+            "condition": "洁净，无破损"
+          },
+          "node_id": "a016d9e8",
+          "full_path": "窗户/窗纸",
+          "material": "宣纸/皮纸",
+          "color": "白色，微微泛黄",
+          "size": "覆盖每个窗格",
+          "condition": "洁净，无破损"
+        },
+        {
+          "name": "窗钩",
+          "node_type": "item",
+          "description": "一个铜制或铁制的简易挂钩，用于在窗户敞开时固定窗扇，防止被风吹动。",
+          "level": 1,
+          "parent_path": "窗户",
+          "theme": "窗户的内容",
+          "position": "安装在窗扇侧边或窗框上",
+          "attributes": {
+            "material": "铜或铁",
+            "color": "金属原色或有些许铜绿",
+            "size": "小型",
+            "condition": "使用正常"
+          },
+          "node_id": "929e7cb1",
+          "full_path": "窗户/窗钩",
+          "material": "铜或铁",
+          "color": "金属原色或有些许铜绿",
+          "size": "小型",
+          "condition": "使用正常"
+        },
+        {
+          "name": "窗外景致",
+          "node_type": "container",
+          "description": "通过敞开的窗户框定的一幅动态画面，是书生苦读时抬眼即可见的景色，构成场景氛围的重要部分。",
+          "level": 1,
+          "parent_path": "窗户",
+          "theme": "窗户的内容",
+          "position": "在窗户的开口之外",
+          "attributes": {
+            "material": null,
+            "color": "以深蓝夜空、银色月光、深绿植物为主",
+            "size": "充满整个窗框视野",
+            "condition": "静谧，生动"
+          },
+          "node_id": "7586ed97",
+          "full_path": "窗户/窗外景致",
+          "container_type": "abstract",
+          "is_expanded": true,
+          "children": [
+            {
+              "name": "庭院",
+              "node_type": "container",
+              "description": "一个典型的江南小院，青石板铺地，月光下显得格外清幽宁静。是窗外景致的主体框架。",
+              "level": 2,
+              "parent_path": "窗户/窗外景致",
+              "theme": "窗户的内容",
+              "position": "窗户正前方，占据视野的主要部分",
+              "attributes": {
+                "material": "青石板、泥土、植物",
+                "color": "月光下的青灰色、墨绿色",
+                "size": "中等大小，与书房相连",
+                "condition": "整洁，略有苔痕，充满生活气息"
+              },
+              "node_id": "c01cc5a5",
+              "full_path": "窗户/窗外景致/庭院",
+              "container_type": "physical",
+              "is_expanded": true,
+              "children": [],
+              "item_count": 0,
+              "container_count": 1
+            },
+            {
+              "name": "月光",
+              "node_type": "item",
+              "description": "如水般清澈明亮的月光，倾泻在庭院和远处的景物上，是营造宁静氛围的核心元素。",
+              "level": 2,
+              "parent_path": "窗户/窗外景致",
+              "theme": "窗户的内容",
+              "position": "笼罩整个窗外景致，从天空洒下",
+              "attributes": {
+                "material": "光线",
+                "color": "银白色、淡蓝色",
+                "size": "弥漫整个视野",
+                "condition": "明亮、柔和、稳定"
+              },
+              "node_id": "98da387c",
+              "full_path": "窗户/窗外景致/月光",
+              "material": "光线",
+              "color": "银白色、淡蓝色",
+              "size": "弥漫整个视野",
+              "condition": "明亮、柔和、稳定"
+            },
+            {
+              "name": "一株芭蕉",
+              "node_type": "item",
+              "description": "庭院角落的一株芭蕉树，宽大的叶片在月光下轮廓分明，偶尔随风轻摆，发出细微的沙沙声。",
+              "level": 2,
+              "parent_path": "窗户/窗外景致",
+              "theme": "窗户的内容",
+              "position": "庭院的一角，靠近窗边",
+              "attributes": {
+                "material": "植物",
+                "color": "月光下的深绿色，叶脉泛着银光",
+                "size": "高大，数片宽大叶片",
+                "condition": "生长茂盛，叶片完好"
+              },
+              "node_id": "27261aae",
+              "full_path": "窗户/窗外景致/一株芭蕉",
+              "material": "植物",
+              "color": "月光下的深绿色，叶脉泛着银光",
+              "size": "高大，数片宽大叶片",
+              "condition": "生长茂盛，叶片完好"
+            },
+            {
+              "name": "远处黛瓦白墙",
+              "node_type": "item",
+              "description": "月光勾勒出远处邻居家屋顶的轮廓，典型的江南建筑风格，黛瓦层层叠叠，白墙若隐若现。",
+              "level": 2,
+              "parent_path": "窗户/窗外景致",
+              "theme": "窗户的内容",
+              "position": "庭院后方，视野的远景",
+              "attributes": {
+                "material": "瓦片、石灰墙",
+                "color": "黛黑色、灰白色",
+                "size": "连绵的轮廓线",
+                "condition": "安静、肃穆"
+              },
+              "node_id": "ba1888fb",
+              "full_path": "窗户/窗外景致/远处黛瓦白墙",
+              "material": "瓦片、石灰墙",
+              "color": "黛黑色、灰白色",
+              "size": "连绵的轮廓线",
+              "condition": "安静、肃穆"
+            },
+            {
+              "name": "几声虫鸣",
+              "node_type": "item",
+              "description": "从庭院草丛或墙角传来的、断断续续的蟋蟀或秋虫鸣叫声，更衬托出夜的宁静与书房的专注。",
+              "level": 2,
+              "parent_path": "窗户/窗外景致",
+              "theme": "窗户的内容",
+              "position": "声音来自庭院各处，融入夜色",
+              "attributes": {
+                "material": "声音",
+                "color": "无",
+                "size": "细微、间断",
+                "condition": "清晰、自然"
+              },
+              "node_id": "bc604ef4",
+              "full_path": "窗户/窗外景致/几声虫鸣",
+              "material": "声音",
+              "color": "无",
+              "size": "细微、间断",
+              "condition": "清晰、自然"
+            },
+            {
+              "name": "一缕夜风",
+              "node_type": "item",
+              "description": "偶尔拂过窗棂的微风，带着夜晚的凉意和植物的清新气息，轻轻扰动书生的发丝和书页。",
+              "level": 2,
+              "parent_path": "窗户/窗外景致",
+              "theme": "窗户的内容",
+              "position": "穿过窗户，进入书房",
+              "attributes": {
+                "material": "空气",
+                "color": "无",
+                "size": "轻柔",
+                "condition": "凉爽、清新"
+              },
+              "node_id": "e6670b03",
+              "full_path": "窗户/窗外景致/一缕夜风",
+              "material": "空气",
+              "color": "无",
+              "size": "轻柔",
+              "condition": "凉爽、清新"
+            }
+          ],
+          "item_count": 5,
+          "container_count": 2
+        }
+      ],
+      "item_count": 13,
+      "container_count": 9
+    },
+    {
+      "name": "油灯",
+      "node_type": "item",
+      "description": "一盏青瓷底座、铜质灯盏的油灯，灯芯燃着豆大的火光，提供主要照明，灯旁有剪灯芯的铜剪。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "",
+      "position": "书桌的右上角",
+      "attributes": {
+        "material": "青瓷、铜",
+        "color": "青瓷色，铜黄色",
+        "size": "小型",
+        "condition": "正在使用，灯油将尽"
+      },
+      "node_id": "89980337",
+      "full_path": "油灯",
+      "material": "青瓷、铜",
+      "color": "青瓷色，铜黄色",
+      "size": "小型",
+      "condition": "正在使用，灯油将尽"
+    },
+    {
+      "name": "砚台与墨锭",
+      "node_type": "item",
+      "description": "一方端石砚台，质地细腻，旁边搁着一块徽墨墨锭，是书生磨墨书写之用。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "",
+      "position": "书桌左上角",
+      "attributes": {
+        "material": "端石、松烟墨",
+        "color": "砚台青黑色，墨锭漆黑",
+        "size": "砚台手掌大小",
+        "condition": "砚台内有新磨的墨汁"
+      },
+      "node_id": "06af64d3",
+      "full_path": "砚台与墨锭",
+      "material": "端石、松烟墨",
+      "color": "砚台青黑色，墨锭漆黑",
+      "size": "砚台手掌大小",
+      "condition": "砚台内有新磨的墨汁"
+    },
+    {
+      "name": "毛笔与笔架",
+      "node_type": "item",
+      "description": "数支不同型号的毛笔，笔毫多为狼毫或兼毫，搁在一个小巧的紫檀木笔架上。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "",
+      "position": "砚台右侧",
+      "attributes": {
+        "material": "竹杆、动物毫毛、紫檀木",
+        "color": "竹黄色，笔毫深色，紫檀深红",
+        "size": "毛笔长度约一拃",
+        "condition": "毛笔使用过，笔尖湿润"
+      },
+      "node_id": "c312acd2",
+      "full_path": "毛笔与笔架",
+      "material": "竹杆、动物毫毛、紫檀木",
+      "color": "竹黄色，笔毫深色，紫檀深红",
+      "size": "毛笔长度约一拃",
+      "condition": "毛笔使用过，笔尖湿润"
+    },
+    {
+      "name": "摊开的书籍与文稿",
+      "node_type": "item",
+      "description": "书桌上摊开着一本《四书章句集注》和数页写满八股文章的稿纸，稿纸上有修改批注的痕迹。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "",
+      "position": "书桌正中央",
+      "attributes": {
+        "material": "纸张、墨水",
+        "color": "纸张微黄，墨迹黑色",
+        "size": "书籍和稿纸铺满桌面中心",
+        "condition": "正在使用，书页有折痕，稿纸凌乱"
+      },
+      "node_id": "ad16026e",
+      "full_path": "摊开的书籍与文稿",
+      "material": "纸张、墨水",
+      "color": "纸张微黄，墨迹黑色",
+      "size": "书籍和稿纸铺满桌面中心",
+      "condition": "正在使用，书页有折痕，稿纸凌乱"
+    },
+    {
+      "name": "青瓷茶盏",
+      "node_type": "item",
+      "description": "一个简单的青瓷茶盏，里面尚有半盏已凉的清茶，用于书生提神解渴。",
+      "level": 0,
+      "parent_path": "",
+      "theme": "",
+      "position": "书桌的右前方，靠近边缘",
+      "attributes": {
+        "material": "瓷器",
+        "color": "青釉色",
+        "size": "小型茶盏",
+        "condition": "内有半盏冷茶"
+      },
+      "node_id": "fca62f00",
+      "full_path": "青瓷茶盏",
+      "material": "瓷器",
+      "color": "青釉色",
+      "size": "小型茶盏",
+      "condition": "内有半盏冷茶"
+    }
+  ],
+  "statistics": {
+    "total_items": 121,
+    "total_containers": 87,
+    "max_depth_reached": 3
+  }
+}
