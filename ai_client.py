@@ -51,30 +51,66 @@ class AIClient:
         }
     
     def _parse_json_response(self, content: str) -> Dict[str, Any]:
-        """解析JSON响应"""
+        """解析JSON响应（增强版，处理各种格式问题）"""
+        
+        # 1. 尝试直接解析
         try:
-            # 尝试直接解析
             return json.loads(content)
         except json.JSONDecodeError:
-            # 尝试提取JSON块
-            if "```json" in content:
-                start = content.find("```json") + 7
-                end = content.find("```", start)
-                if end > start:
+            pass
+        
+        # 2. 尝试提取```json块
+        if "```json" in content:
+            start = content.find("```json") + 7
+            end = content.find("```", start)
+            if end > start:
+                try:
                     return json.loads(content[start:end].strip())
-            elif "```" in content:
-                start = content.find("```") + 3
-                end = content.find("```", start)
-                if end > start:
+                except json.JSONDecodeError:
+                    pass
+        
+        # 3. 尝试提取```代码块
+        if "```" in content:
+            start = content.find("```") + 3
+            # 跳过可能的语言标识符（如json）
+            while start < len(content) and content[start] not in '\n\r':
+                start += 1
+            start = content.find('\n', start) + 1 if '\n' in content[start:] else start
+            end = content.find("```", start)
+            if end > start:
+                try:
                     return json.loads(content[start:end].strip())
-            
-            # 尝试找到JSON对象
-            start = content.find("{")
-            end = content.rfind("}") + 1
-            if start >= 0 and end > start:
-                return json.loads(content[start:end])
-            
-            raise ValueError(f"无法解析JSON响应: {content[:200]}...")
+                except json.JSONDecodeError:
+                    pass
+        
+        # 4. 尝试找到JSON对象边界
+        start = content.find("{")
+        end = content.rfind("}") + 1
+        if start >= 0 and end > start:
+            json_str = content[start:end]
+            try:
+                return json.loads(json_str)
+            except json.JSONDecodeError as e:
+                # 尝试修复常见的JSON格式问题
+                try:
+                    # 移除可能的注释
+                    import re
+                    json_str = re.sub(r'//.*?\n', '', json_str)  # 移除单行注释
+                    json_str = re.sub(r'/\*.*?\*/', '', json_str, flags=re.DOTALL)  # 移除多行注释
+                    # 修复尾部逗号
+                    json_str = re.sub(r',\s*}', '}', json_str)
+                    json_str = re.sub(r',\s*]', ']', json_str)
+                    return json.loads(json_str)
+                except json.JSONDecodeError:
+                    # 最后尝试：返回一个空结果而不是崩溃
+                    print(f"[WARNING] JSON解析失败，返回空结果。错误: {e}")
+                    print(f"[WARNING] 问题内容片段: {json_str[:500]}...")
+                    return {"nodes": [], "updated_nodes": []}
+        
+        # 完全无法解析时返回空结果
+        print(f"[WARNING] 无法解析JSON响应，返回空结果")
+        print(f"[WARNING] 响应内容: {content[:500]}...")
+        return {"nodes": [], "updated_nodes": []}
     
     def chat(
         self, 

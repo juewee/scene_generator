@@ -68,6 +68,9 @@ class SceneGenerator:
     核心类，负责协调整个场景生成流程
     """
     
+    # 类变量：日志文件路径
+    _log_file_path: str = "/home/z/my-project/download/scene_generator.log"
+    
     def __init__(
         self,
         ai_config: Optional[AIConfig] = None,
@@ -80,17 +83,36 @@ class SceneGenerator:
         self.round_history: List[RoundInfo] = []
         self.previous_summary: str = ""
         self.max_concurrent: int = 30  # 默认最大并发数
+        
+        # 初始化日志文件
+        self._init_log_file()
+    
+    def _init_log_file(self):
+        """初始化日志文件"""
+        import os
+        os.makedirs(os.path.dirname(self._log_file_path), exist_ok=True)
+        with open(self._log_file_path, "w", encoding="utf-8") as f:
+            f.write(f"=== 场景生成日志 {datetime.now().isoformat()} ===\n")
     
     def set_log_callback(self, callback: Callable[[str], None]) -> None:
         """设置日志回调函数"""
         self._log_callback = callback
     
     def _log(self, message: str) -> None:
-        """输出日志"""
+        """输出日志（同时输出到控制台和文件）"""
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        log_line = f"[{timestamp}] {message}"
+        
         if self.config.verbose:
-            print(f"[SceneGenerator] {message}")
-            if self._log_callback:
-                self._log_callback(message)
+            print(log_line)
+            
+        # 写入日志文件
+        with open(self._log_file_path, "a", encoding="utf-8") as f:
+            f.write(log_line + "\n")
+            f.flush()  # 立即刷新，确保实时写入
+            
+        if self._log_callback:
+            self._log_callback(message)
     
     def _generate_node_id(self) -> str:
         """生成节点ID"""
@@ -936,27 +958,35 @@ class SceneGenerator:
     def _update_node(self, node: SceneNode, new_data: Dict[str, Any]):
         """更新节点属性"""
         # 更新基础属性
-        node.description = new_data.get("description", node.description)
-        node.position = new_data.get("position", node.position)
+        node.description = new_data.get("description") or node.description
+        node.position = new_data.get("position") or node.position
         
         # 更新节点类型（如果需要）
-        new_type = NodeType(new_data.get("node_type", "item"))
-        if node.node_type != new_type:
-            # 类型转换需要特殊处理
-            self._convert_node_type(node, new_type, new_data)
+        new_type_str = new_data.get("node_type") or "item"
+        if new_type_str:
+            new_type = NodeType(new_type_str)
+            if node.node_type != new_type:
+                # 类型转换需要特殊处理
+                self._convert_node_type(node, new_type, new_data)
         
         # 更新容器特有属性
         if isinstance(node, ContainerNode):
-            new_container_type = ContainerType(new_data.get("container_type", "physical"))
-            node.container_type = new_container_type
+            new_container_type_str = new_data.get("container_type") or "physical"
+            if new_container_type_str:
+                try:
+                    new_container_type = ContainerType(new_container_type_str)
+                    node.container_type = new_container_type
+                except ValueError:
+                    # 如果类型无效，保持原类型
+                    pass
         
         # 更新物品特有属性
         if isinstance(node, ItemNode):
-            attrs = new_data.get("attributes", {})
-            node.material = attrs.get("material", node.material)
-            node.color = attrs.get("color", node.color)
-            node.size = attrs.get("size", node.size)
-            node.condition = attrs.get("condition", node.condition)
+            attrs = new_data.get("attributes") or {}
+            node.material = attrs.get("material") or node.material
+            node.color = attrs.get("color") or node.color
+            node.size = attrs.get("size") or node.size
+            node.condition = attrs.get("condition") or node.condition
     
     def _convert_node_type(self, node: SceneNode, new_type: NodeType, data: Dict[str, Any]):
         """转换节点类型（item <-> container）"""

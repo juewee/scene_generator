@@ -250,13 +250,14 @@ EXAMPLE_SCENES = {
 }
 
 
-def run_example(example_name: str = "ancient_study", use_rounds: bool = True) -> Scene:
+def run_example(example_name: str = "ancient_study", use_rounds: bool = True, max_rounds: int = 5) -> Scene:
     """
     运行示例场景生成
     
     Args:
         example_name: 示例名称
         use_rounds: 是否使用轮次总结模式
+        max_rounds: 最大轮次数
     
     Returns:
         生成的场景
@@ -279,7 +280,7 @@ def run_example(example_name: str = "ancient_study", use_rounds: bool = True) ->
             location=example.get("location", ""),
             atmosphere=example.get("atmosphere", ""),
             style=example.get("style", ""),
-            max_rounds=5,
+            max_rounds=max_rounds,
             completeness_threshold=90,
             max_concurrent=30,
             cost_control=True
@@ -351,7 +352,7 @@ def main():
     
     # 生成场景
     if args.example:
-        scene = run_example(args.example, use_rounds=args.rounds)
+        scene = run_example(args.example, use_rounds=args.rounds, max_rounds=args.max_rounds)
     elif args.script and args.requirement:
         if args.rounds:
             scene = generate_scene_with_rounds(
