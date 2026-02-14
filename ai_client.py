@@ -327,7 +327,25 @@ class SceneAIPrompts:
         
         nodes_text = "\n".join(nodes_summary) if nodes_summary else "  暂无节点"
         
-        return f"""你是一个专业的场景设计师，负责对场景生成过程进行质量控制和优化。
+         # 添加系统设计说明
+        system_design_note = """
+## 重要说明：迭代展开机制
+本系统采用多轮迭代生成方式：
+- 第0轮：生成核心框架节点
+- 后续轮次：逐步展开容器节点
+- 容器节点不会在当前轮立即展开，而是安排在后续轮次
+
+因此，当你看到某个容器节点目前没有子节点时，这可能是：
+1. ✅ 正常情况：该容器计划在后续轮次展开（请检查其level）
+2. ⚠️ 真正问题：该容器已达最大深度但内容仍不完整
+3. ⚠️ 真正问题：该容器在上一轮就应该展开但被遗漏
+
+请根据节点的层级(level)和当前轮次(round {round_num})来判断：
+- level <= {round_num} 的容器应该已经展开
+- level > {round_num} 的容器计划在未来展开
+"""
+
+        original_prompt = f"""你是一个专业的场景设计师，负责对场景生成过程进行质量控制和优化。
 当前状态
 轮次: 第 {round_num} 轮
 
@@ -386,6 +404,7 @@ class SceneAIPrompts:
   "next_round_focus": "下一轮应该重点关注的方向"
 }}
 ```"""
+        return system_design_note + "\n\n" + original_prompt
 
     @staticmethod
     def get_optimization_prompt(
